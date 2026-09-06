@@ -1,0 +1,46 @@
+/* Woo Wholesale Pro – admin styles */
+.wwpro-wrap .nav-tab-wrapper { margin-bottom: 1em; }
+.wwpro-columns { display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; }
+.wwpro-main { flex: 1 1 560px; min-width: 0; }
+.wwpro-side { flex: 0 1 520px; min-width: 320px; }
+.wwpro-card { background: #fff; border: 1px solid #c3c4c7; box-shadow: 0 1px 1px rgba(0,0,0,.04); padding: 4px 20px 12px; }
+.wwpro-card h2 { margin-top: 12px; }
+.wwpro-form-table th { width: 170px; }
+.wwpro-roles-table td { vertical-align: middle; }
+.wwpro-roles-table .wwpro-actions { white-space: nowrap; }
+.wwpro-inline-form { display: inline-block; margin-left: 6px; }
+.wwpro-delete-data { font-size: 12px; margin-right: 6px; }
+.wwpro-import-table td { vertical-align: middle; }
+.wwpro-progress { margin-top: 12px; max-width: 800px; }
+.wwpro-progress-bar { height: 18px; background: #dcdcde; border-radius: 3px; overflow: hidden; }
+.wwpro-progress-bar span { display: block; height: 100%; width: 0; background: #2271b1; transition: width .3s; }
+.wwpro-import-log { max-height: 260px; overflow: auto; background: #f6f7f7; border: 1px solid #dcdcde; padding: 8px; font-size: 12px; white-space: pre-wrap; }
+.wwpro-help ol li, .wwpro-help ul li { margin-bottom: 4px; }
+.wwpro-help ul { list-style: disc; margin-left: 20px; }
+
+/* Product editor */
+.wwpro-product-fields .wwpro-heading .description { display: block; font-weight: normal; }
+.wwpro-role-block { border-top: 1px solid #eee; padding: 8px 0 4px; }
+.wwpro-role-block:first-of-type { border-top: 0; }
+.wwpro-role-title { margin: 6px 12px; font-size: 13px; }
+.wwpro-role-title code { font-weight: normal; }
+.wwpro-tiers { margin: 0 12px 12px 162px; max-width: 640px; }
+.wwpro-tiers-compact .wwpro-tiers-table { margin-top: 6px; }
+.wwpro-tiers-table th, .wwpro-tiers-table td { padding: 6px 8px; }
+.wwpro-tiers-table .wwpro-tiers-actions { width: 32px; text-align: center; }
+.wwpro-tiers-table tfoot .description { margin-left: 8px; }
+.wwpro-tier-remove { color: #b32d2e; font-size: 18px; line-height: 1; text-decoration: none; }
+.wwpro-tiers-field label { float: left; width: 150px; padding: 0; margin: 0 0 0 12px; }
+.woocommerce_variation .wwpro-variation-fields { clear: both; padding-top: 4px; }
+.woocommerce_variation .wwpro-variation-fields .wwpro-heading { margin: 0; }
+
+/* Category forms */
+.wwpro-category-fields .wwpro-tiers { margin-left: 0; }
+.wwpro-category-fields .wwpro-role-block { border-top: 1px solid #ddd; }
+.wwpro-category-fields .wwpro-role-title { margin-left: 0; }
+.form-field.wwpro-category-fields .wwpro-tiers-table input { width: auto; }
+
+@media (max-width: 782px) {
+	.wwpro-tiers { margin-left: 12px; }
+	.wwpro-tiers-field label { float: none; width: auto; display: block; }
+}
