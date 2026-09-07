@@ -27,27 +27,38 @@
 
 /* Product editor */
 .wwpro-product-fields .wwpro-heading .description { display: block; font-weight: normal; }
-.wwpro-role-block { border-top: 1px solid #eee; padding: 8px 0 4px; }
+
+/* Every role block clears the floated labels of the fields above it. */
+.wwpro-role-block { clear: both; overflow: hidden; border-top: 1px solid #eee; padding: 8px 0 6px; }
 .wwpro-role-block:first-of-type { border-top: 0; }
-.wwpro-role-title { margin: 6px 12px; font-size: 13px; }
+.wwpro-role-title { clear: both; margin: 8px 12px 4px; font-size: 13px; }
 .wwpro-role-title code { font-weight: normal; }
-.wwpro-tiers { margin: 0 12px 12px 162px; max-width: 640px; }
-.wwpro-tiers-compact .wwpro-tiers-table { margin-top: 6px; }
+
+/* Tier field. The toggle reuses WooCommerce's own .form-field markup, so it
+   lines up with the price inputs; only the table below needs placing. */
+.wwpro-tiers { clear: both; }
+.wwpro-tiers::after { content: ""; display: table; clear: both; }
+.wwpro-tiers-toggle .description { margin-left: 8px; }
+.wwpro-tiers-panel { clear: both; }
+.wwpro-tiers-compact .wwpro-tiers-panel { padding: 4px 20px 10px 162px; }
+.wwpro-tiers-table { max-width: 640px; margin: 0; }
 .wwpro-tiers-table th, .wwpro-tiers-table td { padding: 6px 8px; }
 .wwpro-tiers-table .wwpro-tiers-actions { width: 32px; text-align: center; }
-.wwpro-tiers-table tfoot .description { margin-left: 8px; }
+.wwpro-tiers-table tfoot .description { display: inline; margin-left: 8px; }
+.wwpro-tiers-table input { margin: 0; }
 .wwpro-tier-remove { color: #b32d2e; font-size: 18px; line-height: 1; text-decoration: none; }
-.wwpro-tiers-field label { float: left; width: 150px; padding: 0; margin: 0 0 0 12px; }
 .woocommerce_variation .wwpro-variation-fields { clear: both; padding-top: 4px; }
 .woocommerce_variation .wwpro-variation-fields .wwpro-heading { margin: 0; }
 
 /* Category forms */
-.wwpro-category-fields .wwpro-tiers { margin-left: 0; }
-.wwpro-category-fields .wwpro-role-block { border-top: 1px solid #ddd; }
+.wwpro-category-fields .wwpro-role-block { border-top: 1px solid #ddd; overflow: visible; }
 .wwpro-category-fields .wwpro-role-title { margin-left: 0; }
+.wwpro-category-fields .wwpro-tiers-toggle { margin: 8px 0 4px; }
+.wwpro-category-fields .wwpro-tiers-toggle label { display: inline-block; margin-right: 6px; font-weight: 600; }
+.wwpro-category-fields .wwpro-tiers-panel { padding: 4px 0 8px; }
 .form-field.wwpro-category-fields .wwpro-tiers-table input { width: auto; }
 
 @media (max-width: 782px) {
-	.wwpro-tiers { margin-left: 12px; }
-	.wwpro-tiers-field label { float: none; width: auto; display: block; }
+	.wwpro-tiers-compact .wwpro-tiers-panel { padding-left: 12px; }
+	.wwpro-tiers-table { max-width: none; }
 }

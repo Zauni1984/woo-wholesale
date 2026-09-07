@@ -82,11 +82,6 @@ class WWPro_Product_Fields {
 							'description' => __( 'Percentage off the regular price (or current price, depending on the settings). Only used when no fixed price is set.', 'woo-wholesale' ),
 						)
 					);
-					?>
-					<p class="form-field wwpro-tiers-field">
-						<label><?php esc_html_e( 'Quantity discounts', 'woo-wholesale' ); ?></label>
-					</p>
-					<?php
 					WWPro_Tiers_Field::render(
 						'_wwpro_tiers[' . $key . ']',
 						$product->get_meta( WWPro_Tiers::meta_key( $key ), true, 'edit' ),

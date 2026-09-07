@@ -26,41 +26,47 @@ class WWPro_Tiers_Field {
 		?>
 		<div class="wwpro-tiers<?php echo $compact ? ' wwpro-tiers-compact' : ''; ?>" id="<?php echo esc_attr( $id ); ?>" data-name="<?php echo esc_attr( $name ); ?>">
 			<input type="hidden" name="<?php echo esc_attr( $name ); ?>[present]" value="1" />
-			<label class="wwpro-tiers-toggle">
-				<input type="checkbox" name="<?php echo esc_attr( $name ); ?>[enabled]" value="yes" <?php checked( 'yes', $set['enabled'] ); ?> />
-				<?php esc_html_e( 'Enable quantity discounts', 'woo-wholesale' ); ?>
-			</label>
-			<table class="wwpro-tiers-table widefat striped" <?php echo 'yes' === $set['enabled'] ? '' : 'style="display:none"'; ?>>
-				<thead>
-					<tr>
-						<th><?php esc_html_e( 'From quantity', 'woo-wholesale' ); ?></th>
-						<th><?php esc_html_e( 'Discount (%)', 'woo-wholesale' ); ?></th>
-						<th>
-							<?php
-							printf(
-								/* translators: %s: currency symbol */
-								esc_html__( 'or fixed unit price (%s)', 'woo-wholesale' ),
-								esc_html( get_woocommerce_currency_symbol() )
-							);
-							?>
-						</th>
-						<th class="wwpro-tiers-actions"></th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php foreach ( $rows as $i => $row ) : ?>
-						<?php self::row( $name, $i, $row ); ?>
-					<?php endforeach; ?>
-				</tbody>
-				<tfoot>
-					<tr>
-						<td colspan="4">
-							<button type="button" class="button wwpro-tier-add"><?php esc_html_e( 'Add tier', 'woo-wholesale' ); ?></button>
-							<span class="description"><?php esc_html_e( 'The percentage is taken off the wholesale unit price of this role. A fixed unit price takes precedence over the percentage.', 'woo-wholesale' ); ?></span>
-						</td>
-					</tr>
-				</tfoot>
-			</table>
+
+			<?php // Same markup WooCommerce uses for its own checkboxes, so the label lines up with the price fields. ?>
+			<p class="form-field wwpro-tiers-toggle">
+				<label for="<?php echo esc_attr( $id ); ?>-enabled"><?php esc_html_e( 'Quantity discounts', 'woo-wholesale' ); ?></label>
+				<input type="checkbox" class="checkbox" id="<?php echo esc_attr( $id ); ?>-enabled" name="<?php echo esc_attr( $name ); ?>[enabled]" value="yes" <?php checked( 'yes', $set['enabled'] ); ?> />
+				<span class="description"><?php esc_html_e( 'Enable quantity discounts', 'woo-wholesale' ); ?></span>
+			</p>
+
+			<div class="wwpro-tiers-panel"<?php echo 'yes' === $set['enabled'] ? '' : ' style="display:none"'; ?>>
+				<table class="wwpro-tiers-table widefat striped">
+					<thead>
+						<tr>
+							<th><?php esc_html_e( 'From quantity', 'woo-wholesale' ); ?></th>
+							<th><?php esc_html_e( 'Discount (%)', 'woo-wholesale' ); ?></th>
+							<th>
+								<?php
+								printf(
+									/* translators: %s: currency symbol */
+									esc_html__( 'or fixed unit price (%s)', 'woo-wholesale' ),
+									esc_html( get_woocommerce_currency_symbol() )
+								);
+								?>
+							</th>
+							<th class="wwpro-tiers-actions"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php foreach ( $rows as $i => $row ) : ?>
+							<?php self::row( $name, $i, $row ); ?>
+						<?php endforeach; ?>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="4">
+								<button type="button" class="button wwpro-tier-add"><?php esc_html_e( 'Add tier', 'woo-wholesale' ); ?></button>
+								<span class="description"><?php esc_html_e( 'The percentage is taken off the wholesale unit price of this role. A fixed unit price takes precedence over the percentage.', 'woo-wholesale' ); ?></span>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
 			<script type="text/template" class="wwpro-tier-template">
 				<?php self::row( $name, '__i__', array( 'qty' => '', 'discount' => '', 'price' => '' ) ); ?>
 			</script>

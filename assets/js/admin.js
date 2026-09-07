@@ -20,8 +20,8 @@
 		var $tiers = $( this ).closest( '.wwpro-tiers' );
 		var html   = $tiers.find( '.wwpro-tier-template' ).html().replace( /__i__/g, nextIndex( $tiers ) );
 		$tiers.find( 'tbody' ).append( html );
-		$tiers.find( 'input[type="checkbox"]' ).prop( 'checked', true );
-		$tiers.find( '.wwpro-tiers-table' ).show();
+		$tiers.find( '.wwpro-tiers-toggle input' ).prop( 'checked', true );
+		$tiers.find( '.wwpro-tiers-panel' ).show();
 	} );
 
 	$( document ).on( 'click', '.wwpro-tier-remove', function ( e ) {
@@ -31,7 +31,7 @@
 
 	$( document ).on( 'change', '.wwpro-tiers-toggle input', function () {
 		var $tiers = $( this ).closest( '.wwpro-tiers' );
-		$tiers.find( '.wwpro-tiers-table' ).toggle( this.checked );
+		$tiers.find( '.wwpro-tiers-panel' ).toggle( this.checked );
 		if ( this.checked && 0 === $tiers.find( 'tbody .wwpro-tier-row' ).length ) {
 			$tiers.find( '.wwpro-tier-add' ).trigger( 'click' );
 		}
@@ -41,7 +41,8 @@
 	$( document ).ajaxComplete( function ( event, xhr, settings ) {
 		if ( settings.data && settings.data.indexOf( 'action=add-tag' ) !== -1 && settings.data.indexOf( 'taxonomy=product_cat' ) !== -1 ) {
 			$( '#addtag .wwpro-tiers tbody' ).empty();
-			$( '#addtag .wwpro-tiers-table' ).hide();
+			$( '#addtag .wwpro-tiers-toggle input' ).prop( 'checked', false );
+			$( '#addtag .wwpro-tiers-panel' ).hide();
 		}
 	} );
 
