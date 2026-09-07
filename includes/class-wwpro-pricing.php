@@ -461,6 +461,41 @@ class WWPro_Pricing {
 	}
 
 	/**
+	 * Write the fixed price and/or the discount of a role onto a product object.
+	 *
+	 * The product is not saved here, the caller decides when to persist. Passing
+	 * null leaves a value untouched, passing an empty value removes it.
+	 *
+	 * @param WC_Product  $product  Product or variation.
+	 * @param string      $role     Role key.
+	 * @param string|null $price    Raw price or null.
+	 * @param string|null $discount Raw percentage or null.
+	 */
+	public static function apply_values( $product, $role, $price, $discount ) {
+		if ( ! $product instanceof WC_Product || ! WWPro_Roles::exists( $role ) ) {
+			return;
+		}
+
+		if ( null !== $price ) {
+			$price = WWPro_Roles::to_decimal( $price );
+			if ( '' === $price || ! is_numeric( $price ) || (float) $price <= 0 ) {
+				$product->delete_meta_data( self::price_key( $role ) );
+			} else {
+				$product->update_meta_data( self::price_key( $role ), (string) (float) $price );
+			}
+		}
+
+		if ( null !== $discount ) {
+			$discount = WWPro_Roles::sanitize_percent( $discount );
+			if ( '' === $discount ) {
+				$product->delete_meta_data( self::discount_key( $role ) );
+			} else {
+				$product->update_meta_data( self::discount_key( $role ), $discount );
+			}
+		}
+	}
+
+	/**
 	 * Human readable label for a resolution source (admin/debug).
 	 *
 	 * @param string $source Source key.

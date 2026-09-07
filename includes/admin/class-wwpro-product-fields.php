@@ -145,23 +145,7 @@ class WWPro_Product_Fields {
 	 * @param string|null $discount Raw discount or null (field absent).
 	 */
 	public static function apply_values( $product, $key, $price, $discount ) {
-		if ( null !== $price ) {
-			$price = wc_format_decimal( wc_clean( $price ) );
-			if ( '' === $price || ! is_numeric( $price ) || (float) $price <= 0 ) {
-				$product->delete_meta_data( WWPro_Pricing::price_key( $key ) );
-			} else {
-				$product->update_meta_data( WWPro_Pricing::price_key( $key ), $price );
-			}
-		}
-
-		if ( null !== $discount ) {
-			$discount = WWPro_Roles::sanitize_percent( wc_clean( $discount ) );
-			if ( '' === $discount ) {
-				$product->delete_meta_data( WWPro_Pricing::discount_key( $key ) );
-			} else {
-				$product->update_meta_data( WWPro_Pricing::discount_key( $key ), $discount );
-			}
-		}
+		WWPro_Pricing::apply_values( $product, $key, $price, $discount );
 	}
 
 	/**

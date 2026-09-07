@@ -2,7 +2,7 @@
 # This file is distributed under the MIT license.
 msgid ""
 msgstr ""
-"Project-Id-Version: Woo Wholesale Pro 1.0.2\n"
+"Project-Id-Version: Woo Wholesale Pro 1.0.3\n"
 "Report-Msgid-Bugs-To: https://github.com/zauni1984/woo-wholesale/issues\n"
 "POT-Creation-Date: 2026-09-06 12:00+0000\n"
 "PO-Revision-Date: 2026-09-06 12:00+0000\n"
@@ -135,9 +135,6 @@ msgstr "Festpreis für diese Rolle. Leer lassen, um den Prozentrabatt bzw. den K
 msgid "Percentage off the regular price (or current price, depending on the settings). Only used when no fixed price is set."
 msgstr "Prozent Nachlass auf den regulären Preis (oder je nach Einstellung auf den aktuellen Preis). Wird nur verwendet, wenn kein Festpreis gesetzt ist."
 
-msgid "Quantity discounts"
-msgstr "Staffelrabatte"
-
 msgid "%1$s price (%2$s)"
 msgstr "%1$s Preis (%2$s)"
 
@@ -152,6 +149,9 @@ msgstr "Rabatt (%) setzen"
 
 msgid "Clear wholesale price and discount"
 msgstr "Großhandelspreis und Rabatt entfernen"
+
+msgid "Quantity discounts"
+msgstr "Staffelrabatte"
 
 msgid "Enable quantity discounts"
 msgstr "Staffelrabatte aktivieren"
@@ -230,6 +230,21 @@ msgstr "Großhandelsrollen werden nur mit der Berechtigung „read“ angelegt �
 
 msgid "Prices are resolved on the server for the logged-in user; nothing can be manipulated from the browser."
 msgstr "Die Preise werden serverseitig für den angemeldeten Benutzer ermittelt; aus dem Browser lässt sich nichts manipulieren."
+
+msgid "AI assistants and MCP"
+msgstr "KI-Assistenten und MCP"
+
+msgid "The wholesale prices are registered for the REST API, so connectors like Easy MCP AI can read them and fill them in. Two routes are available:"
+msgstr "Die Großhandelspreise sind für die REST-API registriert, dadurch können Connectoren wie Easy MCP AI sie lesen und befüllen. Es gibt zwei Wege:"
+
+msgid "Product meta: for every role the fixed price and the discount can be read and written per product and per variation, and product categories carry their discount the same way. The product response also contains a read-only summary of the price each role actually pays."
+msgstr "Produkt-Meta: Festpreis und Rabatt jeder Rolle lassen sich je Produkt und je Variante lesen und schreiben, Produktkategorien tragen ihren Rabatt genauso. Die Produktantwort enthält zusätzlich eine schreibgeschützte Übersicht, welchen Preis jede Rolle tatsächlich zahlt."
+
+msgid "Abilities: where the WordPress Abilities API is available, this plugin registers four tools in the category \"Wholesale pricing\" – list roles, read the prices of a product, set a price or discount, set a category discount."
+msgstr "Abilities: Wo die WordPress Abilities API verfügbar ist, registriert dieses Plugin vier Tools in der Kategorie „Großhandelspreise“ – Rollen auflisten, Preise eines Produkts lesen, Preis oder Rabatt setzen, Kategorierabatt setzen."
+
+msgid "Every access needs a logged-in user with the \"Manage WooCommerce\" capability. Values are validated on the server: prices of zero or less and percentages outside 0 to 100 are rejected. After a write the price caches are refreshed automatically, no matter whether the change came from the admin, the REST API or an assistant."
+msgstr "Jeder Zugriff erfordert einen angemeldeten Benutzer mit der Berechtigung „WooCommerce verwalten“. Werte werden serverseitig geprüft: Preise von null oder weniger und Prozentsätze außerhalb von 0 bis 100 werden abgelehnt. Nach einem Schreibvorgang werden die Preis-Caches automatisch geleert, egal ob die Änderung aus dem Backend, der REST-API oder von einem Assistenten kam."
 
 msgid "Developer hooks"
 msgstr "Entwickler-Hooks"
@@ -510,6 +525,48 @@ msgstr "Alle Großhandelsrollen, Preise und Einstellungen löschen, wenn das Plu
 msgid "Save settings"
 msgstr "Einstellungen speichern"
 
+msgid "Wholesale pricing"
+msgstr "Großhandelspreise"
+
+msgid "Read and maintain role-based wholesale prices of WooCommerce products."
+msgstr "Rollenbasierte Großhandelspreise von WooCommerce-Produkten lesen und pflegen."
+
+msgid "List wholesale roles"
+msgstr "Großhandelsrollen auflisten"
+
+msgid "Lists the configured wholesale roles with their keys, store-wide discounts and price display settings. Use the returned role key for every other wholesale ability."
+msgstr "Listet die konfigurierten Großhandelsrollen mit Schlüssel, shopweitem Rabatt und Preisanzeige auf. Den zurückgegebenen Rollenschlüssel für alle weiteren Großhandels-Abilities verwenden."
+
+msgid "Read wholesale prices of a product"
+msgstr "Großhandelspreise eines Produkts lesen"
+
+msgid "Returns the wholesale price of a product for every role, including prices that come from a category discount or the store-wide discount, plus the values stored on the product itself."
+msgstr "Gibt den Großhandelspreis eines Produkts je Rolle zurück, inklusive Preisen aus Kategorie- oder shopweiten Rabatten, dazu die am Produkt selbst gespeicherten Werte."
+
+msgid "Set the wholesale price of a product"
+msgstr "Großhandelspreis eines Produkts setzen"
+
+msgid "Stores a fixed wholesale price and/or a percentage discount for one role on a product or variation. A fixed price takes precedence over the percentage. Send an empty string to remove a value."
+msgstr "Speichert einen Festpreis und/oder einen Prozentrabatt für eine Rolle an einem Produkt oder einer Variante. Der Festpreis hat Vorrang vor dem Prozentsatz. Ein leerer Text entfernt den Wert."
+
+msgid "Set the wholesale discount of a product category"
+msgstr "Großhandelsrabatt einer Produktkategorie setzen"
+
+msgid "Stores a percentage discount for one role on a product category. It applies to all products of that category and its sub-categories that have no wholesale price of their own. Send an empty string to remove it."
+msgstr "Speichert einen Prozentrabatt für eine Rolle an einer Produktkategorie. Er gilt für alle Produkte dieser Kategorie und ihrer Unterkategorien ohne eigenen Großhandelspreis. Ein leerer Text entfernt ihn."
+
+msgid "Unknown wholesale role. Use woo-wholesale/list-roles to get the valid role keys."
+msgstr "Unbekannte Großhandelsrolle. Die gültigen Rollenschlüssel liefert woo-wholesale/list-roles."
+
+msgid "Please provide a price or a discount."
+msgstr "Bitte einen Preis oder einen Rabatt angeben."
+
+msgid "Product category not found."
+msgstr "Produktkategorie nicht gefunden."
+
+msgid "Product not found. Provide a valid product_id or sku."
+msgstr "Produkt nicht gefunden. Bitte eine gültige product_id oder sku angeben."
+
 msgid "The minimum order amount for your account is %1$s (net). Your current subtotal is %2$s."
 msgstr "Der Mindestbestellwert für dein Konto beträgt %1$s (netto). Deine aktuelle Zwischensumme beträgt %2$s."
 
@@ -563,6 +620,18 @@ msgstr "Kategorierabatt"
 
 msgid "store-wide discount"
 msgstr "shopweiter Rabatt"
+
+msgid "Fixed wholesale price for the role \"%s\". Empty means no fixed price."
+msgstr "Fester Großhandelspreis für die Rolle „%s“. Leer bedeutet kein Festpreis."
+
+msgid "Wholesale discount in percent (0-100) for the role \"%s\"."
+msgstr "Großhandelsrabatt in Prozent (0–100) für die Rolle „%s“."
+
+msgid "Category discount in percent (0-100) for the role \"%s\"."
+msgstr "Kategorierabatt in Prozent (0–100) für die Rolle „%s“."
+
+msgid "Effective wholesale price per role, including prices inherited from a category or the store-wide discount."
+msgstr "Tatsächlich gültiger Großhandelspreis je Rolle, inklusive Preisen aus Kategorie- oder shopweiten Rabatten."
 
 msgid "The role key must consist of 2-40 lowercase letters, digits or underscores and start with a letter."
 msgstr "Der Rollenschlüssel muss aus 2–40 Kleinbuchstaben, Ziffern oder Unterstrichen bestehen und mit einem Buchstaben beginnen."

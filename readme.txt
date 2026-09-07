@@ -6,7 +6,7 @@ Tested up to: 6.8
 Requires PHP: 7.4
 WC requires at least: 7.0
 WC tested up to: 11.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -21,6 +21,7 @@ Role-based wholesale pricing for WooCommerce with per-product prices, category a
 * Wholesale customers see exactly one price; guests see the standard price.
 * Importer for WooCommerce Wholesale Prices (Wholesale Suite) data, batched via AJAX.
 * HPOS and block checkout compatible.
+* REST API and WordPress Abilities API support, so MCP connectors such as Easy MCP AI can read and write wholesale prices.
 
 == Installation ==
 
@@ -29,6 +30,9 @@ Role-based wholesale pricing for WooCommerce with per-product prices, category a
 3. Assign a wholesale role to a user under Users > Edit user.
 
 == Changelog ==
+
+= 1.0.3 =
+* Wholesale prices are registered for the REST API and exposed as WordPress abilities, so MCP connectors such as Easy MCP AI can read and fill them in.
 
 = 1.0.2 =
 * Fix: overlapping role blocks in the product editor; the tier fields now use WooCommerce's standard field markup.

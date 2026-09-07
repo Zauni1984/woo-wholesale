@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.3 – 2026-09-07
+
+- Kompatibilität mit **Easy MCP AI** und anderen REST-/KI-Connectoren: Die Preis- und Rabattfelder jeder Rolle sind jetzt für die REST-API registriert (Produkt, Variante und Kategorie), inklusive schreibgeschützter Übersicht `wwpro_wholesale_prices` am Produkt.
+- Zusätzlich vier Abilities (WordPress Abilities API) in der Kategorie „Großhandelspreise“: Rollen auflisten, Preise eines Produkts lesen, Preis/Rabatt setzen, Kategorierabatt setzen. Erscheinen bei Easy MCP AI als eigene Tools.
+- Schreibzugriffe erfordern die Berechtigung „WooCommerce verwalten“, werden serverseitig validiert und leeren die Preis-Caches automatisch – auch wenn sie nicht über das Backend kommen.
+
 ## 1.0.2 – 2026-09-07
 
 - **Fix:** Im Produkt-Editor überlagerten sich die Rollenblöcke – die Staffel-Checkbox rutschte in die nächste Rolle. Die Felder nutzen jetzt das Standard-Markup von WooCommerce und räumen die Floats sauber ab; die doppelte Beschriftung „Staffelrabatte“ ist weg.

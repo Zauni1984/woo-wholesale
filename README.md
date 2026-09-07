@@ -73,6 +73,33 @@ Voraussetzungen: WordPress 6.2+, WooCommerce 7.0+, PHP 7.4+. HPOS und Block-Chec
 - **Preisfilter/Sortierung im Shop** nutzen die WooCommerce-Lookup-Tabelle mit Standardpreisen. Das ist bei allen Rollenpreis-Plugins so.
 - **Germanized:** Grundpreise (`_unit_price`) werden von Germanized in aktuellen Versionen aus dem angezeigten Preis neu berechnet. Bitte im Frontend einmal prüfen.
 
+## KI-Assistenten (Easy MCP AI, MCP, REST)
+
+Die Großhandelspreise sind für die REST-API registriert, damit Connectoren wie **Easy MCP AI** sie lesen und befüllen können. Ohne diese Registrierung sind `_wwpro_*`-Meta-Felder für die REST-API unsichtbar, weil WordPress Meta mit führendem Unterstrich schützt.
+
+**Weg 1 – Produkt-Meta (funktioniert mit den generischen Tools wie `wp_get_post_meta`, `wp_update_post_meta`, `wp_wc_update_product`):**
+
+| Objekt | Feld | Bedeutung |
+| --- | --- | --- |
+| Produkt, Variante | `_wwpro_price_{rolle}` | Festpreis der Rolle, leer = keiner |
+| Produkt, Variante | `_wwpro_discount_{rolle}` | Rabatt in Prozent (0–100) |
+| Produktkategorie | `_wwpro_discount_{rolle}` | Kategorierabatt in Prozent |
+
+Zusätzlich liefert die Produktantwort das schreibgeschützte Feld `wwpro_wholesale_prices` mit dem tatsächlich gültigen Preis je Rolle, seiner Herkunft (Produkt, Kategorie, shopweit) und den am Produkt gespeicherten Rohwerten. Damit kann ein Assistent prüfen, was am Ende wirklich greift.
+
+**Weg 2 – Abilities (WordPress Abilities API, erscheinen bei Easy MCP AI als eigene Tools):**
+
+| Ability | Zweck |
+| --- | --- |
+| `woo-wholesale/list-roles` | Rollen samt Schlüssel und shopweitem Rabatt auflisten |
+| `woo-wholesale/get-product-prices` | Preise eines Produkts je Rolle lesen (per ID oder SKU) |
+| `woo-wholesale/set-product-price` | Festpreis und/oder Rabatt einer Rolle setzen |
+| `woo-wholesale/set-category-discount` | Kategorierabatt einer Rolle setzen |
+
+Ohne Abilities-API passiert nichts – die Registrierung ist abgesichert, Weg 1 funktioniert unabhängig davon.
+
+**Absicherung:** Lesen und Schreiben erfordert einen angemeldeten Benutzer mit `manage_woocommerce` (bzw. Bearbeitungsrecht am Produkt). Alle Werte werden serverseitig geprüft: Preise ≤ 0 und Prozentsätze außerhalb 0–100 werden verworfen, Rollenschlüssel müssen existieren. Nach jedem Schreibvorgang werden die Preis-Caches automatisch geleert, auch wenn die Änderung nicht aus dem Backend kam.
+
 ## Entwickler-Hooks
 
 | Hook | Zweck |

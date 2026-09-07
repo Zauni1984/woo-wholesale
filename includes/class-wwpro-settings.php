@@ -126,11 +126,17 @@ class WWPro_Settings {
 
 	/**
 	 * Invalidate every price cache that depends on wholesale rules.
+	 *
+	 * The cache version is part of the variation price hash, so bumping it is
+	 * enough on its own. Regenerating WooCommerce's product transient version is
+	 * only worth it for rule changes, not for a single price write.
+	 *
+	 * @param bool $flush_wc Also regenerate WooCommerce's product transient version.
 	 */
-	public static function bump_cache_version() {
+	public static function bump_cache_version( $flush_wc = true ) {
 		update_option( self::CACHE_VERSION, (string) time(), false );
 
-		if ( class_exists( 'WC_Cache_Helper' ) ) {
+		if ( $flush_wc && class_exists( 'WC_Cache_Helper' ) ) {
 			// Invalidates WooCommerce variation price transients.
 			WC_Cache_Helper::get_transient_version( 'product', true );
 		}

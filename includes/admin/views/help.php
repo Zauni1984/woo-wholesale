@@ -39,6 +39,14 @@ defined( 'ABSPATH' ) || exit;
 		<li><?php esc_html_e( 'Prices are resolved on the server for the logged-in user; nothing can be manipulated from the browser.', 'woo-wholesale' ); ?></li>
 	</ul>
 
+	<h2><?php esc_html_e( 'AI assistants and MCP', 'woo-wholesale' ); ?></h2>
+	<p><?php esc_html_e( 'The wholesale prices are registered for the REST API, so connectors like Easy MCP AI can read them and fill them in. Two routes are available:', 'woo-wholesale' ); ?></p>
+	<ul>
+		<li><?php esc_html_e( 'Product meta: for every role the fixed price and the discount can be read and written per product and per variation, and product categories carry their discount the same way. The product response also contains a read-only summary of the price each role actually pays.', 'woo-wholesale' ); ?></li>
+		<li><?php esc_html_e( 'Abilities: where the WordPress Abilities API is available, this plugin registers four tools in the category "Wholesale pricing" – list roles, read the prices of a product, set a price or discount, set a category discount.', 'woo-wholesale' ); ?></li>
+	</ul>
+	<p><?php esc_html_e( 'Every access needs a logged-in user with the "Manage WooCommerce" capability. Values are validated on the server: prices of zero or less and percentages outside 0 to 100 are rejected. After a write the price caches are refreshed automatically, no matter whether the change came from the admin, the REST API or an assistant.', 'woo-wholesale' ); ?></p>
+
 	<h2><?php esc_html_e( 'Developer hooks', 'woo-wholesale' ); ?></h2>
 	<ul>
 		<li><code>wwpro_user_wholesale_role</code> – <?php esc_html_e( 'change the wholesale role of a user', 'woo-wholesale' ); ?></li>
