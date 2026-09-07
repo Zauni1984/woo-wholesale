@@ -90,6 +90,8 @@ $wwpro_form     = $wwpro_is_new ? WWPro_Roles::defaults() : $wwpro_editing;
 				<?php wp_nonce_field( 'wwpro_save_role' ); ?>
 				<input type="hidden" name="action" value="wwpro_save_role" />
 				<input type="hidden" name="is_new" value="<?php echo $wwpro_is_new ? '1' : ''; ?>" />
+				<?php // Marks the input as coming from this form, so unchecked checkboxes count as "off". ?>
+				<input type="hidden" name="role[_form]" value="1" />
 
 				<table class="form-table wwpro-form-table">
 					<tr>

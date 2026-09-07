@@ -86,6 +86,9 @@ final class WWPro_Plugin {
 		WWPro_Cart::init();
 
 		if ( is_admin() ) {
+			require_once WWPRO_PATH . 'includes/class-wwpro-install.php';
+			add_action( 'admin_init', array( 'WWPro_Install', 'maybe_upgrade' ), 5 );
+
 			WWPro_Admin::init();
 			WWPro_Product_Fields::init();
 			WWPro_Category_Fields::init();

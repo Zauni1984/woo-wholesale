@@ -38,7 +38,7 @@ Einstellbar: Rabattbasis (regulärer oder aktueller Preis), Verhalten bei mehrer
 ### Produkt-Editor
 - Für jede freigeschaltete Rolle erscheinen im Reiter „Allgemein“ zwei Felder (Festpreis, Rabatt %) plus die Staffel-Tabelle.
 - Varianten haben eigene Preis-/Rabattfelder; Massenaktionen („Großhandelspreis setzen“, „Rabatt setzen“, „Löschen“) im Varianten-Panel.
-- Produktliste zeigt eine Spalte „Großhandel“, Benutzerliste eine Spalte „Großhandel“, Bestellung zeigt die Rolle des Käufers.
+- **Produktliste:** je Großhandelsrolle eine eigene Preisspalte (z. B. „Großhandel: B2B Kunde“). Ein- und ausblendbar über *Ansichtsoptionen* oben rechts. Angezeigt wird der Preis, den die Rolle tatsächlich zahlt – auch wenn er aus einem Kategorie- oder shopweiten Rabatt stammt – mit Hinweis auf die Herkunft. Benutzerliste zeigt eine Spalte „Großhandel“, die Bestellung die Rolle des Käufers.
 
 ### Import aus WooCommerce Wholesale Prices
 - Erkennt automatisch alle Rollen anhand der Meta-Keys `*_wholesale_price` in der Datenbank (auch Premium-Custom-Rollen).

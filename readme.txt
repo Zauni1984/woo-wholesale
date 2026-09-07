@@ -6,7 +6,7 @@ Tested up to: 6.8
 Requires PHP: 7.4
 WC requires at least: 7.0
 WC tested up to: 11.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -29,6 +29,10 @@ Role-based wholesale pricing for WooCommerce with per-product prices, category a
 3. Assign a wholesale role to a user under Users > Edit user.
 
 == Changelog ==
+
+= 1.0.1 =
+* Fix: roles created on activation or by the importer had the product editor fields disabled. Existing installs are repaired automatically.
+* Product list: one price column per wholesale role, toggleable in the screen options.
 
 = 1.0.0 =
 * Initial release.

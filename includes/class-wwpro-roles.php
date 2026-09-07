@@ -206,9 +206,18 @@ class WWPro_Roles {
 		$clean['global_discount'] = self::sanitize_percent( isset( $raw['global_discount'] ) ? $raw['global_discount'] : '' );
 		$clean['tax_display']     = ( isset( $raw['tax_display'] ) && in_array( $raw['tax_display'], array( 'incl', 'excl' ), true ) ) ? $raw['tax_display'] : '';
 		$clean['secondary_price'] = ( isset( $raw['secondary_price'] ) && in_array( $raw['secondary_price'], array( 'net', 'gross' ), true ) ) ? $raw['secondary_price'] : 'none';
-		$clean['show_in_product'] = ( isset( $raw['show_in_product'] ) && 'yes' === $raw['show_in_product'] ) ? 'yes' : 'no';
-		$clean['disable_coupons'] = ( isset( $raw['disable_coupons'] ) && 'yes' === $raw['disable_coupons'] ) ? 'yes' : 'no';
-		$clean['show_tiers']      = ( isset( $raw['show_tiers'] ) && 'yes' === $raw['show_tiers'] ) ? 'yes' : 'no';
+
+		// An unchecked checkbox is not submitted at all, so "missing" may only be
+		// read as "off" when the input really comes from the role form. Programmatic
+		// callers (activation defaults, importer) keep the documented defaults.
+		$from_form = ! empty( $raw['_form'] );
+		foreach ( array( 'show_in_product', 'disable_coupons', 'show_tiers' ) as $checkbox ) {
+			if ( isset( $raw[ $checkbox ] ) ) {
+				$clean[ $checkbox ] = in_array( $raw[ $checkbox ], array( 'yes', '1', 1, true ), true ) ? 'yes' : 'no';
+			} elseif ( $from_form ) {
+				$clean[ $checkbox ] = 'no';
+			}
+		}
 
 		$min = isset( $raw['min_order_amount'] ) ? self::to_decimal( $raw['min_order_amount'] ) : '';
 		$clean['min_order_amount'] = ( '' !== $min && is_numeric( $min ) && (float) $min > 0 ) ? (string) (float) $min : '';

@@ -16,6 +16,16 @@ class WWPro_Admin {
 	const CAPABILITY = 'manage_woocommerce';
 
 	/**
+	 * Prefix of the per-role product list columns.
+	 */
+	const COLUMN_PREFIX = 'wwpro_role_';
+
+	/**
+	 * Upper bound of variations inspected for one product list cell.
+	 */
+	const MAX_VARIATIONS_PER_CELL = 50;
+
+	/**
 	 * Register hooks.
 	 */
 	public static function init() {
@@ -510,25 +520,54 @@ class WWPro_Admin {
 	}
 
 	/**
-	 * Product list column.
+	 * Column key of the price column of a wholesale role.
+	 *
+	 * @param string $role Role key.
+	 * @return string
+	 */
+	public static function product_column_key( $role ) {
+		return self::COLUMN_PREFIX . sanitize_key( $role );
+	}
+
+	/**
+	 * Product list columns: one price column per wholesale role.
+	 *
+	 * WordPress lists every registered column in the screen options, so each
+	 * role can be shown or hidden there individually.
 	 *
 	 * @param array $columns Columns.
 	 * @return array
 	 */
 	public static function product_columns( $columns ) {
-		if ( empty( WWPro_Roles::product_roles() ) ) {
+		$roles = WWPro_Roles::all();
+		if ( empty( $roles ) ) {
 			return $columns;
 		}
+
+		$labels = array();
+		foreach ( $roles as $key => $role ) {
+			$labels[ self::product_column_key( $key ) ] = sprintf(
+				/* translators: %s: wholesale role name */
+				__( 'Wholesale: %s', 'woo-wholesale' ),
+				$role['name']
+			);
+		}
+
 		$new = array();
 		foreach ( $columns as $key => $label ) {
 			$new[ $key ] = $label;
 			if ( 'price' === $key ) {
-				$new['wwpro'] = __( 'Wholesale', 'woo-wholesale' );
+				$new = array_merge( $new, $labels );
 			}
 		}
-		if ( ! isset( $new['wwpro'] ) ) {
-			$new['wwpro'] = __( 'Wholesale', 'woo-wholesale' );
+
+		// Themes or plugins may remove the price column; append in that case.
+		foreach ( $labels as $key => $label ) {
+			if ( ! isset( $new[ $key ] ) ) {
+				$new[ $key ] = $label;
+			}
 		}
+
 		return $new;
 	}
 
@@ -539,38 +578,107 @@ class WWPro_Admin {
 	 * @param int    $post_id Post ID.
 	 */
 	public static function product_column_content( $column, $post_id ) {
-		if ( 'wwpro' !== $column ) {
+		if ( 0 !== strpos( $column, self::COLUMN_PREFIX ) ) {
 			return;
 		}
+
+		$role = substr( $column, strlen( self::COLUMN_PREFIX ) );
+		if ( ! WWPro_Roles::exists( $role ) ) {
+			return;
+		}
+
 		$product = wc_get_product( $post_id );
-		if ( ! $product ) {
-			return;
+
+		echo wp_kses_post( self::wholesale_cell( $product, $role ) );
+	}
+
+	/**
+	 * Rendered wholesale price of a product for one role (product list cell).
+	 *
+	 * Shows the price the role actually pays, no matter whether it comes from
+	 * the product, a category or the store-wide discount.
+	 *
+	 * @param WC_Product|false $product Product.
+	 * @param string           $role    Role key.
+	 * @return string
+	 */
+	private static function wholesale_cell( $product, $role ) {
+		$empty = '<span class="wwpro-col-empty">&ndash;</span>';
+
+		if ( ! $product instanceof WC_Product ) {
+			return $empty;
 		}
 
-		$lines = array();
-		foreach ( WWPro_Roles::product_roles() as $key => $role ) {
-			$price    = $product->get_meta( WWPro_Pricing::price_key( $key ), true, 'edit' );
-			$discount = $product->get_meta( WWPro_Pricing::discount_key( $key ), true, 'edit' );
-			$tiers    = WWPro_Tiers::sanitize( $product->get_meta( WWPro_Tiers::meta_key( $key ), true, 'edit' ) );
-
-			$parts = array();
-			if ( '' !== $price && is_numeric( $price ) ) {
-				$parts[] = wp_strip_all_tags( wc_price( (float) $price ) );
-			} elseif ( '' !== $discount && is_numeric( $discount ) ) {
-				$parts[] = '-' . wc_format_localized_decimal( $discount ) . ' %';
-			}
-			if ( WWPro_Tiers::is_active_set( $tiers ) ) {
-				$parts[] = __( 'tiers', 'woo-wholesale' );
-			}
-			if ( $product->is_type( 'variable' ) && empty( $parts ) ) {
-				$parts[] = __( 'per variation', 'woo-wholesale' );
-			}
-			if ( ! empty( $parts ) ) {
-				$lines[] = '<strong>' . esc_html( $role['name'] ) . ':</strong> ' . esc_html( implode( ', ', $parts ) );
-			}
+		$notes = array();
+		if ( WWPro_Tiers::is_active_set( WWPro_Tiers::sanitize( $product->get_meta( WWPro_Tiers::meta_key( $role ), true, 'edit' ) ) ) ) {
+			$notes[] = __( 'tiers', 'woo-wholesale' );
 		}
 
-		echo empty( $lines ) ? '<span class="na">&ndash;</span>' : wp_kses_post( implode( '<br>', $lines ) );
+		if ( $product->is_type( 'variable' ) ) {
+			$children  = $product->get_children();
+			$truncated = count( $children ) > self::MAX_VARIATIONS_PER_CELL;
+			$prices    = array();
+			$sources   = array();
+
+			foreach ( array_slice( $children, 0, self::MAX_VARIATIONS_PER_CELL ) as $child_id ) {
+				$child = wc_get_product( $child_id );
+				if ( ! $child ) {
+					continue;
+				}
+				$resolved = WWPro_Pricing::resolve( $child, $role );
+				if ( $resolved ) {
+					$prices[]                        = (float) $resolved['price'];
+					$sources[ $resolved['source'] ] = true;
+				}
+			}
+
+			if ( empty( $prices ) ) {
+				return $empty;
+			}
+
+			$min  = min( $prices );
+			$max  = max( $prices );
+			$html = ( $min === $max ) ? wc_price( $min ) : wc_format_price_range( $min, $max );
+
+			if ( $truncated ) {
+				$html .= '&nbsp;&hellip;';
+			}
+
+			if ( 1 === count( $sources ) ) {
+				$notes[] = WWPro_Pricing::source_label( key( $sources ) );
+			} else {
+				$notes[] = __( 'per variation', 'woo-wholesale' );
+			}
+
+			return $html . self::cell_notes( $notes );
+		}
+
+		$resolved = WWPro_Pricing::resolve( $product, $role );
+		if ( ! $resolved ) {
+			return empty( $notes ) ? $empty : $empty . self::cell_notes( $notes );
+		}
+
+		array_unshift( $notes, WWPro_Pricing::source_label( $resolved['source'] ) );
+
+		if ( null !== $resolved['discount'] && $resolved['discount'] > 0 ) {
+			$notes[] = '&minus;' . wc_format_localized_decimal( $resolved['discount'] ) . '&nbsp;%';
+		}
+
+		return wc_price( $resolved['price'] ) . self::cell_notes( $notes );
+	}
+
+	/**
+	 * Small muted note line below a column value.
+	 *
+	 * @param string[] $notes Notes (already escaped or plain text).
+	 * @return string
+	 */
+	private static function cell_notes( $notes ) {
+		$notes = array_filter( $notes );
+		if ( empty( $notes ) ) {
+			return '';
+		}
+		return '<br><span class="wwpro-col-note">' . implode( ', ', $notes ) . '</span>';
 	}
 
 	/**

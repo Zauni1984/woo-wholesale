@@ -2,7 +2,7 @@
 # This file is distributed under the MIT license.
 msgid ""
 msgstr ""
-"Project-Id-Version: Woo Wholesale Pro 1.0.0\n"
+"Project-Id-Version: Woo Wholesale Pro 1.0.1\n"
 "Report-Msgid-Bugs-To: https://github.com/zauni1984/woo-wholesale/issues\n"
 "POT-Creation-Date: 2026-09-06 12:00+0000\n"
 "PO-Revision-Date: 2026-09-06 12:00+0000\n"
@@ -99,6 +99,9 @@ msgstr ""
 msgid "Wholesale role:"
 msgstr ""
 
+msgid "Wholesale: %s"
+msgstr ""
+
 msgid "tiers"
 msgstr ""
 
@@ -139,9 +142,6 @@ msgid "%1$s price (%2$s)"
 msgstr ""
 
 msgid "%s discount (%%)"
-msgstr ""
-
-msgid "Wholesale: %s"
 msgstr ""
 
 msgid "Set wholesale price"

@@ -3,7 +3,7 @@
  * Plugin Name:          Woo Wholesale Pro
  * Plugin URI:           https://github.com/zauni1984/woo-wholesale
  * Description:          Role-based wholesale pricing for WooCommerce: per-product prices, category and store-wide discounts, tiered quantity discounts, net price display and a one-click importer for WooCommerce Wholesale Prices.
- * Version:              1.0.0
+ * Version:              1.0.1
  * Author:               Stefan Zaunreither
  * Author URI:           https://github.com/zauni1984
  * License:              MIT
@@ -21,7 +21,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'WWPRO_VERSION', '1.0.0' );
+define( 'WWPRO_VERSION', '1.0.1' );
 define( 'WWPRO_FILE', __FILE__ );
 define( 'WWPRO_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WWPRO_URL', plugin_dir_url( __FILE__ ) );
