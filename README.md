@@ -59,7 +59,7 @@ Einstellbar: Rabattbasis (regulärer oder aktueller Preis), Verhalten bei mehrer
 
 ## Installation
 
-1. Zip bauen (`bin/build-zip.sh`) oder das Artefakt aus der GitHub-Action „CI“ herunterladen.
+1. Zip bauen (`bin/build-zip.sh` erzeugt `dist/woo-wholesale.zip`) oder das Artefakt „woo-wholesale“ aus der GitHub-Action „CI“ herunterladen – das ist bereits die installierbare Zip-Datei.
 2. Unter *Plugins → Installieren → Plugin hochladen* hochladen und aktivieren.
 3. *WooCommerce → Großhandel*: Rollen prüfen (zwei Beispielrollen werden angelegt), Einstellungen setzen.
 4. Falls Wholesale Suite im Einsatz ist: Tab **Import** öffnen, Zuordnung wählen, „Import starten“. Danach Wholesale Suite deaktivieren.

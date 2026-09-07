@@ -32,9 +32,14 @@ jobs:
     needs: lint
     steps:
       - uses: actions/checkout@v4
-      - name: Build zip
+      - name: Build plugin package
         run: bash bin/build-zip.sh
+      # Upload the build directory, which holds only the plugin folder (the zip
+      # itself goes to dist/). GitHub wraps every artifact in a zip of its own, so
+      # the download is exactly one zip containing woo-wholesale/ and installs via
+      # Plugins > Add New > Upload. Uploading the built zip instead would produce a
+      # zip inside a zip, which WordPress rejects with "No valid plugins were found".
       - uses: actions/upload-artifact@v4
         with:
           name: woo-wholesale
-          path: build/woo-wholesale.zip
+          path: build

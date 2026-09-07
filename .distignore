@@ -4,6 +4,7 @@
 .distignore
 bin
 build
+dist
 node_modules
 vendor
 *.zip
