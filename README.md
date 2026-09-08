@@ -75,30 +75,92 @@ Voraussetzungen: WordPress 6.2+, WooCommerce 7.0+, PHP 7.4+. HPOS und Block-Chec
 
 ## KI-Assistenten (Easy MCP AI, MCP, REST)
 
-Die Großhandelspreise sind für die REST-API registriert, damit Connectoren wie **Easy MCP AI** sie lesen und befüllen können. Ohne diese Registrierung sind `_wwpro_*`-Meta-Felder für die REST-API unsichtbar, weil WordPress Meta mit führendem Unterstrich schützt.
+Claude kann die Großhandelspreise über einen MCP-Connector (z. B. **Easy MCP AI**) lesen und befüllen. Möglich wird das, weil das Plugin seine Meta-Felder ausdrücklich für die REST-API registriert: WordPress schützt Meta mit führendem Unterstrich (`_wwpro_*`) und blendet sie sonst komplett aus.
 
-**Weg 1 – Produkt-Meta (funktioniert mit den generischen Tools wie `wp_get_post_meta`, `wp_update_post_meta`, `wp_wc_update_product`):**
+### Voraussetzungen
 
-| Objekt | Feld | Bedeutung |
-| --- | --- | --- |
-| Produkt, Variante | `_wwpro_price_{rolle}` | Festpreis der Rolle, leer = keiner |
-| Produkt, Variante | `_wwpro_discount_{rolle}` | Rabatt in Prozent (0–100) |
-| Produktkategorie | `_wwpro_discount_{rolle}` | Kategorierabatt in Prozent |
+- Woo Wholesale Pro und WooCommerce sind aktiv.
+- Der MCP-Connector arbeitet als Benutzer mit `manage_woocommerce` (Administrator oder Shop-Manager). Ohne dieses Recht sind die Felder weder les- noch schreibbar.
+- Für Weg 2 zusätzlich: ein Plugin mit WordPress-Abilities-API (Easy MCP AI bringt sie mit). Fehlt sie, passiert nichts – Weg 1 funktioniert unabhängig davon.
 
-Zusätzlich liefert die Produktantwort das schreibgeschützte Feld `wwpro_wholesale_prices` mit dem tatsächlich gültigen Preis je Rolle, seiner Herkunft (Produkt, Kategorie, shopweit) und den am Produkt gespeicherten Rohwerten. Damit kann ein Assistent prüfen, was am Ende wirklich greift.
+### Weg 1 – Meta-Felder über die generischen WordPress-Tools
 
-**Weg 2 – Abilities (WordPress Abilities API, erscheinen bei Easy MCP AI als eigene Tools):**
+Nutzbar mit den Standard-Tools des Connectors, z. B. `wp_get_post_meta`, `wp_update_post_meta`, `wp_get_term_meta`, `wp_update_term_meta`, `wp_wc_get_product`, `wp_wc_update_product`.
 
-| Ability | Zweck |
+`{rolle}` ist immer der Rollenschlüssel aus der Option `wwpro_roles`, also z. B. `_wwpro_price_b2b_customer` oder `_wwpro_discount_anbauverein`.
+
+| Objekt | Feld | Typ | Erlaubte Werte |
+| --- | --- | --- | --- |
+| Produkt, Variante | `_wwpro_price_{rolle}` | String | Dezimalzahl > 0 (Punkt als Trennzeichen) oder `''` = kein Festpreis |
+| Produkt, Variante | `_wwpro_discount_{rolle}` | String | `0`–`100` (Prozent) oder `''` = kein Rabatt |
+| Produktkategorie (`product_cat`) | `_wwpro_discount_{rolle}` | String | `0`–`100` (Prozent) oder `''` = kein Rabatt |
+
+Serverseitige Prüfung beim Schreiben: Komma wird zu Punkt normalisiert, Preise ≤ 0 und leere/ungültige Werte werden zu `''`, Prozentsätze werden auf 0–100 begrenzt. Ein Festpreis hat immer Vorrang vor dem Prozentrabatt derselben Rolle.
+
+**Nicht über REST erreichbar:** Staffelrabatte (`_wwpro_tiers_{rolle}`) sind bewusst nicht als REST-Meta registriert, weil sie eine verschachtelte Struktur haben. Sie werden im Produkt-Editor bzw. per Import gepflegt:
+
+```
+_wwpro_tiers_{rolle} = array(
+    'enabled' => 'yes' | 'no',
+    'rows'    => array(
+        array( 'qty' => 10, 'discount' => '5',  'price' => ''     ),
+        array( 'qty' => 50, 'discount' => '',   'price' => '8.90' ),
+    ),
+)
+```
+
+### Kontrollfeld `wwpro_wholesale_prices` (nur lesen)
+
+Jede Produkt- und Variantenantwort der REST-API enthält zusätzlich ein Objekt mit dem tatsächlich gültigen Preis je Rolle. Damit lässt sich prüfen, was am Ende wirklich greift – auch wenn der Preis aus einer Kategorie oder dem shopweiten Rabatt kommt. Schlüssel des Objekts ist der Rollenschlüssel:
+
+| Feld | Bedeutung |
 | --- | --- |
-| `woo-wholesale/list-roles` | Rollen samt Schlüssel und shopweitem Rabatt auflisten |
-| `woo-wholesale/get-product-prices` | Preise eines Produkts je Rolle lesen (per ID oder SKU) |
-| `woo-wholesale/set-product-price` | Festpreis und/oder Rabatt einer Rolle setzen |
-| `woo-wholesale/set-category-discount` | Kategorierabatt einer Rolle setzen |
+| `role` | Rollenschlüssel |
+| `role_name` | Anzeigename der Rolle |
+| `price` | gültiger Großhandelspreis, formatiert; `''` wenn die Rolle keinen bekommt |
+| `source` | Herkunft: `product`, `variation`, `parent`, `category`, `global` oder `none` |
+| `own_price` | am Produkt gespeicherter Festpreis (Rohwert) |
+| `own_discount` | am Produkt gespeicherter Rabatt in Prozent (Rohwert) |
+| `regular_price` | regulärer Preis des Produkts |
+| `tiers_enabled` | `true`, wenn für diese Rolle aktive Staffeln hinterlegt sind |
 
-Ohne Abilities-API passiert nichts – die Registrierung ist abgesichert, Weg 1 funktioniert unabhängig davon.
+### Weg 2 – Abilities (erscheinen als eigene MCP-Tools)
 
-**Absicherung:** Lesen und Schreiben erfordert einen angemeldeten Benutzer mit `manage_woocommerce` (bzw. Bearbeitungsrecht am Produkt). Alle Werte werden serverseitig geprüft: Preise ≤ 0 und Prozentsätze außerhalb 0–100 werden verworfen, Rollenschlüssel müssen existieren. Nach jedem Schreibvorgang werden die Preis-Caches automatisch geleert, auch wenn die Änderung nicht aus dem Backend kam.
+Bei Easy MCP AI tauchen sie als `wp_ability_woo-wholesale_*` auf. Alle vier prüfen `manage_woocommerce`.
+
+| Ability | Eingabe | Ausgabe |
+| --- | --- | --- |
+| `woo-wholesale/list-roles` | – | `roles[]` mit `role`, `name`, `description`, `global_discount`, `secondary_price`, `users` |
+| `woo-wholesale/get-product-prices` | `product_id` **oder** `sku` | `product_id`, `name`, `prices` (Felder wie oben) |
+| `woo-wholesale/set-product-price` | `product_id` oder `sku`, `role` (Pflicht), `price` und/oder `discount` | `product_id`, `role`, `prices` nach dem Schreiben |
+| `woo-wholesale/set-category-discount` | `category_id` oder `slug`, `role` (Pflicht), `discount` (Pflicht) | `category_id`, `role`, `discount` |
+
+`price` und `discount` akzeptieren Zahl oder String; ein leerer String löscht den Wert. Unbekannte Rollenschlüssel, fehlende Produkte und fehlende Kategorien werden mit einer klaren Fehlermeldung abgelehnt.
+
+### Rollenfelder (Option `wwpro_roles`)
+
+Die Rollenkonfiguration selbst wird nicht über MCP geschrieben, ist für das Verständnis der Werte aber relevant:
+
+| Feld | Bedeutung |
+| --- | --- |
+| `key` | Rollenschlüssel, Teil aller Meta-Feldnamen |
+| `name`, `description` | Anzeigename und Beschreibung |
+| `global_discount` | shopweiter Rabatt in Prozent (`''` = keiner) |
+| `tax_display` | Steueranzeige: `''` (Shop-Standard), `incl`, `excl` |
+| `secondary_price` | Zweitpreis im Frontend: `none`, `net`, `gross` |
+| `show_in_product` | Preisfelder dieser Rolle im Produkt-Editor anzeigen |
+| `disable_coupons` | Gutscheine für diese Rolle sperren |
+| `min_order_amount` | Mindestbestellwert (`''` = keiner) |
+| `show_tiers` | Staffeltabelle auf der Produktseite anzeigen |
+
+### Typischer Ablauf
+
+1. `woo-wholesale/list-roles` aufrufen (oder die Option `wwpro_roles` lesen), um die Rollenschlüssel zu bekommen.
+2. Produkte über die WooCommerce-Tools suchen (`wp_wc_list_products`, Suche per SKU).
+3. Preis setzen – entweder `woo-wholesale/set-product-price` oder `_wwpro_price_{rolle}` per Meta-Update.
+4. Ergebnis über `wwpro_wholesale_prices` bzw. `woo-wholesale/get-product-prices` gegenprüfen, insbesondere `source`.
+
+**Absicherung:** Lesen und Schreiben erfordert einen angemeldeten Benutzer mit `manage_woocommerce` (bzw. Bearbeitungsrecht am Produkt; bei Varianten zählt das Recht am Elternprodukt). Alle Werte werden serverseitig geprüft: Preise ≤ 0 und Prozentsätze außerhalb 0–100 werden verworfen, Rollenschlüssel müssen existieren. Nach jedem Schreibvorgang werden die Preis-Caches automatisch geleert, auch wenn die Änderung nicht aus dem Backend kam – gesammelt am Ende des Requests, damit Massenimporte günstig bleiben.
 
 ## Entwickler-Hooks
 
