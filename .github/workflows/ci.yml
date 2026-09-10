@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    name: PHP ${{ matrix.php }} syntax check
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['7.4', '8.1', '8.3']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+      - name: Lint PHP files
+        run: |
+          set -e
+          find . -name '*.php' -not -path './vendor/*' -not -path './build/*' -print0 | xargs -0 -n1 -P4 php -l > /dev/null
+          echo "All PHP files pass syntax check."
+      - name: Check translation coverage
+        run: php bin/check-translations.php
+
+  package:
+    name: Build plugin zip
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build plugin package
+        run: bash bin/build-zip.sh
+      # Upload the build directory, which holds only the plugin folder (the zip
+      # itself goes to dist/). GitHub wraps every artifact in a zip of its own, so
+      # the download is exactly one zip containing woo-wholesale/ and installs via
+      # Plugins > Add New > Upload. Uploading the built zip instead would produce a
+      # zip inside a zip, which WordPress rejects with "No valid plugins were found".
+      - uses: actions/upload-artifact@v4
+        with:
+          name: woo-wholesale
+          path: build

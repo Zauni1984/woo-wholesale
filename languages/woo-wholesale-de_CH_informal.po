@@ -1,0 +1,668 @@
+# Copyright (C) 2026 Stefan Zaunreither
+# This file is distributed under the MIT license.
+msgid ""
+msgstr ""
+"Project-Id-Version: Woo Wholesale Pro 1.0.3\n"
+"Report-Msgid-Bugs-To: https://github.com/zauni1984/woo-wholesale/issues\n"
+"POT-Creation-Date: 2026-09-06 12:00+0000\n"
+"PO-Revision-Date: 2026-09-06 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_CH_informal\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: woo-wholesale\n"
+
+msgid "Wholesale"
+msgstr "Großhandel"
+
+msgid "Roles"
+msgstr "Rollen"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Import"
+msgstr "Import"
+
+msgid "Help"
+msgstr "Hilfe"
+
+msgid "You do not have permission to access this page."
+msgstr "Du hast keine Berechtigung, diese Seite aufzurufen."
+
+msgid "Woo Wholesale Pro"
+msgstr "Woo Wholesale Pro"
+
+msgid "Delete this wholesale role? Users of this role are moved to the \"Customer\" role."
+msgstr "Diese Großhandelsrolle löschen? Benutzer dieser Rolle werden in die Rolle „Kunde“ verschoben."
+
+msgid "Start the import now? Existing values are only overwritten if you selected that option."
+msgstr "Import jetzt starten? Vorhandene Werte werden nur überschrieben, wenn du diese Option ausgewählt hast."
+
+msgid "Import finished."
+msgstr "Import abgeschlossen."
+
+msgid "The import stopped because of an error. Please check the log and try again."
+msgstr "Der Import wurde wegen eines Fehlers abgebrochen. Bitte prüfe das Protokoll und versuche es erneut."
+
+msgid "Working…"
+msgstr "Läuft…"
+
+msgid "The plugin \"WooCommerce Wholesale Prices\" is still active. Import its data on the %s tab and deactivate it afterwards, otherwise both plugins would adjust prices at the same time."
+msgstr "Das Plugin „WooCommerce Wholesale Prices“ ist noch aktiv. Importiere dessen Daten im Tab %s und deaktiviere es anschließend, sonst passen beide Plugins gleichzeitig die Preise an."
+
+msgid "You do not have permission to do this."
+msgstr "Du hast keine Berechtigung für diese Aktion."
+
+msgid "Wholesale role created."
+msgstr "Großhandelsrolle angelegt."
+
+msgid "Wholesale role saved."
+msgstr "Großhandelsrolle gespeichert."
+
+msgid "Wholesale role deleted."
+msgstr "Großhandelsrolle gelöscht."
+
+msgid "The wholesale role could not be deleted."
+msgstr "Die Großhandelsrolle konnte nicht gelöscht werden."
+
+msgid "Settings saved."
+msgstr "Einstellungen gespeichert."
+
+msgid "No roles selected for import."
+msgstr "Keine Rollen für den Import ausgewählt."
+
+msgid "Role \"%1$s\" is mapped to \"%2$s\"."
+msgstr "Rolle „%1$s“ wird „%2$s“ zugeordnet."
+
+msgid "Prices for \"%1$s\": %2$d of %3$d entries processed."
+msgstr "Preise für „%1$s“: %2$d von %3$d Einträgen verarbeitet."
+
+msgid "Product discounts for \"%1$s\": %2$d imported."
+msgstr "Produktrabatte für „%1$s“: %2$d importiert."
+
+msgid "Category discounts for \"%1$s\": %2$d imported."
+msgstr "Kategorierabatte für „%1$s“: %2$d importiert."
+
+msgid "Store-wide discount for \"%s\" imported."
+msgstr "Shopweiter Rabatt für „%s“ importiert."
+
+msgid "%1$d users moved from \"%2$s\" to \"%3$s\"."
+msgstr "%1$d Benutzer von „%2$s“ nach „%3$s“ verschoben."
+
+msgid "Done: %1$d product prices, %2$d product discounts, %3$d category discounts, %4$d store-wide discounts, %5$d users."
+msgstr "Fertig: %1$d Produktpreise, %2$d Produktrabatte, %3$d Kategorierabatte, %4$d shopweite Rabatte, %5$d Benutzer."
+
+msgid "Wholesale role:"
+msgstr "Großhandelsrolle:"
+
+msgid "Wholesale: %s"
+msgstr "Großhandel: %s"
+
+msgid "tiers"
+msgstr "Staffel"
+
+msgid "per variation"
+msgstr "je Variante"
+
+msgid "Wholesale discounts"
+msgstr "Großhandelsrabatte"
+
+msgid "Discount (%)"
+msgstr "Rabatt (%)"
+
+msgid "Applies to all products in this category (and its sub-categories) that have no wholesale price of their own. Enter 0 to explicitly disable the store-wide discount for this category."
+msgstr "Gilt für alle Produkte dieser Kategorie (und ihrer Unterkategorien), die keinen eigenen Großhandelspreis haben. Trage 0 ein, um den shopweiten Rabatt für diese Kategorie ausdrücklich abzuschalten."
+
+msgid "Wholesale prices"
+msgstr "Großhandelspreise"
+
+msgid "A fixed price takes precedence over the percentage. Both take precedence over category and store-wide discounts."
+msgstr "Ein Festpreis hat Vorrang vor dem Prozentrabatt. Beide haben Vorrang vor Kategorie- und shopweiten Rabatten."
+
+msgid "For variable products these values are the fallback for variations without their own wholesale price."
+msgstr "Bei variablen Produkten gelten diese Werte als Fallback für Varianten ohne eigenen Großhandelspreis."
+
+msgid "Wholesale price (%s)"
+msgstr "Großhandelspreis (%s)"
+
+msgid "Fixed price for this role. Leave empty to use the percentage or the category / store-wide discount."
+msgstr "Festpreis für diese Rolle. Leer lassen, um den Prozentrabatt bzw. den Kategorie-/shopweiten Rabatt zu verwenden."
+
+msgid "Percentage off the regular price (or current price, depending on the settings). Only used when no fixed price is set."
+msgstr "Prozent Nachlass auf den regulären Preis (oder je nach Einstellung auf den aktuellen Preis). Wird nur verwendet, wenn kein Festpreis gesetzt ist."
+
+msgid "%1$s price (%2$s)"
+msgstr "%1$s Preis (%2$s)"
+
+msgid "%s discount (%%)"
+msgstr "%s Rabatt (%%)"
+
+msgid "Set wholesale price"
+msgstr "Großhandelspreis setzen"
+
+msgid "Set discount (%)"
+msgstr "Rabatt (%) setzen"
+
+msgid "Clear wholesale price and discount"
+msgstr "Großhandelspreis und Rabatt entfernen"
+
+msgid "Quantity discounts"
+msgstr "Staffelrabatte"
+
+msgid "Enable quantity discounts"
+msgstr "Staffelrabatte aktivieren"
+
+msgid "From quantity"
+msgstr "Ab Menge"
+
+msgid "or fixed unit price (%s)"
+msgstr "oder fester Stückpreis (%s)"
+
+msgid "Add tier"
+msgstr "Staffel hinzufügen"
+
+msgid "The percentage is taken off the wholesale unit price of this role. A fixed unit price takes precedence over the percentage."
+msgstr "Der Prozentsatz wird vom Großhandels-Stückpreis dieser Rolle abgezogen. Ein fester Stückpreis hat Vorrang vor dem Prozentsatz."
+
+msgid "Remove tier"
+msgstr "Staffel entfernen"
+
+msgid "How prices are determined"
+msgstr "So werden Preise ermittelt"
+
+msgid "For a logged-in user with a wholesale role the plugin checks the following rules in this order and uses the first one that matches. Guests and customers without a wholesale role always see the normal store prices."
+msgstr "Für einen angemeldeten Benutzer mit Großhandelsrolle prüft das Plugin die folgenden Regeln in dieser Reihenfolge und verwendet die erste passende. Gäste und Kunden ohne Großhandelsrolle sehen immer die normalen Shop-Preise."
+
+msgid "Fixed wholesale price on the variation or product"
+msgstr "Fester Großhandelspreis an der Variante bzw. am Produkt"
+
+msgid "Percentage discount on the variation or product"
+msgstr "Prozentrabatt an der Variante bzw. am Produkt"
+
+msgid "Fixed price or percentage discount on the parent product (variable products)"
+msgstr "Festpreis oder Prozentrabatt am übergeordneten Produkt (variable Produkte)"
+
+msgid "Percentage discount of a product category (sub-categories inherit from their parents)"
+msgstr "Prozentrabatt einer Produktkategorie (Unterkategorien erben von ihren übergeordneten Kategorien)"
+
+msgid "Store-wide discount of the role"
+msgstr "Shopweiter Rabatt der Rolle"
+
+msgid "Quantity discounts (tiers) are applied on top of that price in the cart: tiers on the product replace tiers of its categories. A tier with a fixed unit price wins over a percentage."
+msgstr "Staffelrabatte werden im Warenkorb zusätzlich auf diesen Preis angewendet: Staffeln am Produkt ersetzen die Staffeln seiner Kategorien. Eine Staffel mit festem Stückpreis hat Vorrang vor einem Prozentsatz."
+
+msgid "Display"
+msgstr "Darstellung"
+
+msgid "Wholesale customers see exactly one price – no crossed-out regular price and no sale badge."
+msgstr "Großhandelskunden sehen genau einen Preis – keinen durchgestrichenen regulären Preis und kein Angebots-Badge."
+
+msgid "Per role you can show the net or gross price next to the main price (e.g. for B2B customers) and override the tax display."
+msgstr "Je Rolle kannst du den Netto- oder Bruttopreis neben dem Hauptpreis anzeigen (z. B. für B2B-Kunden) und die Steueranzeige überschreiben."
+
+msgid "Prices are applied everywhere WooCommerce asks for a product price: shop, product page, cart, checkout, blocks and the Store API."
+msgstr "Die Preise greifen überall dort, wo WooCommerce einen Produktpreis abfragt: Shop, Produktseite, Warenkorb, Kasse, Blöcke und Store API."
+
+msgid "Assigning roles"
+msgstr "Rollen zuweisen"
+
+msgid "Open Users → Edit user and pick the wholesale role in the \"Role\" dropdown. The Users list shows a \"Wholesale\" column for a quick overview."
+msgstr "Öffne Benutzer → Benutzer bearbeiten und wähle die Großhandelsrolle im Dropdown „Rolle“. Die Benutzerliste zeigt zur schnellen Übersicht eine Spalte „Großhandel“."
+
+msgid "Caching"
+msgstr "Caching"
+
+msgid "Wholesale prices are only shown to logged-in users. Page caches (WP Rocket, LiteSpeed Cache, …) must not serve cached pages to logged-in users – this is the default of these plugins. Do not enable \"cache logged-in users\" without varying the cache by role."
+msgstr "Großhandelspreise werden nur angemeldeten Benutzern angezeigt. Seiten-Caches (WP Rocket, LiteSpeed Cache, …) dürfen angemeldeten Benutzern keine gecachten Seiten ausliefern – das ist die Standardeinstellung dieser Plugins. Aktiviere „Angemeldete Benutzer cachen“ nicht ohne Cache-Variation nach Rolle."
+
+msgid "Security"
+msgstr "Sicherheit"
+
+msgid "All settings pages and actions require the \"Manage WooCommerce\" capability and a valid nonce."
+msgstr "Alle Einstellungsseiten und Aktionen erfordern die Berechtigung „WooCommerce verwalten“ und eine gültige Nonce."
+
+msgid "Wholesale roles are created with the \"read\" capability only – they cannot edit content."
+msgstr "Großhandelsrollen werden nur mit der Berechtigung „read“ angelegt – sie können keine Inhalte bearbeiten."
+
+msgid "Prices are resolved on the server for the logged-in user; nothing can be manipulated from the browser."
+msgstr "Die Preise werden serverseitig für den angemeldeten Benutzer ermittelt; aus dem Browser lässt sich nichts manipulieren."
+
+msgid "AI assistants and MCP"
+msgstr "KI-Assistenten und MCP"
+
+msgid "The wholesale prices are registered for the REST API, so connectors like Easy MCP AI can read them and fill them in. Two routes are available:"
+msgstr "Die Großhandelspreise sind für die REST-API registriert, dadurch können Connectoren wie Easy MCP AI sie lesen und befüllen. Es gibt zwei Wege:"
+
+msgid "Product meta: for every role the fixed price and the discount can be read and written per product and per variation, and product categories carry their discount the same way. The product response also contains a read-only summary of the price each role actually pays."
+msgstr "Produkt-Meta: Festpreis und Rabatt jeder Rolle lassen sich je Produkt und je Variante lesen und schreiben, Produktkategorien tragen ihren Rabatt genauso. Die Produktantwort enthält zusätzlich eine schreibgeschützte Übersicht, welchen Preis jede Rolle tatsächlich zahlt."
+
+msgid "Abilities: where the WordPress Abilities API is available, this plugin registers four tools in the category \"Wholesale pricing\" – list roles, read the prices of a product, set a price or discount, set a category discount."
+msgstr "Abilities: Wo die WordPress Abilities API verfügbar ist, registriert dieses Plugin vier Tools in der Kategorie „Großhandelspreise“ – Rollen auflisten, Preise eines Produkts lesen, Preis oder Rabatt setzen, Kategorierabatt setzen."
+
+msgid "Every access needs a logged-in user with the \"Manage WooCommerce\" capability. Values are validated on the server: prices of zero or less and percentages outside 0 to 100 are rejected. After a write the price caches are refreshed automatically, no matter whether the change came from the admin, the REST API or an assistant."
+msgstr "Jeder Zugriff erfordert einen angemeldeten Benutzer mit der Berechtigung „WooCommerce verwalten“. Werte werden serverseitig geprüft: Preise von null oder weniger und Prozentsätze außerhalb von 0 bis 100 werden abgelehnt. Nach einem Schreibvorgang werden die Preis-Caches automatisch geleert, egal ob die Änderung aus dem Backend, der REST-API oder von einem Assistenten kam."
+
+msgid "Developer hooks"
+msgstr "Entwickler-Hooks"
+
+msgid "change the wholesale role of a user"
+msgstr "Großhandelsrolle eines Benutzers ändern"
+
+msgid "change the resolved unit price"
+msgstr "ermittelten Stückpreis ändern"
+
+msgid "quantity discounts"
+msgstr "Staffelrabatte"
+
+msgid "secondary price markup"
+msgstr "Markup des Zweitpreises"
+
+msgid "Import from WooCommerce Wholesale Prices"
+msgstr "Import aus WooCommerce Wholesale Prices"
+
+msgid "Copies wholesale prices of products and variations, category discounts and store-wide discounts from the plugin \"WooCommerce Wholesale Prices\" (Wholesale Suite) into this plugin. The original data is not changed."
+msgstr "Kopiert Großhandelspreise von Produkten und Varianten, Kategorierabatte und shopweite Rabatte aus dem Plugin „WooCommerce Wholesale Prices“ (Wholesale Suite) in dieses Plugin. Die Originaldaten werden nicht verändert."
+
+msgid "Last import: %s"
+msgstr "Letzter Import: %s"
+
+msgid "No data from WooCommerce Wholesale Prices was found in this database."
+msgstr "In dieser Datenbank wurden keine Daten von WooCommerce Wholesale Prices gefunden."
+
+msgid "Found role"
+msgstr "Gefundene Rolle"
+
+msgid "Users"
+msgstr "Benutzer"
+
+msgid "Product prices"
+msgstr "Produktpreise"
+
+msgid "Category discounts"
+msgstr "Kategorierabatte"
+
+msgid "Store-wide"
+msgstr "Shopweit"
+
+msgid "Import into"
+msgstr "Importieren nach"
+
+msgid "already a wholesale role of this plugin"
+msgstr "bereits eine Großhandelsrolle dieses Plugins"
+
+msgid "Same role (already configured)"
+msgstr "Gleiche Rolle (bereits konfiguriert)"
+
+msgid "New role with the same key \"%s\" (users keep their role)"
+msgstr "Neue Rolle mit demselben Schlüssel „%s“ (Benutzer behalten ihre Rolle)"
+
+msgid "Existing role: %1$s (%2$s)"
+msgstr "Vorhandene Rolle: %1$s (%2$s)"
+
+msgid "Skip"
+msgstr "Überspringen"
+
+msgid "Overwrite wholesale prices and discounts that already exist in this plugin"
+msgstr "In diesem Plugin bereits vorhandene Großhandelspreise und Rabatte überschreiben"
+
+msgid "When importing into an existing role: move the users to that role"
+msgstr "Beim Import in eine vorhandene Rolle: Benutzer in diese Rolle verschieben"
+
+msgid "Not imported: per-product minimum order quantities and product visibility settings of Wholesale Suite, as this plugin does not have these features."
+msgstr "Nicht importiert werden: Mindestbestellmengen je Produkt und Sichtbarkeitseinstellungen von Wholesale Suite, da dieses Plugin diese Funktionen nicht hat."
+
+msgid "Start import"
+msgstr "Import starten"
+
+msgid "Go to the plugins page to deactivate WooCommerce Wholesale Prices after the import"
+msgstr "Zur Plugin-Seite, um WooCommerce Wholesale Prices nach dem Import zu deaktivieren"
+
+msgid "Wholesale roles"
+msgstr "Großhandelsrollen"
+
+msgid "Every wholesale role is a regular WordPress user role. Assign it to a customer under Users → Edit user. The first matching role in this list wins if a user has several wholesale roles."
+msgstr "Jede Großhandelsrolle ist eine normale WordPress-Benutzerrolle. Weise sie einem Kunden unter Benutzer → Benutzer bearbeiten zu. Hat ein Benutzer mehrere Großhandelsrollen, gewinnt die erste passende Rolle in dieser Liste."
+
+msgid "No wholesale roles yet. Create one on the right or import roles from WooCommerce Wholesale Prices."
+msgstr "Noch keine Großhandelsrollen. Lege rechts eine an oder importiere Rollen aus WooCommerce Wholesale Prices."
+
+msgid "Role"
+msgstr "Rolle"
+
+msgid "Key"
+msgstr "Schlüssel"
+
+msgid "Store-wide discount"
+msgstr "Shopweiter Rabatt"
+
+msgid "Secondary price"
+msgstr "Zweitpreis"
+
+msgid "Product fields"
+msgstr "Produktfelder"
+
+msgid "none"
+msgstr "keiner"
+
+msgid "net price"
+msgstr "Nettopreis"
+
+msgid "gross price"
+msgstr "Bruttopreis"
+
+msgid "yes"
+msgstr "ja"
+
+msgid "no"
+msgstr "nein"
+
+msgid "Edit"
+msgstr "Bearbeiten"
+
+msgid "also delete prices"
+msgstr "auch Preise löschen"
+
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Add wholesale role"
+msgstr "Großhandelsrolle hinzufügen"
+
+msgid "New wholesale role"
+msgstr "Neue Großhandelsrolle"
+
+msgid "Edit wholesale role"
+msgstr "Großhandelsrolle bearbeiten"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "e.g. B2B customer"
+msgstr "z. B. B2B Kunde"
+
+msgid "Lowercase letters, digits and underscores. Cannot be changed later. To reuse an existing WordPress role (for example wholesale_customer), enter its key here – users keep their assignment."
+msgstr "Kleinbuchstaben, Ziffern und Unterstriche. Kann später nicht geändert werden. Um eine vorhandene WordPress-Rolle weiterzuverwenden (z. B. wholesale_customer), trage hier deren Schlüssel ein – die Benutzer behalten ihre Zuordnung."
+
+msgid "Description"
+msgstr "Beschreibung"
+
+msgid "Store-wide discount (%)"
+msgstr "Shopweiter Rabatt (%)"
+
+msgid "Applies to every product without a product or category rule. Leave empty for none."
+msgstr "Gilt für jedes Produkt ohne Produkt- oder Kategorieregel. Leer lassen für keinen Rabatt."
+
+msgid "None – show only the wholesale price"
+msgstr "Keiner – nur den Großhandelspreis anzeigen"
+
+msgid "Show the net price next to it"
+msgstr "Nettopreis daneben anzeigen"
+
+msgid "Show the gross price next to it"
+msgstr "Bruttopreis daneben anzeigen"
+
+msgid "Price display"
+msgstr "Preisanzeige"
+
+msgid "Shop default"
+msgstr "Shop-Standard"
+
+msgid "Including tax (gross)"
+msgstr "Inklusive Steuer (brutto)"
+
+msgid "Excluding tax (net)"
+msgstr "Exklusive Steuer (netto)"
+
+msgid "Overrides the WooCommerce tax display setting in shop and cart for this role."
+msgstr "Überschreibt die WooCommerce-Steueranzeige in Shop und Warenkorb für diese Rolle."
+
+msgid "Minimum order amount"
+msgstr "Mindestbestellwert"
+
+msgid "Net cart subtotal required to check out. Leave empty for none."
+msgstr "Netto-Zwischensumme des Warenkorbs, die zum Bestellen nötig ist. Leer lassen für keinen Mindestwert."
+
+msgid "Options"
+msgstr "Optionen"
+
+msgid "Show price and discount fields for this role in the product editor"
+msgstr "Preis- und Rabattfelder für diese Rolle im Produkt-Editor anzeigen"
+
+msgid "Show the quantity discount table on product pages"
+msgstr "Staffelpreistabelle auf Produktseiten anzeigen"
+
+msgid "Disable coupons for this role"
+msgstr "Gutscheine für diese Rolle deaktivieren"
+
+msgid "Create role"
+msgstr "Rolle anlegen"
+
+msgid "Save role"
+msgstr "Rolle speichern"
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Price calculation"
+msgstr "Preisberechnung"
+
+msgid "Discount base"
+msgstr "Rabattbasis"
+
+msgid "Regular price (sale prices are ignored)"
+msgstr "Regulärer Preis (Angebotspreise werden ignoriert)"
+
+msgid "Current price (sale price if a sale is running)"
+msgstr "Aktueller Preis (Angebotspreis, wenn ein Angebot läuft)"
+
+msgid "Percentage discounts on product, category and store level are calculated from this price."
+msgstr "Prozentrabatte auf Produkt-, Kategorie- und Shop-Ebene werden von diesem Preis berechnet."
+
+msgid "Product in several categories"
+msgstr "Produkt in mehreren Kategorien"
+
+msgid "The highest discount wins (best price for the customer)"
+msgstr "Der höchste Rabatt gewinnt (bester Preis für den Kunden)"
+
+msgid "The lowest discount wins"
+msgstr "Der niedrigste Rabatt gewinnt"
+
+msgid "Price cap"
+msgstr "Preisdeckel"
+
+msgid "A wholesale customer never pays more than the regular customer price (incl. sale)"
+msgstr "Ein Großhandelskunde zahlt nie mehr als der normale Kunde (inkl. Angebot)"
+
+msgid "Quantity is counted per cart line (per variation)"
+msgstr "Menge wird je Warenkorbzeile gezählt (je Variante)"
+
+msgid "Quantities of all variations of a product are added up"
+msgstr "Mengen aller Varianten eines Produkts werden zusammengezählt"
+
+msgid "Show the quantity discount table on the product page"
+msgstr "Staffelpreistabelle auf der Produktseite anzeigen"
+
+msgid "You can also place the table with the shortcode [wwpro_tiers]."
+msgstr "Die Tabelle kannst du auch mit dem Shortcode [wwpro_tiers] platzieren."
+
+msgid "Sale badge"
+msgstr "Angebots-Badge"
+
+msgid "Hide the \"Sale!\" badge for products with a wholesale price"
+msgstr "Das Badge „Angebot!“ bei Produkten mit Großhandelspreis ausblenden"
+
+msgid "Also show the secondary price in cart and checkout"
+msgstr "Zweitpreis auch im Warenkorb und an der Kasse anzeigen"
+
+msgid "Label for net price"
+msgstr "Beschriftung für Nettopreis"
+
+msgid "Label for gross price"
+msgstr "Beschriftung für Bruttopreis"
+
+msgid "%s is replaced with the formatted amount."
+msgstr "%s wird durch den formatierten Betrag ersetzt."
+
+msgid "Role badge"
+msgstr "Rollen-Hinweis"
+
+msgid "Show a small \"Your … price\" note next to wholesale prices"
+msgstr "Kleinen Hinweis „Dein …-Preis“ neben Großhandelspreisen anzeigen"
+
+msgid "Data"
+msgstr "Daten"
+
+msgid "Uninstall"
+msgstr "Deinstallation"
+
+msgid "Delete all wholesale roles, prices and settings when the plugin is deleted"
+msgstr "Alle Großhandelsrollen, Preise und Einstellungen löschen, wenn das Plugin gelöscht wird"
+
+msgid "Save settings"
+msgstr "Einstellungen speichern"
+
+msgid "Wholesale pricing"
+msgstr "Großhandelspreise"
+
+msgid "Read and maintain role-based wholesale prices of WooCommerce products."
+msgstr "Rollenbasierte Großhandelspreise von WooCommerce-Produkten lesen und pflegen."
+
+msgid "List wholesale roles"
+msgstr "Großhandelsrollen auflisten"
+
+msgid "Lists the configured wholesale roles with their keys, store-wide discounts and price display settings. Use the returned role key for every other wholesale ability."
+msgstr "Listet die konfigurierten Großhandelsrollen mit Schlüssel, shopweitem Rabatt und Preisanzeige auf. Den zurückgegebenen Rollenschlüssel für alle weiteren Großhandels-Abilities verwenden."
+
+msgid "Read wholesale prices of a product"
+msgstr "Großhandelspreise eines Produkts lesen"
+
+msgid "Returns the wholesale price of a product for every role, including prices that come from a category discount or the store-wide discount, plus the values stored on the product itself."
+msgstr "Gibt den Großhandelspreis eines Produkts je Rolle zurück, inklusive Preisen aus Kategorie- oder shopweiten Rabatten, dazu die am Produkt selbst gespeicherten Werte."
+
+msgid "Set the wholesale price of a product"
+msgstr "Großhandelspreis eines Produkts setzen"
+
+msgid "Stores a fixed wholesale price and/or a percentage discount for one role on a product or variation. A fixed price takes precedence over the percentage. Send an empty string to remove a value."
+msgstr "Speichert einen Festpreis und/oder einen Prozentrabatt für eine Rolle an einem Produkt oder einer Variante. Der Festpreis hat Vorrang vor dem Prozentsatz. Ein leerer Text entfernt den Wert."
+
+msgid "Set the wholesale discount of a product category"
+msgstr "Großhandelsrabatt einer Produktkategorie setzen"
+
+msgid "Stores a percentage discount for one role on a product category. It applies to all products of that category and its sub-categories that have no wholesale price of their own. Send an empty string to remove it."
+msgstr "Speichert einen Prozentrabatt für eine Rolle an einer Produktkategorie. Er gilt für alle Produkte dieser Kategorie und ihrer Unterkategorien ohne eigenen Großhandelspreis. Ein leerer Text entfernt ihn."
+
+msgid "Unknown wholesale role. Use woo-wholesale/list-roles to get the valid role keys."
+msgstr "Unbekannte Großhandelsrolle. Die gültigen Rollenschlüssel liefert woo-wholesale/list-roles."
+
+msgid "Please provide a price or a discount."
+msgstr "Bitte einen Preis oder einen Rabatt angeben."
+
+msgid "Product category not found."
+msgstr "Produktkategorie nicht gefunden."
+
+msgid "Product not found. Provide a valid product_id or sku."
+msgstr "Produkt nicht gefunden. Bitte eine gültige product_id oder sku angeben."
+
+msgid "The minimum order amount for your account is %1$s (net). Your current subtotal is %2$s."
+msgstr "Der Mindestbestellwert für dein Konto beträgt %1$s (netto). Deine aktuelle Zwischensumme beträgt %2$s."
+
+msgid "Your %s price"
+msgstr "Dein %s-Preis"
+
+msgid "Quantity"
+msgstr "Menge"
+
+msgid "Unit price"
+msgstr "Stückpreis"
+
+msgid "from %s"
+msgstr "ab %s"
+
+msgid "Quantities of all variations of this product are added up."
+msgstr "Die Mengen aller Varianten dieses Produkts werden zusammengezählt."
+
+msgid "Target role does not exist."
+msgstr "Zielrolle existiert nicht."
+
+msgid "B2B customer"
+msgstr "B2B Kunde"
+
+msgid "Business customers (retailers). Sees wholesale prices with the net price next to it."
+msgstr "Geschäftskunden (Fachhandel). Sieht Großhandelspreise mit dem Nettopreis daneben."
+
+msgid "Growers association"
+msgstr "Anbauverein"
+
+msgid "Cannabis social clubs / growers associations."
+msgstr "Cannabis Social Clubs / Anbauvereinigungen."
+
+msgid "Woo Wholesale Pro requires WooCommerce to be installed and active."
+msgstr "Woo Wholesale Pro benötigt ein installiertes und aktives WooCommerce."
+
+msgid "Woo Wholesale Pro requires WooCommerce %s or newer."
+msgstr "Woo Wholesale Pro benötigt WooCommerce %s oder neuer."
+
+msgid "product price"
+msgstr "Produktpreis"
+
+msgid "variation price"
+msgstr "Variantenpreis"
+
+msgid "parent product"
+msgstr "übergeordnetes Produkt"
+
+msgid "category discount"
+msgstr "Kategorierabatt"
+
+msgid "store-wide discount"
+msgstr "shopweiter Rabatt"
+
+msgid "Fixed wholesale price for the role \"%s\". Empty means no fixed price."
+msgstr "Fester Großhandelspreis für die Rolle „%s“. Leer bedeutet kein Festpreis."
+
+msgid "Wholesale discount in percent (0-100) for the role \"%s\"."
+msgstr "Großhandelsrabatt in Prozent (0–100) für die Rolle „%s“."
+
+msgid "Category discount in percent (0-100) for the role \"%s\"."
+msgstr "Kategorierabatt in Prozent (0–100) für die Rolle „%s“."
+
+msgid "Effective wholesale price per role, including prices inherited from a category or the store-wide discount."
+msgstr "Tatsächlich gültiger Großhandelspreis je Rolle, inklusive Preisen aus Kategorie- oder shopweiten Rabatten."
+
+msgid "The role key must consist of 2-40 lowercase letters, digits or underscores and start with a letter."
+msgstr "Der Rollenschlüssel muss aus 2–40 Kleinbuchstaben, Ziffern oder Unterstrichen bestehen und mit einem Buchstaben beginnen."
+
+msgid "This role key is reserved by WordPress or WooCommerce and cannot be used."
+msgstr "Dieser Rollenschlüssel ist von WordPress oder WooCommerce reserviert und kann nicht verwendet werden."
+
+msgid "A wholesale role with this key already exists."
+msgstr "Eine Großhandelsrolle mit diesem Schlüssel existiert bereits."
+
+msgid "The wholesale role could not be found."
+msgstr "Die Großhandelsrolle wurde nicht gefunden."
+
+msgid "Please enter a role name."
+msgstr "Bitte gib einen Rollennamen ein."
+
+msgid "net %s"
+msgstr "netto %s"
+
+msgid "incl. VAT %s"
+msgstr "inkl. MwSt. %s"
+
+msgid "Woo Wholesale Pro requires PHP %s or newer. The plugin is inactive."
+msgstr "Woo Wholesale Pro benötigt PHP %s oder neuer. Das Plugin ist inaktiv."
+
+
+msgid "Page cache"
+msgstr "Seiten-Cache"
+
+msgid "Do not let a page cache store pages that show wholesale prices"
+msgstr "Seiten mit Großhandelspreisen nicht im Seiten-Cache speichern lassen"
+
+msgid "Leave this on. Without it LiteSpeed Cache, WP Rocket and friends can serve the guest price to a logged-in wholesale customer. The plugin also tells LiteSpeed to keep a separate copy per role and clears the page cache whenever prices or rules change."
+msgstr "Lass das eingeschaltet. Ohne diese Option können LiteSpeed Cache, WP Rocket und Co. einem eingeloggten Großhandelskunden den Gastpreis ausliefern. Das Plugin sagt LiteSpeed außerdem, dass es je Rolle eine eigene Kopie vorhalten soll, und leert den Seiten-Cache, sobald sich Preise oder Regeln ändern."

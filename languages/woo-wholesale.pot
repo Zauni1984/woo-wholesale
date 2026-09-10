@@ -1,0 +1,668 @@
+# Copyright (C) 2026 Stefan Zaunreither
+# This file is distributed under the MIT license.
+msgid ""
+msgstr ""
+"Project-Id-Version: Woo Wholesale Pro 1.0.3\n"
+"Report-Msgid-Bugs-To: https://github.com/zauni1984/woo-wholesale/issues\n"
+"POT-Creation-Date: 2026-09-06 12:00+0000\n"
+"PO-Revision-Date: 2026-09-06 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: woo-wholesale\n"
+
+msgid "Wholesale"
+msgstr ""
+
+msgid "Roles"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "Help"
+msgstr ""
+
+msgid "You do not have permission to access this page."
+msgstr ""
+
+msgid "Woo Wholesale Pro"
+msgstr ""
+
+msgid "Delete this wholesale role? Users of this role are moved to the \"Customer\" role."
+msgstr ""
+
+msgid "Start the import now? Existing values are only overwritten if you selected that option."
+msgstr ""
+
+msgid "Import finished."
+msgstr ""
+
+msgid "The import stopped because of an error. Please check the log and try again."
+msgstr ""
+
+msgid "Working…"
+msgstr ""
+
+msgid "The plugin \"WooCommerce Wholesale Prices\" is still active. Import its data on the %s tab and deactivate it afterwards, otherwise both plugins would adjust prices at the same time."
+msgstr ""
+
+msgid "You do not have permission to do this."
+msgstr ""
+
+msgid "Wholesale role created."
+msgstr ""
+
+msgid "Wholesale role saved."
+msgstr ""
+
+msgid "Wholesale role deleted."
+msgstr ""
+
+msgid "The wholesale role could not be deleted."
+msgstr ""
+
+msgid "Settings saved."
+msgstr ""
+
+msgid "No roles selected for import."
+msgstr ""
+
+msgid "Role \"%1$s\" is mapped to \"%2$s\"."
+msgstr ""
+
+msgid "Prices for \"%1$s\": %2$d of %3$d entries processed."
+msgstr ""
+
+msgid "Product discounts for \"%1$s\": %2$d imported."
+msgstr ""
+
+msgid "Category discounts for \"%1$s\": %2$d imported."
+msgstr ""
+
+msgid "Store-wide discount for \"%s\" imported."
+msgstr ""
+
+msgid "%1$d users moved from \"%2$s\" to \"%3$s\"."
+msgstr ""
+
+msgid "Done: %1$d product prices, %2$d product discounts, %3$d category discounts, %4$d store-wide discounts, %5$d users."
+msgstr ""
+
+msgid "Wholesale role:"
+msgstr ""
+
+msgid "Wholesale: %s"
+msgstr ""
+
+msgid "tiers"
+msgstr ""
+
+msgid "per variation"
+msgstr ""
+
+msgid "Wholesale discounts"
+msgstr ""
+
+msgid "Discount (%)"
+msgstr ""
+
+msgid "Applies to all products in this category (and its sub-categories) that have no wholesale price of their own. Enter 0 to explicitly disable the store-wide discount for this category."
+msgstr ""
+
+msgid "Wholesale prices"
+msgstr ""
+
+msgid "A fixed price takes precedence over the percentage. Both take precedence over category and store-wide discounts."
+msgstr ""
+
+msgid "For variable products these values are the fallback for variations without their own wholesale price."
+msgstr ""
+
+msgid "Wholesale price (%s)"
+msgstr ""
+
+msgid "Fixed price for this role. Leave empty to use the percentage or the category / store-wide discount."
+msgstr ""
+
+msgid "Percentage off the regular price (or current price, depending on the settings). Only used when no fixed price is set."
+msgstr ""
+
+msgid "%1$s price (%2$s)"
+msgstr ""
+
+msgid "%s discount (%%)"
+msgstr ""
+
+msgid "Set wholesale price"
+msgstr ""
+
+msgid "Set discount (%)"
+msgstr ""
+
+msgid "Clear wholesale price and discount"
+msgstr ""
+
+msgid "Quantity discounts"
+msgstr ""
+
+msgid "Enable quantity discounts"
+msgstr ""
+
+msgid "From quantity"
+msgstr ""
+
+msgid "or fixed unit price (%s)"
+msgstr ""
+
+msgid "Add tier"
+msgstr ""
+
+msgid "The percentage is taken off the wholesale unit price of this role. A fixed unit price takes precedence over the percentage."
+msgstr ""
+
+msgid "Remove tier"
+msgstr ""
+
+msgid "How prices are determined"
+msgstr ""
+
+msgid "For a logged-in user with a wholesale role the plugin checks the following rules in this order and uses the first one that matches. Guests and customers without a wholesale role always see the normal store prices."
+msgstr ""
+
+msgid "Fixed wholesale price on the variation or product"
+msgstr ""
+
+msgid "Percentage discount on the variation or product"
+msgstr ""
+
+msgid "Fixed price or percentage discount on the parent product (variable products)"
+msgstr ""
+
+msgid "Percentage discount of a product category (sub-categories inherit from their parents)"
+msgstr ""
+
+msgid "Store-wide discount of the role"
+msgstr ""
+
+msgid "Quantity discounts (tiers) are applied on top of that price in the cart: tiers on the product replace tiers of its categories. A tier with a fixed unit price wins over a percentage."
+msgstr ""
+
+msgid "Display"
+msgstr ""
+
+msgid "Wholesale customers see exactly one price – no crossed-out regular price and no sale badge."
+msgstr ""
+
+msgid "Per role you can show the net or gross price next to the main price (e.g. for B2B customers) and override the tax display."
+msgstr ""
+
+msgid "Prices are applied everywhere WooCommerce asks for a product price: shop, product page, cart, checkout, blocks and the Store API."
+msgstr ""
+
+msgid "Assigning roles"
+msgstr ""
+
+msgid "Open Users → Edit user and pick the wholesale role in the \"Role\" dropdown. The Users list shows a \"Wholesale\" column for a quick overview."
+msgstr ""
+
+msgid "Caching"
+msgstr ""
+
+msgid "Wholesale prices are only shown to logged-in users. Page caches (WP Rocket, LiteSpeed Cache, …) must not serve cached pages to logged-in users – this is the default of these plugins. Do not enable \"cache logged-in users\" without varying the cache by role."
+msgstr ""
+
+msgid "Security"
+msgstr ""
+
+msgid "All settings pages and actions require the \"Manage WooCommerce\" capability and a valid nonce."
+msgstr ""
+
+msgid "Wholesale roles are created with the \"read\" capability only – they cannot edit content."
+msgstr ""
+
+msgid "Prices are resolved on the server for the logged-in user; nothing can be manipulated from the browser."
+msgstr ""
+
+msgid "AI assistants and MCP"
+msgstr ""
+
+msgid "The wholesale prices are registered for the REST API, so connectors like Easy MCP AI can read them and fill them in. Two routes are available:"
+msgstr ""
+
+msgid "Product meta: for every role the fixed price and the discount can be read and written per product and per variation, and product categories carry their discount the same way. The product response also contains a read-only summary of the price each role actually pays."
+msgstr ""
+
+msgid "Abilities: where the WordPress Abilities API is available, this plugin registers four tools in the category \"Wholesale pricing\" – list roles, read the prices of a product, set a price or discount, set a category discount."
+msgstr ""
+
+msgid "Every access needs a logged-in user with the \"Manage WooCommerce\" capability. Values are validated on the server: prices of zero or less and percentages outside 0 to 100 are rejected. After a write the price caches are refreshed automatically, no matter whether the change came from the admin, the REST API or an assistant."
+msgstr ""
+
+msgid "Developer hooks"
+msgstr ""
+
+msgid "change the wholesale role of a user"
+msgstr ""
+
+msgid "change the resolved unit price"
+msgstr ""
+
+msgid "quantity discounts"
+msgstr ""
+
+msgid "secondary price markup"
+msgstr ""
+
+msgid "Import from WooCommerce Wholesale Prices"
+msgstr ""
+
+msgid "Copies wholesale prices of products and variations, category discounts and store-wide discounts from the plugin \"WooCommerce Wholesale Prices\" (Wholesale Suite) into this plugin. The original data is not changed."
+msgstr ""
+
+msgid "Last import: %s"
+msgstr ""
+
+msgid "No data from WooCommerce Wholesale Prices was found in this database."
+msgstr ""
+
+msgid "Found role"
+msgstr ""
+
+msgid "Users"
+msgstr ""
+
+msgid "Product prices"
+msgstr ""
+
+msgid "Category discounts"
+msgstr ""
+
+msgid "Store-wide"
+msgstr ""
+
+msgid "Import into"
+msgstr ""
+
+msgid "already a wholesale role of this plugin"
+msgstr ""
+
+msgid "Same role (already configured)"
+msgstr ""
+
+msgid "New role with the same key \"%s\" (users keep their role)"
+msgstr ""
+
+msgid "Existing role: %1$s (%2$s)"
+msgstr ""
+
+msgid "Skip"
+msgstr ""
+
+msgid "Overwrite wholesale prices and discounts that already exist in this plugin"
+msgstr ""
+
+msgid "When importing into an existing role: move the users to that role"
+msgstr ""
+
+msgid "Not imported: per-product minimum order quantities and product visibility settings of Wholesale Suite, as this plugin does not have these features."
+msgstr ""
+
+msgid "Start import"
+msgstr ""
+
+msgid "Go to the plugins page to deactivate WooCommerce Wholesale Prices after the import"
+msgstr ""
+
+msgid "Wholesale roles"
+msgstr ""
+
+msgid "Every wholesale role is a regular WordPress user role. Assign it to a customer under Users → Edit user. The first matching role in this list wins if a user has several wholesale roles."
+msgstr ""
+
+msgid "No wholesale roles yet. Create one on the right or import roles from WooCommerce Wholesale Prices."
+msgstr ""
+
+msgid "Role"
+msgstr ""
+
+msgid "Key"
+msgstr ""
+
+msgid "Store-wide discount"
+msgstr ""
+
+msgid "Secondary price"
+msgstr ""
+
+msgid "Product fields"
+msgstr ""
+
+msgid "none"
+msgstr ""
+
+msgid "net price"
+msgstr ""
+
+msgid "gross price"
+msgstr ""
+
+msgid "yes"
+msgstr ""
+
+msgid "no"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "also delete prices"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Add wholesale role"
+msgstr ""
+
+msgid "New wholesale role"
+msgstr ""
+
+msgid "Edit wholesale role"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "e.g. B2B customer"
+msgstr ""
+
+msgid "Lowercase letters, digits and underscores. Cannot be changed later. To reuse an existing WordPress role (for example wholesale_customer), enter its key here – users keep their assignment."
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Store-wide discount (%)"
+msgstr ""
+
+msgid "Applies to every product without a product or category rule. Leave empty for none."
+msgstr ""
+
+msgid "None – show only the wholesale price"
+msgstr ""
+
+msgid "Show the net price next to it"
+msgstr ""
+
+msgid "Show the gross price next to it"
+msgstr ""
+
+msgid "Price display"
+msgstr ""
+
+msgid "Shop default"
+msgstr ""
+
+msgid "Including tax (gross)"
+msgstr ""
+
+msgid "Excluding tax (net)"
+msgstr ""
+
+msgid "Overrides the WooCommerce tax display setting in shop and cart for this role."
+msgstr ""
+
+msgid "Minimum order amount"
+msgstr ""
+
+msgid "Net cart subtotal required to check out. Leave empty for none."
+msgstr ""
+
+msgid "Options"
+msgstr ""
+
+msgid "Show price and discount fields for this role in the product editor"
+msgstr ""
+
+msgid "Show the quantity discount table on product pages"
+msgstr ""
+
+msgid "Disable coupons for this role"
+msgstr ""
+
+msgid "Create role"
+msgstr ""
+
+msgid "Save role"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Price calculation"
+msgstr ""
+
+msgid "Discount base"
+msgstr ""
+
+msgid "Regular price (sale prices are ignored)"
+msgstr ""
+
+msgid "Current price (sale price if a sale is running)"
+msgstr ""
+
+msgid "Percentage discounts on product, category and store level are calculated from this price."
+msgstr ""
+
+msgid "Product in several categories"
+msgstr ""
+
+msgid "The highest discount wins (best price for the customer)"
+msgstr ""
+
+msgid "The lowest discount wins"
+msgstr ""
+
+msgid "Price cap"
+msgstr ""
+
+msgid "A wholesale customer never pays more than the regular customer price (incl. sale)"
+msgstr ""
+
+msgid "Quantity is counted per cart line (per variation)"
+msgstr ""
+
+msgid "Quantities of all variations of a product are added up"
+msgstr ""
+
+msgid "Show the quantity discount table on the product page"
+msgstr ""
+
+msgid "You can also place the table with the shortcode [wwpro_tiers]."
+msgstr ""
+
+msgid "Sale badge"
+msgstr ""
+
+msgid "Hide the \"Sale!\" badge for products with a wholesale price"
+msgstr ""
+
+msgid "Also show the secondary price in cart and checkout"
+msgstr ""
+
+msgid "Label for net price"
+msgstr ""
+
+msgid "Label for gross price"
+msgstr ""
+
+msgid "%s is replaced with the formatted amount."
+msgstr ""
+
+msgid "Role badge"
+msgstr ""
+
+msgid "Show a small \"Your … price\" note next to wholesale prices"
+msgstr ""
+
+msgid "Data"
+msgstr ""
+
+msgid "Uninstall"
+msgstr ""
+
+msgid "Delete all wholesale roles, prices and settings when the plugin is deleted"
+msgstr ""
+
+msgid "Save settings"
+msgstr ""
+
+msgid "Wholesale pricing"
+msgstr ""
+
+msgid "Read and maintain role-based wholesale prices of WooCommerce products."
+msgstr ""
+
+msgid "List wholesale roles"
+msgstr ""
+
+msgid "Lists the configured wholesale roles with their keys, store-wide discounts and price display settings. Use the returned role key for every other wholesale ability."
+msgstr ""
+
+msgid "Read wholesale prices of a product"
+msgstr ""
+
+msgid "Returns the wholesale price of a product for every role, including prices that come from a category discount or the store-wide discount, plus the values stored on the product itself."
+msgstr ""
+
+msgid "Set the wholesale price of a product"
+msgstr ""
+
+msgid "Stores a fixed wholesale price and/or a percentage discount for one role on a product or variation. A fixed price takes precedence over the percentage. Send an empty string to remove a value."
+msgstr ""
+
+msgid "Set the wholesale discount of a product category"
+msgstr ""
+
+msgid "Stores a percentage discount for one role on a product category. It applies to all products of that category and its sub-categories that have no wholesale price of their own. Send an empty string to remove it."
+msgstr ""
+
+msgid "Unknown wholesale role. Use woo-wholesale/list-roles to get the valid role keys."
+msgstr ""
+
+msgid "Please provide a price or a discount."
+msgstr ""
+
+msgid "Product category not found."
+msgstr ""
+
+msgid "Product not found. Provide a valid product_id or sku."
+msgstr ""
+
+msgid "The minimum order amount for your account is %1$s (net). Your current subtotal is %2$s."
+msgstr ""
+
+msgid "Your %s price"
+msgstr ""
+
+msgid "Quantity"
+msgstr ""
+
+msgid "Unit price"
+msgstr ""
+
+msgid "from %s"
+msgstr ""
+
+msgid "Quantities of all variations of this product are added up."
+msgstr ""
+
+msgid "Target role does not exist."
+msgstr ""
+
+msgid "B2B customer"
+msgstr ""
+
+msgid "Business customers (retailers). Sees wholesale prices with the net price next to it."
+msgstr ""
+
+msgid "Growers association"
+msgstr ""
+
+msgid "Cannabis social clubs / growers associations."
+msgstr ""
+
+msgid "Woo Wholesale Pro requires WooCommerce to be installed and active."
+msgstr ""
+
+msgid "Woo Wholesale Pro requires WooCommerce %s or newer."
+msgstr ""
+
+msgid "product price"
+msgstr ""
+
+msgid "variation price"
+msgstr ""
+
+msgid "parent product"
+msgstr ""
+
+msgid "category discount"
+msgstr ""
+
+msgid "store-wide discount"
+msgstr ""
+
+msgid "Fixed wholesale price for the role \"%s\". Empty means no fixed price."
+msgstr ""
+
+msgid "Wholesale discount in percent (0-100) for the role \"%s\"."
+msgstr ""
+
+msgid "Category discount in percent (0-100) for the role \"%s\"."
+msgstr ""
+
+msgid "Effective wholesale price per role, including prices inherited from a category or the store-wide discount."
+msgstr ""
+
+msgid "The role key must consist of 2-40 lowercase letters, digits or underscores and start with a letter."
+msgstr ""
+
+msgid "This role key is reserved by WordPress or WooCommerce and cannot be used."
+msgstr ""
+
+msgid "A wholesale role with this key already exists."
+msgstr ""
+
+msgid "The wholesale role could not be found."
+msgstr ""
+
+msgid "Please enter a role name."
+msgstr ""
+
+msgid "net %s"
+msgstr ""
+
+msgid "incl. VAT %s"
+msgstr ""
+
+msgid "Woo Wholesale Pro requires PHP %s or newer. The plugin is inactive."
+msgstr ""
+
+
+msgid "Page cache"
+msgstr ""
+
+msgid "Do not let a page cache store pages that show wholesale prices"
+msgstr ""
+
+msgid "Leave this on. Without it LiteSpeed Cache, WP Rocket and friends can serve the guest price to a logged-in wholesale customer. The plugin also tells LiteSpeed to keep a separate copy per role and clears the page cache whenever prices or rules change."
+msgstr ""

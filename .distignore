@@ -1,0 +1,12 @@
+.git
+.github
+.gitignore
+.distignore
+bin
+build
+dist
+node_modules
+vendor
+*.zip
+README.md
+CHANGELOG.md

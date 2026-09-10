@@ -1,0 +1,49 @@
+/* Woo Wholesale Pro – frontend styles */
+.wwpro-secondary-price {
+	display: block;
+	font-size: 0.8em;
+	font-weight: normal;
+	opacity: 0.8;
+}
+.wwpro-role-badge {
+	display: inline-block;
+	margin-left: 0.5em;
+	padding: 0.1em 0.5em;
+	border-radius: 3px;
+	background: rgba(0, 0, 0, 0.06);
+	font-size: 0.7em;
+	font-weight: normal;
+	vertical-align: middle;
+}
+.wwpro-tier-table {
+	margin: 1em 0;
+}
+.wwpro-tier-table .wwpro-tier-title {
+	margin: 0 0 0.4em;
+	font-size: 1em;
+}
+.wwpro-tier-table table {
+	width: auto;
+	min-width: 260px;
+	margin: 0;
+	border-collapse: collapse;
+}
+.wwpro-tier-table th,
+.wwpro-tier-table td {
+	padding: 0.35em 0.9em;
+	text-align: left;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.wwpro-tier-discount {
+	font-size: 0.85em;
+	opacity: 0.75;
+}
+.wwpro-tier-note {
+	font-size: 0.8em;
+	opacity: 0.75;
+	margin: 0.4em 0 0;
+}
+.woocommerce-cart-form .wwpro-secondary-price,
+.woocommerce-checkout .wwpro-secondary-price {
+	display: block;
+}
