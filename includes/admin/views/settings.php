@@ -74,6 +74,17 @@ $wwpro_settings = WWPro_Settings::all();
 		</tr>
 	</table>
 
+	<h2><?php esc_html_e( 'Caching', 'woo-wholesale' ); ?></h2>
+	<table class="form-table">
+		<tr>
+			<th><?php esc_html_e( 'Page cache', 'woo-wholesale' ); ?></th>
+			<td>
+				<label><input type="checkbox" name="settings[bypass_page_cache]" value="yes" <?php checked( 'yes', $wwpro_settings['bypass_page_cache'] ); ?> /> <?php esc_html_e( 'Do not let a page cache store pages that show wholesale prices', 'woo-wholesale' ); ?></label>
+				<p class="description"><?php esc_html_e( 'Leave this on. Without it LiteSpeed Cache, WP Rocket and friends can serve the guest price to a logged-in wholesale customer. The plugin also tells LiteSpeed to keep a separate copy per role and clears the page cache whenever prices or rules change.', 'woo-wholesale' ); ?></p>
+			</td>
+		</tr>
+	</table>
+
 	<h2><?php esc_html_e( 'Data', 'woo-wholesale' ); ?></h2>
 	<table class="form-table">
 		<tr>

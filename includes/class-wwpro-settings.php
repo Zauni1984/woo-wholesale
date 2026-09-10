@@ -50,6 +50,8 @@ class WWPro_Settings {
 			'show_tier_table'          => 'yes',
 			// Show a small "Your price" note next to wholesale prices.
 			'show_role_badge'          => 'no',
+			// Keep wholesale pages out of the public page cache (LiteSpeed, WP Rocket, ...).
+			'bypass_page_cache'        => 'yes',
 			// Remove all plugin data when the plugin is deleted.
 			'delete_data_on_uninstall' => 'no',
 		);
@@ -100,7 +102,7 @@ class WWPro_Settings {
 		$defaults = self::defaults();
 		$clean    = self::all();
 
-		$yes_no = array( 'never_above_retail', 'hide_sale_badge', 'secondary_price_in_cart', 'show_tier_table', 'show_role_badge', 'delete_data_on_uninstall' );
+		$yes_no = array( 'never_above_retail', 'hide_sale_badge', 'secondary_price_in_cart', 'show_tier_table', 'show_role_badge', 'bypass_page_cache', 'delete_data_on_uninstall' );
 		foreach ( $yes_no as $key ) {
 			$clean[ $key ] = ( isset( $raw[ $key ] ) && 'yes' === $raw[ $key ] ) ? 'yes' : 'no';
 		}
@@ -144,6 +146,13 @@ class WWPro_Settings {
 		if ( class_exists( 'WWPro_Pricing' ) ) {
 			WWPro_Pricing::flush_runtime_cache();
 		}
+
+		/**
+		 * Fires when the wholesale price caches were invalidated.
+		 *
+		 * Page caches store rendered prices, so they have to follow.
+		 */
+		do_action( 'wwpro_cache_version_bumped' );
 	}
 
 	/**

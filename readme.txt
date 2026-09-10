@@ -6,7 +6,7 @@ Tested up to: 6.8
 Requires PHP: 7.4
 WC requires at least: 7.0
 WC tested up to: 11.1
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -30,6 +30,9 @@ Role-based wholesale pricing for WooCommerce with per-product prices, category a
 3. Assign a wholesale role to a user under Users > Edit user.
 
 == Changelog ==
+
+= 1.0.4 =
+* Fix: page caches such as LiteSpeed Cache could serve the guest price to a logged-in wholesale customer. Wholesale pages are now kept out of the public page cache, LiteSpeed keeps a separate copy per role, and the page cache is cleared whenever prices or rules change.
 
 = 1.0.3 =
 * Wholesale prices are registered for the REST API and exposed as WordPress abilities, so MCP connectors such as Easy MCP AI can read and fill them in.

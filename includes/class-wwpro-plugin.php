@@ -85,6 +85,9 @@ final class WWPro_Plugin {
 		WWPro_Frontend::init();
 		WWPro_Cart::init();
 
+		// Page caches must not hand a wholesale price to the wrong visitor.
+		WWPro_Cache::init();
+
 		// Makes the prices reachable for REST clients and AI connectors.
 		WWPro_Rest::init();
 		WWPro_Abilities::init();
@@ -125,6 +128,7 @@ final class WWPro_Plugin {
 		require_once WWPRO_PATH . 'includes/class-wwpro-pricing.php';
 		require_once WWPRO_PATH . 'includes/class-wwpro-frontend.php';
 		require_once WWPRO_PATH . 'includes/class-wwpro-cart.php';
+		require_once WWPRO_PATH . 'includes/class-wwpro-cache.php';
 		require_once WWPRO_PATH . 'includes/class-wwpro-importer.php';
 		require_once WWPRO_PATH . 'includes/class-wwpro-rest.php';
 		require_once WWPRO_PATH . 'includes/class-wwpro-abilities.php';

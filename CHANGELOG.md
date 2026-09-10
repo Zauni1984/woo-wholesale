@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.4 – 2026-09-10
+
+- **Fix:** Seiten-Caches (LiteSpeed Cache, WP Rocket, W3 Total Cache, WP Super Cache) konnten einem eingeloggten Großhandelskunden den Gastpreis ausliefern – der richtige Preis erschien erst nach dem Leeren des Caches.
+  - Seiten mit Großhandelspreisen werden nicht mehr im öffentlichen Seiten-Cache abgelegt (neue Einstellung *Caching → Seiten-Cache*, standardmäßig an).
+  - LiteSpeed bekommt über den Filter `litespeed_vary` je Rolle einen eigenen Cache-Eintrag, damit eine bereits gecachte Gastseite nicht an eine Großhandelsrolle ausgeliefert wird.
+  - Nach jeder Preis- oder Regeländerung wird zusätzlich der Seiten-Cache geleert (`wwpro_cache_version_bumped`).
+
 ## 1.0.3 – 2026-09-07
 
 - Kompatibilität mit **Easy MCP AI** und anderen REST-/KI-Connectoren: Die Preis- und Rabattfelder jeder Rolle sind jetzt für die REST-API registriert (Produkt, Variante und Kategorie), inklusive schreibgeschützter Übersicht `wwpro_wholesale_prices` am Produkt.

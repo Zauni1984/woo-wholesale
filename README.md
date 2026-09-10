@@ -69,9 +69,30 @@ Voraussetzungen: WordPress 6.2+, WooCommerce 7.0+, PHP 7.4+. HPOS und Block-Chec
 
 ## Hinweise
 
-- **Caching:** Großhandelspreise gelten nur für eingeloggte Nutzer. WP Rocket und LiteSpeed Cache liefern eingeloggten Nutzern standardmäßig keine gecachten Seiten aus. „Eingeloggte Nutzer cachen“ nicht ohne Cache-Variation nach Rolle aktivieren.
+- **Caching:** Großhandelspreise werden serverseitig gerendert, ein Seiten-Cache würde also eine Kopie an alle ausliefern. Das Plugin hält Seiten mit Großhandelspreisen deshalb aus dem öffentlichen Seiten-Cache heraus (*WooCommerce → Großhandel → Einstellungen → Caching*), gibt LiteSpeed über `litespeed_vary` je Rolle einen eigenen Cache-Eintrag und leert den Seiten-Cache nach jeder Preisänderung. Details unter *LiteSpeed Cache* weiter unten.
 - **Preisfilter/Sortierung im Shop** nutzen die WooCommerce-Lookup-Tabelle mit Standardpreisen. Das ist bei allen Rollenpreis-Plugins so.
 - **Germanized:** Grundpreise (`_unit_price`) werden von Germanized in aktuellen Versionen aus dem angezeigten Preis neu berechnet. Bitte im Frontend einmal prüfen.
+
+### LiteSpeed Cache
+
+Symptom: Man ruft ein Produkt als Gast auf, meldet sich danach als B2B-Kunde an – und sieht weiter den Endkundenpreis. Erst das Leeren des Caches bringt den richtigen Preis. Ursache: LiteSpeed beantwortet die Anfrage auf Server-Ebene aus dem Cache, PHP läuft dabei gar nicht mehr. Welche Kopie ausgeliefert wird, entscheidet allein das Cookie `_lscache_vary`.
+
+Was das Plugin dagegen tut:
+
+- **`litespeed_vary`:** Die aktive Großhandelsrolle wird Teil der Vary. Jede Rolle bekommt damit ihren eigenen Cache-Eintrag, und eine als Gast gecachte Seite wird nicht mehr an einen B2B-Kunden ausgeliefert. Für Gast-Aufrufe wird nichts hinzugefügt – die öffentliche Kopie bleibt cachebar.
+- **`DONOTCACHEPAGE` + `litespeed_control_set_nocache`:** Solange eine Großhandelsrolle aktiv ist, wird die Seite gar nicht erst abgelegt (abschaltbar unter *Einstellungen → Caching*).
+- **Purge:** Preis-, Rabatt- oder Regeländerungen lösen `litespeed_purge_all` aus (ebenso WP Rocket, W3 Total Cache, WP Super Cache).
+
+Zusätzlich in LiteSpeed prüfen:
+
+| Einstellung | Empfehlung |
+| --- | --- |
+| Cache → *Eingeloggte Benutzer cachen* | Aus, solange nicht sicher ist, dass die Vary greift |
+| Cache → *Guest Mode* / *Guest Optimization* | Aus – liefert unbekannten Besuchern eine vorgenerierte Gastseite |
+| Cache → *Rolle nicht cachen* | Großhandelsrollen eintragen, wenn du ganz sichergehen willst |
+| Nach der Umstellung | Einmal *Alles leeren* |
+
+Ob die Vary greift, sieht man im Browser am Cookie `_lscache_vary`: Es muss sich unterscheiden, je nachdem ob man als Gast oder als Großhandelskunde eingeloggt ist.
 
 ## KI-Assistenten (Easy MCP AI, MCP, REST)
 
@@ -173,6 +194,7 @@ Die Rollenkonfiguration selbst wird nicht über MCP geschrieben, ist für das Ve
 | `wwpro_secondary_price_html` | Markup des Zweitpreises |
 | `wwpro_round_price` | Rundung |
 | `wwpro_role_saved`, `wwpro_role_deleted`, `wwpro_loaded` | Aktionen |
+| `wwpro_cache_version_bumped` | Preis-Caches wurden geleert – Anschluss für eigene Cache-Purges |
 
 Datenablage: Produktmeta `_wwpro_price_{rolle}`, `_wwpro_discount_{rolle}`, `_wwpro_tiers_{rolle}`; Kategorie-Termmeta gleichnamig; Optionen `wwpro_roles`, `wwpro_settings`; Bestellmeta `_wwpro_role`.
 

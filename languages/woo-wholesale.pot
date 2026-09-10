@@ -657,3 +657,12 @@ msgstr ""
 msgid "Woo Wholesale Pro requires PHP %s or newer. The plugin is inactive."
 msgstr ""
 
+
+msgid "Page cache"
+msgstr ""
+
+msgid "Do not let a page cache store pages that show wholesale prices"
+msgstr ""
+
+msgid "Leave this on. Without it LiteSpeed Cache, WP Rocket and friends can serve the guest price to a logged-in wholesale customer. The plugin also tells LiteSpeed to keep a separate copy per role and clears the page cache whenever prices or rules change."
+msgstr ""

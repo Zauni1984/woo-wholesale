@@ -657,3 +657,12 @@ msgstr "inkl. MwSt. %s"
 msgid "Woo Wholesale Pro requires PHP %s or newer. The plugin is inactive."
 msgstr "Woo Wholesale Pro benötigt PHP %s oder neuer. Das Plugin ist inaktiv."
 
+
+msgid "Page cache"
+msgstr "Seiten-Cache"
+
+msgid "Do not let a page cache store pages that show wholesale prices"
+msgstr "Seiten mit Großhandelspreisen nicht im Seiten-Cache speichern lassen"
+
+msgid "Leave this on. Without it LiteSpeed Cache, WP Rocket and friends can serve the guest price to a logged-in wholesale customer. The plugin also tells LiteSpeed to keep a separate copy per role and clears the page cache whenever prices or rules change."
+msgstr "Lass das eingeschaltet. Ohne diese Option können LiteSpeed Cache, WP Rocket und Co. einem eingeloggten Großhandelskunden den Gastpreis ausliefern. Das Plugin sagt LiteSpeed außerdem, dass es je Rolle eine eigene Kopie vorhalten soll, und leert den Seiten-Cache, sobald sich Preise oder Regeln ändern."
