@@ -161,13 +161,15 @@ endif;
 			<tr class="wwpro-type-woocommerce">
 				<th scope="row"><?php esc_html_e( 'Price markup of the partner', 'woo-wholesale' ); ?></th>
 				<td>
-					<label><input type="checkbox" name="partner[allow_markup]" value="yes" <?php checked( $wwpro_partner['allow_markup'], 'yes' ); ?> /> <?php esc_html_e( 'The partner may set its own sales price as a markup on the wholesale price', 'woo-wholesale' ); ?></label>
 					<p>
-						<label><?php esc_html_e( 'Lowest', 'woo-wholesale' ); ?> <input type="text" class="small-text" name="partner[markup_min]" value="<?php echo esc_attr( $wwpro_partner['markup_min'] ); ?>" /> %</label>
-						<label><?php esc_html_e( 'Highest', 'woo-wholesale' ); ?> <input type="text" class="small-text" name="partner[markup_max]" value="<?php echo esc_attr( $wwpro_partner['markup_max'] ); ?>" /> %</label>
-						<label><?php esc_html_e( 'Preset', 'woo-wholesale' ); ?> <input type="text" class="small-text" name="partner[markup_default]" value="<?php echo esc_attr( $wwpro_partner['markup_default'] ); ?>" /> %</label>
+						<label><?php esc_html_e( 'Highest markup', 'woo-wholesale' ); ?> <input type="text" class="small-text" name="partner[markup_max]" value="<?php echo esc_attr( $wwpro_partner['markup_max'] ); ?>" /> %</label>
+						<label><?php esc_html_e( 'Recommended markup', 'woo-wholesale' ); ?> <input type="text" class="small-text" name="partner[markup_recommended]" value="<?php echo esc_attr( $wwpro_partner['markup_recommended'] ); ?>" /> %</label>
 					</p>
-					<p class="description"><?php esc_html_e( 'A markup outside this range is refused in the partner shop. 0 % means the partner sells at the wholesale price. Enter a negative lowest value only if the partner may sell below it.', 'woo-wholesale' ); ?></p>
+					<p class="description"><?php esc_html_e( 'Both fields are optional. The highest markup is a ceiling the partner shop enforces; the recommendation only prefills the field there and is never enforced.', 'woo-wholesale' ); ?></p>
+					<p class="description">
+						<strong><?php esc_html_e( 'There is deliberately no lowest markup.', 'woo-wholesale' ); ?></strong>
+						<?php esc_html_e( 'A partner shop is an independent reseller and has to stay free to lower its price. Prescribing a minimum or a fixed resale price is resale price maintenance and is not permitted (Art. 101 TFEU, § 1 GWB). A maximum price and a recommendation are. This is how the plugin is built - please still check your own contracts with your lawyer.', 'woo-wholesale' ); ?>
+					</p>
 				</td>
 			</tr>
 		</table>

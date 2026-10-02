@@ -78,9 +78,6 @@ msgstr "Verbunden mit „%1$s“. %2$d Produkte stehen für dich bereit."
 msgid "The partner key was removed. Products already in this shop are kept."
 msgstr "Der Partnerschlüssel wurde entfernt. Produkte, die bereits in diesem Shop sind, bleiben erhalten."
 
-msgid "%d category markups were outside the range your supplier allows and were not saved."
-msgstr "%d Kategorie-Aufschläge lagen außerhalb des von deinem Lieferanten erlaubten Bereichs und wurden nicht gespeichert."
-
 msgid "Prices saved. Use \"Apply to products\" so the sales prices are recalculated."
 msgstr "Preise gespeichert. Mit „Auf Produkte anwenden“ werden die Verkaufspreise neu berechnet."
 
@@ -173,12 +170,6 @@ msgstr "Preisliste: %s"
 
 msgid "Your markup"
 msgstr "Dein Aufschlag"
-
-msgid "Not allowed - you sell at the purchase price."
-msgstr "Nicht erlaubt – du verkaufst zum Einkaufspreis."
-
-msgid "between %1$s %% and %2$s %%"
-msgstr "zwischen %1$s %% und %2$s %%"
 
 msgid "Maintained by your supplier"
 msgstr "Von deinem Lieferanten gepflegt"
@@ -312,12 +303,6 @@ msgstr "Deine Preise"
 msgid "Your sales price is the purchase price from your supplier plus your markup. Set one markup for the whole shop, or a different one per category - upwards or downwards."
 msgstr "Dein Verkaufspreis ist der Einkaufspreis deines Lieferanten plus dein Aufschlag. Setze einen Aufschlag für den ganzen Shop oder je Kategorie einen eigenen – nach oben oder nach unten."
 
-msgid "Your supplier does not allow an own markup. Products are sold at the purchase price."
-msgstr "Dein Lieferant erlaubt keinen eigenen Aufschlag. Die Produkte werden zum Einkaufspreis verkauft."
-
-msgid "Your supplier allows a markup between %1$s %% and %2$s %%."
-msgstr "Dein Lieferant erlaubt einen Aufschlag zwischen %1$s %% und %2$s %%."
-
 msgid "Change prices by percentage"
 msgstr "Preise prozentual ändern"
 
@@ -332,9 +317,6 @@ msgstr "Aufschlag erhöhen um"
 
 msgid "Markup down by"
 msgstr "Aufschlag senken um"
-
-msgid "Relative to the purchase price: 30 % means a purchase price of 10.00 becomes 13.00."
-msgstr "Bezogen auf den Einkaufspreis: 30 % bedeutet, aus einem Einkaufspreis von 10,00 werden 13,00."
 
 msgid "Products"
 msgstr "Produkte"
@@ -362,9 +344,6 @@ msgstr "Standardaufschlag und Rundung"
 
 msgid "Standard markup"
 msgstr "Standardaufschlag"
-
-msgid "Used for every product whose category has no markup of its own. A negative value sells below the purchase price, if your supplier allows it."
-msgstr "Gilt für jedes Produkt, dessen Kategorie keinen eigenen Aufschlag hat. Ein negativer Wert verkauft unter Einkaufspreis, sofern dein Lieferant das erlaubt."
 
 msgid "Rounding"
 msgstr "Rundung"
@@ -531,14 +510,8 @@ msgstr "Bilder fehlgeschlagen"
 msgid "The price change could not be read."
 msgstr "Die Preisänderung konnte nicht gelesen werden."
 
-msgid "The supplier does not allow an own markup in this shop."
-msgstr "Der Lieferant erlaubt in diesem Shop keinen eigenen Aufschlag."
-
 msgid "Please enter a percentage."
 msgstr "Bitte gib einen Prozentwert ein."
-
-msgid "The supplier allows a markup between %1$s %% and %2$s %%."
-msgstr "Der Lieferant erlaubt einen Aufschlag zwischen %1$s %% und %2$s %%."
 
 msgid "all products"
 msgstr "alle Produkte"
@@ -570,9 +543,6 @@ msgstr "Bitte gib den Partnerschlüssel ein, den du vom Lieferanten bekommen has
 msgid "Please enter a markup in percent."
 msgstr "Bitte gib einen Aufschlag in Prozent ein."
 
-msgid "The supplier does not allow an own markup. The wholesale price is used unchanged."
-msgstr "Der Lieferant erlaubt keinen eigenen Aufschlag. Der Großhandelspreis wird unverändert verwendet."
-
 msgid "Shop decimals (no extra rounding)"
 msgstr "Dezimalstellen des Shops (keine zusätzliche Rundung)"
 
@@ -599,3 +569,42 @@ msgstr "Das Produkt konnte nicht gespeichert werden."
 
 msgid "Woo Wholesale Partner requires PHP %s or newer. The plugin is inactive."
 msgstr "Woo Wholesale Partner benötigt PHP %s oder neuer. Das Plugin ist inaktiv."
+
+msgid "%d category markups were above the ceiling your supplier set and were not saved."
+msgstr "%d Kategorie-Aufschläge lagen über der Obergrenze deines Lieferanten und wurden nicht gespeichert."
+
+msgid "at most %s %%"
+msgstr "höchstens %s %%"
+
+msgid "no ceiling"
+msgstr "keine Obergrenze"
+
+msgid "Your supplier recommends %s %% - a suggestion, nothing more."
+msgstr "Dein Lieferant empfiehlt %s %% – ein Vorschlag, nicht mehr."
+
+msgid "Lowering your price is always your decision: a supplier may cap your price and may recommend one, but it cannot prescribe a minimum. The plugin has no setting for that."
+msgstr "Den Preis zu senken ist immer deine Entscheidung: Ein Lieferant darf deinen Preis nach oben begrenzen und einen empfehlen, aber keinen Mindestpreis vorschreiben. Das Plugin hat dafür keine Einstellung."
+
+msgid "Your supplier can cap the markup and can recommend one. It cannot prescribe a minimum: you are an independent reseller, and a prescribed minimum or fixed resale price would be resale price maintenance, which is not permitted (Art. 101 TFEU, § 1 GWB). So the way down is always open to you, down to below the purchase price."
+msgstr "Dein Lieferant kann den Aufschlag nach oben begrenzen und einen empfehlen. Einen Mindestpreis kann er nicht vorschreiben: Du bist selbstständiger Händler, und ein vorgeschriebener Mindest- oder Festpreis wäre Preisbindung der zweiten Hand und damit nicht zulässig (Art. 101 AEUV, § 1 GWB). Der Weg nach unten steht dir also immer offen, bis unter den Einkaufspreis."
+
+msgid "Your supplier caps the markup at %s %%. Below that you are free - including below the purchase price."
+msgstr "Dein Lieferant begrenzt den Aufschlag auf %s %%. Darunter bist du frei – auch unter dem Einkaufspreis."
+
+msgid "Your supplier set no ceiling. Your price is entirely your decision, upwards and downwards."
+msgstr "Dein Lieferant hat keine Obergrenze gesetzt. Dein Preis ist ganz deine Entscheidung, nach oben und nach unten."
+
+msgid "Recommendation of your supplier: %s %% - not binding."
+msgstr "Empfehlung deines Lieferanten: %s %% – nicht verbindlich."
+
+msgid "Relative to the purchase price: 30 % means a purchase price of 10.00 becomes 13.00. \"Markup down by\" sells below the purchase price - that is allowed, it is your price."
+msgstr "Bezogen auf den Einkaufspreis: 30 % bedeutet, aus einem Einkaufspreis von 10,00 werden 13,00. „Aufschlag senken um“ verkauft unter dem Einkaufspreis – das ist erlaubt, es ist dein Preis."
+
+msgid "Used for every product whose category has no markup of its own. A negative value sells below the purchase price."
+msgstr "Gilt für jedes Produkt, dessen Kategorie keinen eigenen Aufschlag hat. Ein negativer Wert verkauft unter dem Einkaufspreis."
+
+msgid "Your supplier caps the markup at %s %%."
+msgstr "Dein Lieferant begrenzt den Aufschlag auf %s %%."
+
+msgid "A markup below %s %% would leave almost no price at all."
+msgstr "Ein Aufschlag unter %s %% würde fast keinen Preis übrig lassen."

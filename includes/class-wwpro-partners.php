@@ -12,7 +12,14 @@
  *
  * Every partner carries a policy. The policy is what the partner shop may and
  * may not change locally, so the administrator of this shop stays in control of
- * product data and the partner can only move the price inside the agreed range.
+ * the product data.
+ *
+ * The policy deliberately cannot set a lowest or a fixed resale price. A
+ * partner shop is an independent reseller, and prescribing its minimum price is
+ * resale price maintenance - a hardcore restriction under Art. 101 TFEU and
+ * § 1 GWB. What a supplier may do is cap the price (a maximum resale price) and
+ * recommend one, so that is what the policy carries: an optional ceiling and a
+ * non-binding recommendation.
  *
  * Credentials are never stored in plain text: the API key of a partner is kept
  * as an HMAC, the Shopify token is encrypted with a key derived from the site
@@ -78,39 +85,40 @@ class WWPro_Partners {
 	 */
 	public static function defaults() {
 		return array(
-			'id'             => '',
-			'name'           => '',
-			'type'           => 'woocommerce',
-			'status'         => 'active',
+			'id'                 => '',
+			'name'               => '',
+			'type'               => 'woocommerce',
+			'status'             => 'active',
 			// Shop URL of a WooCommerce partner (informational, used for the admin link).
-			'site_url'       => '',
+			'site_url'           => '',
 			// Wholesale role whose prices this partner receives.
-			'role'           => '',
+			'role'               => '',
 			// Product categories the partner may receive (term IDs, empty = all).
-			'categories'     => array(),
+			'categories'         => array(),
 			// Only publish products that are in stock.
-			'in_stock_only'  => 'no',
+			'in_stock_only'      => 'no',
 			// Also send stock quantities.
-			'sync_stock'     => 'yes',
+			'sync_stock'         => 'yes',
 			// Credentials.
-			'key_hash'       => '',
-			'key_hint'       => '',
-			'key_created'    => 0,
+			'key_hash'           => '',
+			'key_hint'           => '',
+			'key_created'        => 0,
 			// Policy for the partner shop.
-			'lock_fields'    => array( 'title', 'description', 'images', 'categories', 'sku', 'attributes', 'delete' ),
-			'allow_markup'   => 'yes',
-			'markup_min'     => '0',
-			'markup_max'     => '200',
-			'markup_default' => '',
+			'lock_fields'        => array( 'title', 'description', 'images', 'categories', 'sku', 'attributes', 'delete' ),
+			// Highest markup the partner may apply ('' = no ceiling). A ceiling is
+			// a maximum resale price, which is allowed.
+			'markup_max'         => '',
+			// Non-binding price recommendation ('' = none).
+			'markup_recommended' => '',
 			// Shopify.
-			'shop_domain'    => '',
-			'token'          => '',
-			'token_hint'     => '',
+			'shop_domain'        => '',
+			'token'              => '',
+			'token_hint'         => '',
 			// Runtime state.
-			'last_sync'      => 0,
-			'last_seen'      => 0,
-			'last_error'     => '',
-			'stats'          => array(),
+			'last_sync'          => 0,
+			'last_seen'          => 0,
+			'last_error'         => '',
+			'stats'              => array(),
 		);
 	}
 
@@ -242,7 +250,6 @@ class WWPro_Partners {
 
 		$clean['in_stock_only'] = ( isset( $raw['in_stock_only'] ) && 'yes' === $raw['in_stock_only'] ) ? 'yes' : 'no';
 		$clean['sync_stock']    = ( isset( $raw['sync_stock'] ) && 'yes' === $raw['sync_stock'] ) ? 'yes' : 'no';
-		$clean['allow_markup']  = ( isset( $raw['allow_markup'] ) && 'yes' === $raw['allow_markup'] ) ? 'yes' : 'no';
 
 		$lock = array();
 		if ( isset( $raw['lock_fields'] ) && is_array( $raw['lock_fields'] ) ) {
@@ -255,24 +262,22 @@ class WWPro_Partners {
 		}
 		$clean['lock_fields'] = array_values( array_unique( $lock ) );
 
-		$min = self::sanitize_markup( isset( $raw['markup_min'] ) ? $raw['markup_min'] : '' );
-		$max = self::sanitize_markup( isset( $raw['markup_max'] ) ? $raw['markup_max'] : '' );
-		$def = self::sanitize_markup( isset( $raw['markup_default'] ) ? $raw['markup_default'] : '' );
+		// There is deliberately no lowest markup: a supplier may cap the resale
+		// price and may recommend one, but a minimum or fixed resale price is
+		// resale price maintenance and not permitted.
+		$max         = self::sanitize_markup( isset( $raw['markup_max'] ) ? $raw['markup_max'] : '' );
+		$recommended = self::sanitize_markup( isset( $raw['markup_recommended'] ) ? $raw['markup_recommended'] : '' );
 
-		$min = '' === $min ? '0' : $min;
-		$max = '' === $max ? '200' : $max;
-
-		if ( (float) $min > (float) $max ) {
-			return new WP_Error( 'wwpro_partner_markup', __( 'The lowest allowed markup must not be higher than the highest allowed markup.', 'woo-wholesale' ) );
+		if ( '' !== $max && (float) $max < 0 ) {
+			return new WP_Error( 'wwpro_partner_markup_max', __( 'The highest markup cannot be negative - that would force the partner to sell below the wholesale price.', 'woo-wholesale' ) );
 		}
 
-		if ( '' !== $def && ( (float) $def < (float) $min || (float) $def > (float) $max ) ) {
-			return new WP_Error( 'wwpro_partner_markup_default', __( 'The default markup must be inside the allowed range.', 'woo-wholesale' ) );
+		if ( '' !== $max && '' !== $recommended && (float) $recommended > (float) $max ) {
+			return new WP_Error( 'wwpro_partner_markup_recommended', __( 'The recommended markup must not be higher than the highest allowed markup.', 'woo-wholesale' ) );
 		}
 
-		$clean['markup_min']     = $min;
-		$clean['markup_max']     = $max;
-		$clean['markup_default'] = $def;
+		$clean['markup_max']         = $max;
+		$clean['markup_recommended'] = $recommended;
 
 		if ( 'shopify' === $clean['type'] ) {
 			$domain = isset( $raw['shop_domain'] ) ? self::sanitize_shop_domain( $raw['shop_domain'] ) : '';
@@ -299,10 +304,6 @@ class WWPro_Partners {
 
 	/**
 	 * Sanitize a markup percentage ('' allowed).
-	 *
-	 * Negative values are allowed so that an administrator can explicitly let a
-	 * partner sell below the wholesale price. The default lower bound is 0,
-	 * which is what keeps a partner from undercutting the agreed price.
 	 *
 	 * @param mixed $value Raw value.
 	 * @return string
@@ -550,17 +551,16 @@ class WWPro_Partners {
 	 * @return array
 	 */
 	public static function policy( $partner ) {
-		$allow = 'yes' === $partner['allow_markup'];
-
 		return array(
-			'locked_fields'   => array_values( (array) $partner['lock_fields'] ),
-			'allow_markup'    => $allow,
-			'markup_min'      => $allow ? (float) $partner['markup_min'] : 0.0,
-			'markup_max'      => $allow ? (float) $partner['markup_max'] : 0.0,
-			'markup_default'  => '' === $partner['markup_default'] ? null : (float) $partner['markup_default'],
-			'sync_stock'      => 'yes' === $partner['sync_stock'],
-			'price_decimals'  => wc_get_price_decimals(),
-			'currency'        => get_woocommerce_currency(),
+			'locked_fields'      => array_values( (array) $partner['lock_fields'] ),
+			// null means the partner has no ceiling at all.
+			'markup_max'         => '' === $partner['markup_max'] ? null : (float) $partner['markup_max'],
+			// A recommendation only: it prefills the field in the partner shop and
+			// is never enforced.
+			'markup_recommended' => '' === $partner['markup_recommended'] ? null : (float) $partner['markup_recommended'],
+			'sync_stock'         => 'yes' === $partner['sync_stock'],
+			'price_decimals'     => wc_get_price_decimals(),
+			'currency'           => get_woocommerce_currency(),
 		);
 	}
 

@@ -25,6 +25,7 @@ defined( 'ABSPATH' ) || exit;
 
 <h3><?php esc_html_e( 'How your price is calculated', 'woo-wholesale-partner' ); ?></h3>
 <p><?php esc_html_e( 'Sales price = purchase price × (1 + markup ÷ 100), then rounded the way you chose. The markup of the most specific category of a product wins; if no category has one, the standard markup is used.', 'woo-wholesale-partner' ); ?></p>
+<p><?php esc_html_e( 'Your supplier can cap the markup and can recommend one. It cannot prescribe a minimum: you are an independent reseller, and a prescribed minimum or fixed resale price would be resale price maintenance, which is not permitted (Art. 101 TFEU, § 1 GWB). So the way down is always open to you, down to below the purchase price.', 'woo-wholesale-partner' ); ?></p>
 <p><?php esc_html_e( 'A price you type into a product by hand is replaced the next time prices are recalculated. If you want to keep a special price for one article, use a sale price - a sale price below the calculated price is left alone.', 'woo-wholesale-partner' ); ?></p>
 
 <h3><?php esc_html_e( 'Why some fields cannot be edited', 'woo-wholesale-partner' ); ?></h3>

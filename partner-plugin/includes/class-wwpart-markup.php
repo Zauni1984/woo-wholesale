@@ -3,10 +3,14 @@
  * Sales price of the partner shop.
  *
  * The supplier delivers the wholesale price. The sales price of this shop is
- * that price plus the partner's markup, which can be set for the whole
- * catalogue or per product category - upwards or downwards. The supplier's
- * policy sets the range the markup has to stay in, so the partner cannot
- * undercut the agreed price unless the supplier allows it.
+ * that price plus the markup, which can be set for the whole catalogue or per
+ * product category - upwards or downwards.
+ *
+ * Only a ceiling from the supplier is enforced, and only if it sent one. The
+ * way down is never blocked: a supplier may cap a reseller's price and may
+ * recommend one, but prescribing a minimum or fixed resale price is resale
+ * price maintenance (Art. 101 TFEU, § 1 GWB). The only floor is the technical
+ * one in WWPart_Settings::MIN_MARKUP, so that a price keeps a remainder.
  *
  * Applying a markup runs in batches, so a large catalogue finishes without a
  * timeout and the screen can show a progress bar.
@@ -36,12 +40,6 @@ class WWPart_Markup {
 	 * @return float
 	 */
 	public static function for_product( $product_id ) {
-		$policy = WWPart_Settings::policy();
-
-		if ( ! $policy['allow_markup'] ) {
-			return 0.0;
-		}
-
 		$markup = self::category_markup( $product_id );
 
 		if ( null === $markup ) {
@@ -112,19 +110,25 @@ class WWPart_Markup {
 	}
 
 	/**
-	 * Keep a markup inside the range the supplier allows.
+	 * Cap a markup at the supplier's ceiling, if it set one.
+	 *
+	 * Downwards there is only the technical floor: a supplier cannot prescribe a
+	 * minimum resale price, so this shop stays free to lower its price.
 	 *
 	 * @param float $markup Markup in percent.
 	 * @return float
 	 */
 	public static function clamp( $markup ) {
 		$policy = WWPart_Settings::policy();
+		$markup = (float) $markup;
 
-		if ( ! $policy['allow_markup'] ) {
-			return 0.0;
+		// A ceiling below zero would be a forced sale under the purchase price,
+		// so it is ignored however it got into the stored policy.
+		if ( null !== $policy['markup_max'] && (float) $policy['markup_max'] >= 0 ) {
+			$markup = min( (float) $policy['markup_max'], $markup );
 		}
 
-		return (float) max( $policy['markup_min'], min( $policy['markup_max'], (float) $markup ) );
+		return (float) max( WWPart_Settings::MIN_MARKUP, $markup );
 	}
 
 	/**
@@ -296,12 +300,7 @@ class WWPart_Markup {
 			return new WP_Error( 'wwpart_job', __( 'The price change could not be read.', 'woo-wholesale-partner' ) );
 		}
 
-		$policy = WWPart_Settings::policy();
-
-		if ( ! $policy['allow_markup'] ) {
-			return new WP_Error( 'wwpart_job_blocked', __( 'The supplier does not allow an own markup in this shop.', 'woo-wholesale-partner' ) );
-		}
-
+		$policy  = WWPart_Settings::policy();
 		$percent = WWPart_Settings::sanitize_percent( isset( $raw['percent'] ) ? $raw['percent'] : '' );
 		if ( '' === $percent ) {
 			return new WP_Error( 'wwpart_job_percent', __( 'Please enter a percentage.', 'woo-wholesale-partner' ) );
@@ -310,14 +309,24 @@ class WWPart_Markup {
 		$direction = ( isset( $raw['direction'] ) && 'down' === $raw['direction'] ) ? 'down' : 'up';
 		$markup    = ( 'down' === $direction ) ? -1 * abs( (float) $percent ) : abs( (float) $percent );
 
-		if ( $markup < $policy['markup_min'] || $markup > $policy['markup_max'] ) {
+		if ( null !== $policy['markup_max'] && (float) $policy['markup_max'] >= 0 && $markup > $policy['markup_max'] ) {
 			return new WP_Error(
 				'wwpart_job_range',
 				sprintf(
-					/* translators: 1: lowest allowed markup, 2: highest allowed markup */
-					__( 'The supplier allows a markup between %1$s %% and %2$s %%.', 'woo-wholesale-partner' ),
-					wc_format_localized_decimal( $policy['markup_min'] ),
+					/* translators: %s: highest allowed markup */
+					__( 'Your supplier caps the markup at %s %%.', 'woo-wholesale-partner' ),
 					wc_format_localized_decimal( $policy['markup_max'] )
+				)
+			);
+		}
+
+		if ( $markup < WWPart_Settings::MIN_MARKUP ) {
+			return new WP_Error(
+				'wwpart_job_floor',
+				sprintf(
+					/* translators: %s: deepest accepted markup */
+					__( 'A markup below %s %% would leave almost no price at all.', 'woo-wholesale-partner' ),
+					wc_format_localized_decimal( WWPart_Settings::MIN_MARKUP )
 				)
 			);
 		}

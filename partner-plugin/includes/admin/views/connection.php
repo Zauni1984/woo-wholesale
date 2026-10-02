@@ -99,18 +99,32 @@ $wwpart_locked   = WWPart_Lock::locked_labels();
 			<tr>
 				<th scope="row"><?php esc_html_e( 'Your markup', 'woo-wholesale-partner' ); ?></th>
 				<td>
-					<?php if ( ! $wwpart_policy['allow_markup'] ) : ?>
-						<?php esc_html_e( 'Not allowed - you sell at the purchase price.', 'woo-wholesale-partner' ); ?>
-					<?php else : ?>
+					<?php if ( null !== $wwpart_policy['markup_max'] ) : ?>
 						<?php
 						printf(
-							/* translators: 1: lowest allowed markup, 2: highest allowed markup */
-							esc_html__( 'between %1$s %% and %2$s %%', 'woo-wholesale-partner' ),
-							esc_html( wc_format_localized_decimal( $wwpart_policy['markup_min'] ) ),
+							/* translators: %s: highest allowed markup */
+							esc_html__( 'at most %s %%', 'woo-wholesale-partner' ),
 							esc_html( wc_format_localized_decimal( $wwpart_policy['markup_max'] ) )
 						);
 						?>
+					<?php else : ?>
+						<?php esc_html_e( 'no ceiling', 'woo-wholesale-partner' ); ?>
 					<?php endif; ?>
+
+					<?php if ( null !== $wwpart_policy['markup_recommended'] ) : ?>
+						<br />
+						<span class="description">
+							<?php
+							printf(
+								/* translators: %s: recommended markup */
+								esc_html__( 'Your supplier recommends %s %% - a suggestion, nothing more.', 'woo-wholesale-partner' ),
+								esc_html( wc_format_localized_decimal( $wwpart_policy['markup_recommended'] ) )
+							);
+							?>
+						</span>
+					<?php endif; ?>
+
+					<p class="description"><?php esc_html_e( 'Lowering your price is always your decision: a supplier may cap your price and may recommend one, but it cannot prescribe a minimum. The plugin has no setting for that.', 'woo-wholesale-partner' ); ?></p>
 				</td>
 			</tr>
 			<tr>

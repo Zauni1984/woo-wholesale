@@ -35,7 +35,7 @@ defined( 'ABSPATH' ) || exit;
 		<li><?php esc_html_e( 'WooCommerce partners install the companion plugin "Woo Wholesale Partner" and pull products, images and prices from here with their partner key. Both plugins belong to the same release and should always be updated together.', 'woo-wholesale' ); ?></li>
 		<li><?php esc_html_e( 'Shopify partners do not install anything: you push products, prices and images into their store through the Shopify Admin API.', 'woo-wholesale' ); ?></li>
 		<li><?php esc_html_e( 'A partner key is only stored as a fingerprint here, so it can be replaced but never read again. A Shopify token is stored encrypted.', 'woo-wholesale' ); ?></li>
-		<li><?php esc_html_e( 'The partner sets its own sales price as a markup on your wholesale price, inside the range you allow. 0 % as the lowest value keeps a partner from undercutting your price.', 'woo-wholesale' ); ?></li>
+		<li><?php esc_html_e( 'The partner sets its own sales price as a markup on your wholesale price. You can cap that markup and you can recommend one - but you cannot set a lowest or a fixed resale price: that would be resale price maintenance, which is not permitted (Art. 101 TFEU, § 1 GWB). The plugin therefore offers no such setting.', 'woo-wholesale' ); ?></li>
 	</ul>
 
 	<h2><?php esc_html_e( 'Changing many prices at once', 'woo-wholesale' ); ?></h2>

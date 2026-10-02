@@ -23,22 +23,31 @@ $wwpart_cats     = is_wp_error( $wwpart_cats ) ? array() : $wwpart_cats;
 	<?php esc_html_e( 'Your sales price is the purchase price from your supplier plus your markup. Set one markup for the whole shop, or a different one per category - upwards or downwards.', 'woo-wholesale-partner' ); ?>
 </p>
 
-<?php if ( ! $wwpart_policy['allow_markup'] ) : ?>
-	<div class="notice notice-warning inline">
-		<p><?php esc_html_e( 'Your supplier does not allow an own markup. Products are sold at the purchase price.', 'woo-wholesale-partner' ); ?></p>
-	</div>
-<?php else : ?>
-	<p>
+<p>
+	<?php if ( null !== $wwpart_policy['markup_max'] ) : ?>
 		<?php
 		printf(
-			/* translators: 1: lowest allowed markup, 2: highest allowed markup */
-			esc_html__( 'Your supplier allows a markup between %1$s %% and %2$s %%.', 'woo-wholesale-partner' ),
-			esc_html( wc_format_localized_decimal( $wwpart_policy['markup_min'] ) ),
+			/* translators: %s: highest allowed markup */
+			esc_html__( 'Your supplier caps the markup at %s %%. Below that you are free - including below the purchase price.', 'woo-wholesale-partner' ),
 			esc_html( wc_format_localized_decimal( $wwpart_policy['markup_max'] ) )
 		);
 		?>
-	</p>
-<?php endif; ?>
+	<?php else : ?>
+		<?php esc_html_e( 'Your supplier set no ceiling. Your price is entirely your decision, upwards and downwards.', 'woo-wholesale-partner' ); ?>
+	<?php endif; ?>
+	<?php if ( null !== $wwpart_policy['markup_recommended'] ) : ?>
+		<br />
+		<span class="description">
+			<?php
+			printf(
+				/* translators: %s: recommended markup */
+				esc_html__( 'Recommendation of your supplier: %s %% - not binding.', 'woo-wholesale-partner' ),
+				esc_html( wc_format_localized_decimal( $wwpart_policy['markup_recommended'] ) )
+			);
+			?>
+		</span>
+	<?php endif; ?>
+</p>
 
 <h3><?php esc_html_e( 'Change prices by percentage', 'woo-wholesale-partner' ); ?></h3>
 <p class="description">
@@ -55,7 +64,7 @@ $wwpart_cats     = is_wp_error( $wwpart_cats ) ? array() : $wwpart_cats;
 					<option value="down"><?php esc_html_e( 'Markup down by', 'woo-wholesale-partner' ); ?></option>
 				</select>
 				<input type="text" class="small-text" id="wwpart-percent" value="<?php echo esc_attr( ltrim( (string) $wwpart_settings['markup'], '-' ) ); ?>" /> %
-				<p class="description"><?php esc_html_e( 'Relative to the purchase price: 30 % means a purchase price of 10.00 becomes 13.00.', 'woo-wholesale-partner' ); ?></p>
+				<p class="description"><?php esc_html_e( 'Relative to the purchase price: 30 % means a purchase price of 10.00 becomes 13.00. "Markup down by" sells below the purchase price - that is allowed, it is your price.', 'woo-wholesale-partner' ); ?></p>
 			</td>
 		</tr>
 		<tr>
@@ -77,7 +86,7 @@ $wwpart_cats     = is_wp_error( $wwpart_cats ) ? array() : $wwpart_cats;
 	</table>
 
 	<p>
-		<button type="button" class="button button-primary" id="wwpart-markup-start" <?php disabled( ! $wwpart_policy['allow_markup'] ); ?>><?php esc_html_e( 'Apply to products', 'woo-wholesale-partner' ); ?></button>
+		<button type="button" class="button button-primary" id="wwpart-markup-start"><?php esc_html_e( 'Apply to products', 'woo-wholesale-partner' ); ?></button>
 	</p>
 
 	<div id="wwpart-markup-progress" class="wwpart-progress" hidden>
@@ -100,7 +109,7 @@ $wwpart_cats     = is_wp_error( $wwpart_cats ) ? array() : $wwpart_cats;
 			<th scope="row"><label for="wwpart-markup"><?php esc_html_e( 'Standard markup', 'woo-wholesale-partner' ); ?></label></th>
 			<td>
 				<input type="text" class="small-text" id="wwpart-markup" name="prices[markup]" value="<?php echo esc_attr( $wwpart_settings['markup'] ); ?>" /> %
-				<p class="description"><?php esc_html_e( 'Used for every product whose category has no markup of its own. A negative value sells below the purchase price, if your supplier allows it.', 'woo-wholesale-partner' ); ?></p>
+				<p class="description"><?php esc_html_e( 'Used for every product whose category has no markup of its own. A negative value sells below the purchase price.', 'woo-wholesale-partner' ); ?></p>
 			</td>
 		</tr>
 		<tr>
@@ -138,7 +147,7 @@ $wwpart_cats     = is_wp_error( $wwpart_cats ) ? array() : $wwpart_cats;
 					</td>
 					<td><?php echo esc_html( number_format_i18n( (int) $wwpart_cat->count ) ); ?></td>
 					<td>
-						<input type="text" class="small-text" name="category_markup[<?php echo esc_attr( $wwpart_cat->term_id ); ?>]" value="<?php echo esc_attr( WWPart_Settings::category_markup( $wwpart_cat->term_id ) ); ?>" <?php disabled( ! $wwpart_policy['allow_markup'] ); ?> /> %
+						<input type="text" class="small-text" name="category_markup[<?php echo esc_attr( $wwpart_cat->term_id ); ?>]" value="<?php echo esc_attr( WWPart_Settings::category_markup( $wwpart_cat->term_id ) ); ?>" /> %
 					</td>
 				</tr>
 			<?php endforeach; ?>

@@ -819,21 +819,6 @@ msgstr "Das Partner-Plugin sperrt diese Felder bei jedem Produkt, das es von hie
 msgid "Price markup of the partner"
 msgstr "Preisaufschlag des Partners"
 
-msgid "The partner may set its own sales price as a markup on the wholesale price"
-msgstr "Der Partner darf seinen Verkaufspreis als Aufschlag auf den Großhandelspreis festlegen"
-
-msgid "Lowest"
-msgstr "Minimum"
-
-msgid "Highest"
-msgstr "Maximum"
-
-msgid "Preset"
-msgstr "Vorgabe"
-
-msgid "A markup outside this range is refused in the partner shop. 0 % means the partner sells at the wholesale price. Enter a negative lowest value only if the partner may sell below it."
-msgstr "Ein Aufschlag außerhalb dieses Bereichs wird im Partnershop abgelehnt. 0 % bedeutet, der Partner verkauft zum Großhandelspreis. Ein negatives Minimum nur eintragen, wenn der Partner darunter verkaufen darf."
-
 msgid "Create partner shop"
 msgstr "Partnershop anlegen"
 
@@ -1032,12 +1017,6 @@ msgstr "Bitte wähle die Großhandelsrolle, deren Preise dieser Partner erhält.
 msgid "Please enter a valid shop URL (including https://)."
 msgstr "Bitte gib eine gültige Shop-URL ein (inklusive https://)."
 
-msgid "The lowest allowed markup must not be higher than the highest allowed markup."
-msgstr "Der kleinste erlaubte Aufschlag darf nicht höher sein als der größte erlaubte Aufschlag."
-
-msgid "The default markup must be inside the allowed range."
-msgstr "Der vorgegebene Aufschlag muss innerhalb des erlaubten Bereichs liegen."
-
 msgid "Please enter the Shopify domain of the partner, for example partner.myshopify.com."
 msgstr "Bitte gib die Shopify-Domain des Partners ein, zum Beispiel partner.myshopify.com."
 
@@ -1083,9 +1062,6 @@ msgstr "Shopify-Partner installieren nichts: Du überträgst Produkte, Preise un
 msgid "A partner key is only stored as a fingerprint here, so it can be replaced but never read again. A Shopify token is stored encrypted."
 msgstr "Ein Partnerschlüssel wird hier nur als Fingerabdruck gespeichert – er lässt sich ersetzen, aber nie wieder lesen. Ein Shopify-Token wird verschlüsselt gespeichert."
 
-msgid "The partner sets its own sales price as a markup on your wholesale price, inside the range you allow. 0 % as the lowest value keeps a partner from undercutting your price."
-msgstr "Der Partner legt seinen Verkaufspreis als Aufschlag auf deinen Großhandelspreis fest, innerhalb des Bereichs, den du erlaubst. 0 % als Minimum verhindert, dass ein Partner deinen Preis unterbietet."
-
 msgid "Changing many prices at once"
 msgstr "Viele Preise auf einmal ändern"
 
@@ -1097,3 +1073,27 @@ msgstr "was ein Partnershop erhält"
 
 msgid "a single price produced by the bulk price change"
 msgstr "ein einzelner Preis aus der Sammel-Preisänderung"
+
+msgid "The partner sets its own sales price as a markup on your wholesale price. You can cap that markup and you can recommend one - but you cannot set a lowest or a fixed resale price: that would be resale price maintenance, which is not permitted (Art. 101 TFEU, § 1 GWB). The plugin therefore offers no such setting."
+msgstr "Der Partner legt seinen Verkaufspreis als Aufschlag auf deinen Großhandelspreis fest. Du kannst diesen Aufschlag nach oben begrenzen und einen empfehlen – aber keinen Mindest- oder Festpreis vorgeben: Das wäre Preisbindung der zweiten Hand und ist nicht zulässig (Art. 101 AEUV, § 1 GWB). Das Plugin bietet dafür deshalb keine Einstellung."
+
+msgid "Highest markup"
+msgstr "Höchstaufschlag"
+
+msgid "Recommended markup"
+msgstr "Empfohlener Aufschlag"
+
+msgid "Both fields are optional. The highest markup is a ceiling the partner shop enforces; the recommendation only prefills the field there and is never enforced."
+msgstr "Beide Felder sind optional. Der Höchstaufschlag ist eine Obergrenze, die der Partnershop durchsetzt; die Empfehlung füllt dort nur das Feld vor und wird nie erzwungen."
+
+msgid "There is deliberately no lowest markup."
+msgstr "Einen Mindestaufschlag gibt es bewusst nicht."
+
+msgid "A partner shop is an independent reseller and has to stay free to lower its price. Prescribing a minimum or a fixed resale price is resale price maintenance and is not permitted (Art. 101 TFEU, § 1 GWB). A maximum price and a recommendation are. This is how the plugin is built - please still check your own contracts with your lawyer."
+msgstr "Ein Partnershop ist ein selbstständiger Händler und muss seinen Preis senken können. Einen Mindest- oder Festpreis vorzuschreiben ist Preisbindung der zweiten Hand und nicht zulässig (Art. 101 AEUV, § 1 GWB). Ein Höchstpreis und eine Empfehlung sind es. So ist das Plugin gebaut – prüfe deine Verträge trotzdem mit deinem Anwalt."
+
+msgid "The highest markup cannot be negative - that would force the partner to sell below the wholesale price."
+msgstr "Der Höchstaufschlag darf nicht negativ sein – das würde den Partner zwingen, unter dem Großhandelspreis zu verkaufen."
+
+msgid "The recommended markup must not be higher than the highest allowed markup."
+msgstr "Der empfohlene Aufschlag darf nicht höher sein als der Höchstaufschlag."

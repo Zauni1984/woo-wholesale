@@ -326,12 +326,13 @@ class WWPart_Admin {
 
 		WWPart_Settings::set( $fields );
 
-		// A fresh connection may come with a markup the supplier suggests.
+		// A fresh connection may come with a markup the supplier recommends. It is
+		// only used to prefill an empty field - the price stays this shop's call.
 		$policy = WWPart_Settings::policy();
 		$markup = WWPart_Settings::get( 'markup' );
 
-		if ( null !== $policy['markup_default'] && ( '' === $markup || ! is_numeric( $markup ) ) ) {
-			WWPart_Settings::set( array( 'markup' => (string) $policy['markup_default'] ) );
+		if ( null !== $policy['markup_recommended'] && ( '' === $markup || ! is_numeric( $markup ) ) ) {
+			WWPart_Settings::set( array( 'markup' => (string) $policy['markup_recommended'] ) );
 		}
 	}
 
@@ -382,7 +383,8 @@ class WWPart_Admin {
 
 			$clean = WWPart_Settings::sanitize_percent( $value );
 
-			if ( '' !== $clean && ( (float) $clean < $policy['markup_min'] || (float) $clean > $policy['markup_max'] ) ) {
+			// Only the supplier's ceiling is enforced; a lower markup is allowed.
+			if ( '' !== $clean && null !== $policy['markup_max'] && (float) $clean > $policy['markup_max'] ) {
 				++$rejected;
 				continue;
 			}
@@ -394,7 +396,7 @@ class WWPart_Admin {
 			self::add_notice(
 				sprintf(
 					/* translators: %d: number of categories */
-					__( '%d category markups were outside the range your supplier allows and were not saved.', 'woo-wholesale-partner' ),
+					__( '%d category markups were above the ceiling your supplier set and were not saved.', 'woo-wholesale-partner' ),
 					(int) $rejected
 				),
 				'warning'

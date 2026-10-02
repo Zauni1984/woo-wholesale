@@ -73,9 +73,6 @@ msgstr ""
 msgid "The partner key was removed. Products already in this shop are kept."
 msgstr ""
 
-msgid "%d category markups were outside the range your supplier allows and were not saved."
-msgstr ""
-
 msgid "Prices saved. Use \"Apply to products\" so the sales prices are recalculated."
 msgstr ""
 
@@ -167,12 +164,6 @@ msgid "Price list: %s"
 msgstr ""
 
 msgid "Your markup"
-msgstr ""
-
-msgid "Not allowed - you sell at the purchase price."
-msgstr ""
-
-msgid "between %1$s %% and %2$s %%"
 msgstr ""
 
 msgid "Maintained by your supplier"
@@ -307,12 +298,6 @@ msgstr ""
 msgid "Your sales price is the purchase price from your supplier plus your markup. Set one markup for the whole shop, or a different one per category - upwards or downwards."
 msgstr ""
 
-msgid "Your supplier does not allow an own markup. Products are sold at the purchase price."
-msgstr ""
-
-msgid "Your supplier allows a markup between %1$s %% and %2$s %%."
-msgstr ""
-
 msgid "Change prices by percentage"
 msgstr ""
 
@@ -326,9 +311,6 @@ msgid "Markup up by"
 msgstr ""
 
 msgid "Markup down by"
-msgstr ""
-
-msgid "Relative to the purchase price: 30 % means a purchase price of 10.00 becomes 13.00."
 msgstr ""
 
 msgid "Products"
@@ -356,9 +338,6 @@ msgid "Standard markup and rounding"
 msgstr ""
 
 msgid "Standard markup"
-msgstr ""
-
-msgid "Used for every product whose category has no markup of its own. A negative value sells below the purchase price, if your supplier allows it."
 msgstr ""
 
 msgid "Rounding"
@@ -526,13 +505,7 @@ msgstr ""
 msgid "The price change could not be read."
 msgstr ""
 
-msgid "The supplier does not allow an own markup in this shop."
-msgstr ""
-
 msgid "Please enter a percentage."
-msgstr ""
-
-msgid "The supplier allows a markup between %1$s %% and %2$s %%."
 msgstr ""
 
 msgid "all products"
@@ -565,9 +538,6 @@ msgstr ""
 msgid "Please enter a markup in percent."
 msgstr ""
 
-msgid "The supplier does not allow an own markup. The wholesale price is used unchanged."
-msgstr ""
-
 msgid "Shop decimals (no extra rounding)"
 msgstr ""
 
@@ -593,4 +563,43 @@ msgid "The product could not be saved."
 msgstr ""
 
 msgid "Woo Wholesale Partner requires PHP %s or newer. The plugin is inactive."
+msgstr ""
+
+msgid "%d category markups were above the ceiling your supplier set and were not saved."
+msgstr ""
+
+msgid "at most %s %%"
+msgstr ""
+
+msgid "no ceiling"
+msgstr ""
+
+msgid "Your supplier recommends %s %% - a suggestion, nothing more."
+msgstr ""
+
+msgid "Lowering your price is always your decision: a supplier may cap your price and may recommend one, but it cannot prescribe a minimum. The plugin has no setting for that."
+msgstr ""
+
+msgid "Your supplier can cap the markup and can recommend one. It cannot prescribe a minimum: you are an independent reseller, and a prescribed minimum or fixed resale price would be resale price maintenance, which is not permitted (Art. 101 TFEU, § 1 GWB). So the way down is always open to you, down to below the purchase price."
+msgstr ""
+
+msgid "Your supplier caps the markup at %s %%. Below that you are free - including below the purchase price."
+msgstr ""
+
+msgid "Your supplier set no ceiling. Your price is entirely your decision, upwards and downwards."
+msgstr ""
+
+msgid "Recommendation of your supplier: %s %% - not binding."
+msgstr ""
+
+msgid "Relative to the purchase price: 30 % means a purchase price of 10.00 becomes 13.00. \"Markup down by\" sells below the purchase price - that is allowed, it is your price."
+msgstr ""
+
+msgid "Used for every product whose category has no markup of its own. A negative value sells below the purchase price."
+msgstr ""
+
+msgid "Your supplier caps the markup at %s %%."
+msgstr ""
+
+msgid "A markup below %s %% would leave almost no price at all."
 msgstr ""

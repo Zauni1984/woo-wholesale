@@ -25,6 +25,14 @@ class WWPart_Settings {
 	const TERM_MARKUP = '_wwpart_markup';
 
 	/**
+	 * Deepest markup the shop accepts, so a sales price keeps a remainder.
+	 *
+	 * This is a technical floor, not a rule of the supplier: a supplier cannot
+	 * prescribe a minimum resale price.
+	 */
+	const MIN_MARKUP = -90.0;
+
+	/**
 	 * Request cache.
 	 *
 	 * @var array|null
@@ -70,18 +78,22 @@ class WWPart_Settings {
 	/**
 	 * Default policy, used while no supplier has been contacted yet.
 	 *
+	 * A supplier can cap this shop's markup and recommend one, but it cannot
+	 * prescribe a lowest or a fixed resale price - that would be resale price
+	 * maintenance. Lowering the price is therefore always this shop's decision.
+	 *
 	 * @return array
 	 */
 	public static function default_policy() {
 		return array(
-			'locked_fields'  => array(),
-			'allow_markup'   => true,
-			'markup_min'     => 0.0,
-			'markup_max'     => 200.0,
-			'markup_default' => null,
-			'sync_stock'     => true,
-			'price_decimals' => 2,
-			'currency'       => '',
+			'locked_fields'      => array(),
+			// null = the supplier set no ceiling.
+			'markup_max'         => null,
+			// A recommendation, never enforced.
+			'markup_recommended' => null,
+			'sync_stock'         => true,
+			'price_decimals'     => 2,
+			'currency'           => '',
 		);
 	}
 
@@ -180,17 +192,19 @@ class WWPart_Settings {
 			$clean['locked_fields'] = array_values( array_filter( array_map( 'sanitize_key', $policy['locked_fields'] ) ) );
 		}
 
-		$clean['allow_markup']   = ! empty( $policy['allow_markup'] );
-		$clean['markup_min']     = isset( $policy['markup_min'] ) ? (float) $policy['markup_min'] : 0.0;
-		$clean['markup_max']     = isset( $policy['markup_max'] ) ? (float) $policy['markup_max'] : 0.0;
-		$clean['markup_default'] = ( isset( $policy['markup_default'] ) && null !== $policy['markup_default'] ) ? (float) $policy['markup_default'] : null;
+		// A ceiling only counts when the supplier really sent one, and only when
+		// it is not negative - a supplier cannot force a sale below its own price.
+		$clean['markup_max'] = ( isset( $policy['markup_max'] ) && null !== $policy['markup_max'] && (float) $policy['markup_max'] >= 0 )
+			? (float) $policy['markup_max']
+			: null;
+
+		$clean['markup_recommended'] = ( isset( $policy['markup_recommended'] ) && null !== $policy['markup_recommended'] )
+			? (float) $policy['markup_recommended']
+			: null;
+
 		$clean['sync_stock']     = ! empty( $policy['sync_stock'] );
 		$clean['price_decimals'] = isset( $policy['price_decimals'] ) ? max( 0, min( 4, (int) $policy['price_decimals'] ) ) : 2;
 		$clean['currency']       = isset( $policy['currency'] ) ? sanitize_text_field( (string) $policy['currency'] ) : '';
-
-		if ( $clean['markup_max'] < $clean['markup_min'] ) {
-			$clean['markup_max'] = $clean['markup_min'];
-		}
 
 		self::set( array( 'policy' => $clean ) );
 	}
@@ -241,17 +255,13 @@ class WWPart_Settings {
 			return new WP_Error( 'wwpart_markup', __( 'Please enter a markup in percent.', 'woo-wholesale-partner' ) );
 		}
 
-		if ( ! $policy['allow_markup'] && 0.0 !== (float) $markup ) {
-			return new WP_Error( 'wwpart_markup_blocked', __( 'The supplier does not allow an own markup. The wholesale price is used unchanged.', 'woo-wholesale-partner' ) );
-		}
-
-		if ( (float) $markup < $policy['markup_min'] || (float) $markup > $policy['markup_max'] ) {
+		// Only the ceiling is enforced. Going lower is always this shop's call.
+		if ( null !== $policy['markup_max'] && (float) $markup > $policy['markup_max'] ) {
 			return new WP_Error(
 				'wwpart_markup_range',
 				sprintf(
-					/* translators: 1: lowest allowed markup, 2: highest allowed markup */
-					__( 'The supplier allows a markup between %1$s %% and %2$s %%.', 'woo-wholesale-partner' ),
-					wc_format_localized_decimal( $policy['markup_min'] ),
+					/* translators: %s: highest allowed markup */
+					__( 'Your supplier caps the markup at %s %%.', 'woo-wholesale-partner' ),
 					wc_format_localized_decimal( $policy['markup_max'] )
 				)
 			);
@@ -317,7 +327,7 @@ class WWPart_Settings {
 			return '';
 		}
 
-		return (string) max( -90, min( 1000, (float) $value ) );
+		return (string) max( self::MIN_MARKUP, min( 1000, (float) $value ) );
 	}
 
 	/**

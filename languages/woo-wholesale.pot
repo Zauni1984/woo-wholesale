@@ -814,21 +814,6 @@ msgstr ""
 msgid "Price markup of the partner"
 msgstr ""
 
-msgid "The partner may set its own sales price as a markup on the wholesale price"
-msgstr ""
-
-msgid "Lowest"
-msgstr ""
-
-msgid "Highest"
-msgstr ""
-
-msgid "Preset"
-msgstr ""
-
-msgid "A markup outside this range is refused in the partner shop. 0 % means the partner sells at the wholesale price. Enter a negative lowest value only if the partner may sell below it."
-msgstr ""
-
 msgid "Create partner shop"
 msgstr ""
 
@@ -1027,12 +1012,6 @@ msgstr ""
 msgid "Please enter a valid shop URL (including https://)."
 msgstr ""
 
-msgid "The lowest allowed markup must not be higher than the highest allowed markup."
-msgstr ""
-
-msgid "The default markup must be inside the allowed range."
-msgstr ""
-
 msgid "Please enter the Shopify domain of the partner, for example partner.myshopify.com."
 msgstr ""
 
@@ -1078,9 +1057,6 @@ msgstr ""
 msgid "A partner key is only stored as a fingerprint here, so it can be replaced but never read again. A Shopify token is stored encrypted."
 msgstr ""
 
-msgid "The partner sets its own sales price as a markup on your wholesale price, inside the range you allow. 0 % as the lowest value keeps a partner from undercutting your price."
-msgstr ""
-
 msgid "Changing many prices at once"
 msgstr ""
 
@@ -1091,4 +1067,28 @@ msgid "what a partner shop receives"
 msgstr ""
 
 msgid "a single price produced by the bulk price change"
+msgstr ""
+
+msgid "The partner sets its own sales price as a markup on your wholesale price. You can cap that markup and you can recommend one - but you cannot set a lowest or a fixed resale price: that would be resale price maintenance, which is not permitted (Art. 101 TFEU, § 1 GWB). The plugin therefore offers no such setting."
+msgstr ""
+
+msgid "Highest markup"
+msgstr ""
+
+msgid "Recommended markup"
+msgstr ""
+
+msgid "Both fields are optional. The highest markup is a ceiling the partner shop enforces; the recommendation only prefills the field there and is never enforced."
+msgstr ""
+
+msgid "There is deliberately no lowest markup."
+msgstr ""
+
+msgid "A partner shop is an independent reseller and has to stay free to lower its price. Prescribing a minimum or a fixed resale price is resale price maintenance and is not permitted (Art. 101 TFEU, § 1 GWB). A maximum price and a recommendation are. This is how the plugin is built - please still check your own contracts with your lawyer."
+msgstr ""
+
+msgid "The highest markup cannot be negative - that would force the partner to sell below the wholesale price."
+msgstr ""
+
+msgid "The recommended markup must not be higher than the highest allowed markup."
 msgstr ""
