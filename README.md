@@ -4,6 +4,8 @@ Rollenbasierte Großhandelspreise für WooCommerce. Ein eigenständiges Premium-
 
 **Kurzfassung:** Du legst Großhandelsrollen an (z. B. „B2B Kunde“, „Anbauverein“), weist sie Benutzern zu und pflegst Preise je Produkt, je Kategorie oder shopweit. Jede Rolle sieht ausschließlich ihren Preis. Gäste sehen den Standardpreis. Vorhandene Daten aus **WooCommerce Wholesale Prices** (Wholesale Suite) werden per Knopfdruck übernommen.
 
+> **Zwei Plugins, eine Version.** Seit 1.1.0 besteht das Projekt aus dem Lieferanten-Plugin `woo-wholesale` (dieser Ordner) und dem Partner-Plugin `woo-wholesale-partner` (Ordner `partner-plugin/`). Der Lieferantenshop pflegt Produkte und Preise, Partnershops holen sie ab. Beide Plugins tragen immer dieselbe Versionsnummer und werden gemeinsam aktualisiert – die CI bricht ab, wenn die Nummern auseinanderlaufen.
+
 ---
 
 ## Funktionen
@@ -59,13 +61,65 @@ Einstellbar: Rabattbasis (regulärer oder aktueller Preis), Verhalten bei mehrer
 
 ## Installation
 
-1. Zip bauen (`bin/build-zip.sh` erzeugt `dist/woo-wholesale.zip`) oder das Artefakt „woo-wholesale“ aus der GitHub-Action „CI“ herunterladen – das ist bereits die installierbare Zip-Datei.
+1. Zips bauen (`bin/build-zip.sh` erzeugt `dist/woo-wholesale.zip` **und** `dist/woo-wholesale-partner.zip`) oder die Artefakte „woo-wholesale“ bzw. „woo-wholesale-partner“ aus der GitHub-Action „CI“ herunterladen – das sind bereits die installierbaren Zip-Dateien.
 2. Unter *Plugins → Installieren → Plugin hochladen* hochladen und aktivieren.
 3. *WooCommerce → Großhandel*: Rollen prüfen (zwei Beispielrollen werden angelegt), Einstellungen setzen.
 4. Falls Wholesale Suite im Einsatz ist: Tab **Import** öffnen, Zuordnung wählen, „Import starten“. Danach Wholesale Suite deaktivieren.
 5. Benutzern die Rolle zuweisen und im Frontend testen (als Kunde eingeloggt).
 
 Voraussetzungen: WordPress 6.2+, WooCommerce 7.0+, PHP 7.4+. HPOS und Block-Checkout werden unterstützt.
+
+## Partnershops
+
+Ein Partnershop verkauft deine Produkte weiter. Er erhält die Preise **genau einer** Großhandelsrolle, und du bestimmst, was er bei sich nicht verändern darf.
+
+Anlegen unter *WooCommerce → Großhandel → Partnershops*. Je Partner legst du fest:
+
+| Einstellung | Wirkung |
+| --- | --- |
+| Shopsystem | `WooCommerce` (Partner holt ab) oder `Shopify` (du überträgst hin) |
+| Preise dieser Rolle | welche Großhandelsrolle der Partner zahlt – Kategorie- und shopweite Rabatte der Rolle sind enthalten |
+| Produktauswahl | optional auf Kategorien beschränken (Unterkategorien immer inklusive), nur Lagerware, Bestände mitsenden |
+| Der Partner darf nicht ändern | Name, Beschreibung, Bilder, Kategoriezuordnung, Artikelnummer, Attribute/Varianten, Löschen |
+| Preisaufschlag des Partners | ob überhaupt, und zwischen welchem Minimum und Maximum. **Minimum 0 %** heißt: der Partner kann deinen Preis nicht unterbieten |
+
+### WooCommerce-Partner
+
+1. Im Partnershop `woo-wholesale-partner` installieren und aktivieren.
+2. Dort unter *WooCommerce → Lieferant* die Adresse deines Shops und den Partnerschlüssel eintragen.
+3. „Verbindung testen“, Aufschlag setzen, ersten Sync starten.
+
+Der Schlüssel wird hier **nur als HMAC** gespeichert – er lässt sich jederzeit neu ausgeben, aber nie wieder anzeigen. Die Partner-API ist lesend (plus Heartbeat); ein Partner kann in deinem Shop nichts schreiben. Fehlgeschlagene Anmeldeversuche sind pro IP begrenzt.
+
+Routen unter `wwpro/v1/partner/`, Authentifizierung per `Authorization: Bearer <Schlüssel>`:
+
+| Route | Zweck |
+| --- | --- |
+| `GET manifest` | Verbindungstest, Policy, Anzahl Produkte und Kategorien |
+| `GET categories` | Kategoriebaum (Eltern zuerst) |
+| `GET products` | paginierte Produkt-Payloads inkl. Preis der Rolle, Bild-URLs, Varianten, Checksumme |
+| `POST heartbeat` | Partner meldet Produktzahl, fehlende Bilder und Fehler zurück |
+
+### Shopify-Partner
+
+Shopify-Shops können kein WordPress-Plugin installieren, deshalb überträgst du dorthin. Nötig ist eine eigene App im Shopify-Adminbereich mit `write_products` und `read_products`; das Admin-API-Token wird verschlüsselt gespeichert (AES-256-CBC mit einem aus den Site-Salts abgeleiteten Schlüssel) und im Backend nur als Fragment angezeigt.
+
+Übertragen werden Titel, Beschreibung, Tags, Varianten mit Artikelnummer und Preis (der Verkaufspreis deiner Rolle; dein normaler Shoppreis landet als Vergleichspreis) sowie Bilder. Bilder gibt Shopify sich selbst per URL ab – sie müssen also öffentlich erreichbar sein. Die Zuordnung Produkt ↔ Shopify-ID wird am Produkt gespeichert, ein zweiter Lauf aktualisiert also statt zu duplizieren; fehlt die Zuordnung, wird über die Artikelnummer gesucht. Verwendet wird die GraphQL Admin API, weil Shopify die REST-Produktendpunkte abgekündigt hat.
+
+---
+
+## Preise prozentual ändern
+
+*WooCommerce → Großhandel → Preisänderung* verschiebt die Großhandelspreise einer Rolle nach oben oder unten – genau der Schritt nach dem ersten Import, wenn auf die eingespielten Preise noch eine Marge drauf oder ein Rabatt runter soll.
+
+- **Umfang:** alle Produkte oder eine einzelne Kategorie (Unterkategorien optional).
+- **Basis:** der aktuelle Großhandelspreis der Rolle (Produkte ohne werden übersprungen) oder der normale Shoppreis.
+- **Rundung:** Shop-Dezimalstellen, 0,05, 0,10, ganze Einheiten, `,99` oder `,95` (die Charm-Rundung springt auf den nächstgelegenen Wert, nach oben oder unten).
+- Läuft in Stapeln von 25 Produkten per AJAX, mit Fortschrittsbalken und Protokoll.
+
+Das Ergebnis wird als **Festpreis** der Rolle gespeichert; ein prozentualer Rabatt derselben Rolle wird bei diesen Produkten entfernt, damit genau eine Regel den Preis beschreibt. Es gibt kein Undo – vor großen Läufen ein Datenbank-Backup anlegen.
+
+---
 
 ## Hinweise
 
@@ -195,8 +249,58 @@ Die Rollenkonfiguration selbst wird nicht über MCP geschrieben, ist für das Ve
 | `wwpro_round_price` | Rundung |
 | `wwpro_role_saved`, `wwpro_role_deleted`, `wwpro_loaded` | Aktionen |
 | `wwpro_cache_version_bumped` | Preis-Caches wurden geleert – Anschluss für eigene Cache-Purges |
+| `wwpro_partner_query_args`, `wwpro_partner_product_payload` | was ein Partnershop bekommt |
+| `wwpro_partner_saved`, `wwpro_partner_deleted` | Partner angelegt/geändert bzw. gelöscht |
+| `wwpro_bulk_adjusted_price` | einzelner Preis aus der Sammel-Preisänderung |
 
-Datenablage: Produktmeta `_wwpro_price_{rolle}`, `_wwpro_discount_{rolle}`, `_wwpro_tiers_{rolle}`; Kategorie-Termmeta gleichnamig; Optionen `wwpro_roles`, `wwpro_settings`; Bestellmeta `_wwpro_role`.
+Datenablage: Produktmeta `_wwpro_price_{rolle}`, `_wwpro_discount_{rolle}`, `_wwpro_tiers_{rolle}`, `_wwpro_shopify_{partner}`; Kategorie-Termmeta gleichnamig; Optionen `wwpro_roles`, `wwpro_settings`, `wwpro_partners`; Bestellmeta `_wwpro_role`.
+
+---
+
+## Partner-Plugin (`partner-plugin/`)
+
+Eigenes Plugin für den Partnershop, Textdomain `woo-wholesale-partner`, Präfix `wwpart_`. Backend unter *WooCommerce → Lieferant* mit den Tabs *Lieferant*, *Sync*, *Preise*, *Bilder*, *Hilfe*.
+
+### Was ein Sync macht
+
+`connect` → `categories` → `products` → `images` → `cleanup` → `report`, in Stapeln per AJAX mit Fortschrittsbalken.
+
+- Produkte werden über die Lieferanten-ID zugeordnet; beim ersten Lauf wird ein bereits vorhandener Artikel über die Artikelnummer übernommen statt doppelt angelegt.
+- Unveränderte Produkte erkennt die Checksumme der Payload und werden übersprungen – der Verkaufspreis wird trotzdem nachgerechnet, falls sich der Aufschlag geändert hat.
+- Attribute kommen als Produkt-Attribute an, nicht als globale Attribut-Taxonomien. Varianten werden angelegt, aktualisiert und entfernt, wenn der Lieferant sie nicht mehr liefert.
+- Neue Produkte entstehen standardmäßig als **Entwurf**. Nicht mehr gelieferte Produkte werden auf Entwurf gesetzt, in den Papierkorb gelegt oder unberührt gelassen.
+- Eigene Produkte des Partners bleiben immer unberührt.
+
+### Preis des Partners
+
+`Verkaufspreis = Einkaufspreis × (1 + Aufschlag ÷ 100)`, danach gerundet. Der Aufschlag der **speziellsten** Kategorie gewinnt, sonst gilt der Standardaufschlag; die Grenzen des Lieferanten werden immer erzwungen. Ein Angebotspreis unter dem berechneten Preis bleibt erhalten, ein höherer wird entfernt.
+
+Unter *Preise* setzt der Partner den Aufschlag für alle Produkte oder eine Kategorie, nach oben oder unten, und wendet ihn mit Fortschrittsbalken an. Der Wert bleibt gespeichert, spätere Syncs rechnen damit weiter.
+
+### Schutz der Lieferantendaten
+
+Gesperrte Felder werden **serverseitig** zurückgeschrieben, nicht nur im Browser ausgegraut:
+
+- `wp_insert_post_data` für Titel, Beschreibung und Kurzbeschreibung,
+- `woocommerce_admin_process_product_object` und `woocommerce_rest_pre_insert_product_object` für Artikelnummer, Bilder und Attribute,
+- `save_post_product` für die Kategoriezuordnung,
+- `map_meta_cap` plus `pre_trash_post`/`pre_delete_post` gegen Löschen – damit verschwinden auch die Links in der Produktliste.
+
+Quelle der Wahrheit ist die letzte Payload des Lieferanten (`_wwpart_payload`). Während des Syncs ist die Sperre ausgesetzt, damit sie nicht die eigenen Schreibvorgänge zurückdreht.
+
+### Bild-Prüfer
+
+Bilder sind der Teil, der am häufigsten schiefgeht – deshalb hängt kein Sync davon ab:
+
+- Fehlende Bilder stehen in einer Warteschlange am Produkt (`_wwpart_image_queue`), erfolgreich geladene in einer Hash-Zuordnung (`_wwpart_image_map`).
+- Der Cron-Lauf `wwpart_image_check` (stündlich) holt Offenes nach, mit wachsendem Abstand pro Versuch: 5 min → 30 min → 2 h → 6 h → 12 h → täglich, nach 8 Versuchen gilt ein Bild als fehlgeschlagen.
+- Derselbe Lauf prüft rollierend die bereits vorhandenen Produkte: Fehlt ein Bild, das da sein müsste – weil es nie ankam oder später gelöscht wurde –, wird es erneut eingereiht.
+- Unter *Bilder* lässt sich das manuell starten; „Alles erneut versuchen“ nimmt auch die aufgegebenen Bilder mit und ignoriert die Wartezeit.
+- Heruntergeladen wird nur vom Host des Lieferanten (Filter `wwpart_allowed_image_hosts` für ein CDN), nur über HTTP/HTTPS, nur echte Bilder (`wp_check_filetype_and_ext`) und maximal 12 MB.
+
+Datenablage: Produktmeta `_wwpart_master_id`, `_wwpart_base_price`, `_wwpart_retail_price`, `_wwpart_checksum`, `_wwpart_payload`, `_wwpart_image_queue`, `_wwpart_image_map`, `_wwpart_image_state`, `_wwpart_markup_used`; Kategorie-Termmeta `_wwpart_markup`; Option `wwpart_settings`.
+
+Hooks: `wwpart_sales_price`, `wwpart_allowed_image_hosts`, `wwpart_product_synced`, `wwpart_loaded`.
 
 ## Lizenz
 

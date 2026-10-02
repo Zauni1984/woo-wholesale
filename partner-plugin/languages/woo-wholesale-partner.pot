@@ -1,0 +1,596 @@
+# Copyright (C) 2026 Stefan Zaunreither
+# This file is distributed under the MIT license.
+msgid ""
+msgstr ""
+"Project-Id-Version: Woo Wholesale Partner 1.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/zauni1984/woo-wholesale/issues\n"
+"POT-Creation-Date: 2026-10-02 12:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: woo-wholesale-partner\n"
+
+msgid "Supplier"
+msgstr ""
+
+msgid "Sync"
+msgstr ""
+
+msgid "Prices"
+msgstr ""
+
+msgid "Images"
+msgstr ""
+
+msgid "Help"
+msgstr ""
+
+msgid "You do not have permission to access this page."
+msgstr ""
+
+msgid "Woo Wholesale Partner"
+msgstr ""
+
+msgid "Working…"
+msgstr ""
+
+msgid "The run stopped because of an error. Please check the log and try again."
+msgstr ""
+
+msgid "Sync finished."
+msgstr ""
+
+msgid "Prices updated."
+msgstr ""
+
+msgid "Image check finished."
+msgstr ""
+
+msgid "Start the sync now? Products from your supplier are created or updated."
+msgstr ""
+
+msgid "Apply this markup now? The sales prices of the selected products are recalculated."
+msgstr ""
+
+msgid "Please choose a product category."
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "%1$d products from your supplier are still missing images. %2$sRun the image check%3$s."
+msgstr ""
+
+msgid "You do not have permission to do this."
+msgstr ""
+
+msgid "Connection saved. Use \"Test connection\" to fetch your supplier policy."
+msgstr ""
+
+msgid "Connected to \"%1$s\". %2$d products are available for you."
+msgstr ""
+
+msgid "The partner key was removed. Products already in this shop are kept."
+msgstr ""
+
+msgid "%d category markups were outside the range your supplier allows and were not saved."
+msgstr ""
+
+msgid "Prices saved. Use \"Apply to products\" so the sales prices are recalculated."
+msgstr ""
+
+msgid "Settings saved."
+msgstr ""
+
+msgid "No supplier shop is configured yet."
+msgstr ""
+
+msgid "Connected to \"%1$s\", %2$d products to check."
+msgstr ""
+
+msgid "Categories: %1$d created, %2$d updated."
+msgstr ""
+
+msgid "Error for \"%1$s\": %2$s"
+msgstr ""
+
+msgid "Products: page %1$d of %2$d done."
+msgstr ""
+
+msgid "Images: %1$d downloaded, %2$d could not be fetched yet."
+msgstr ""
+
+msgid "%d products are no longer delivered and were set aside."
+msgstr ""
+
+msgid "The supplier could not be informed about this run: %s"
+msgstr ""
+
+msgid "Done: %1$d new, %2$d updated, %3$d unchanged, %4$d failed."
+msgstr ""
+
+msgid "%d images are still missing. They are fetched automatically in the background; you can also start the check by hand."
+msgstr ""
+
+msgid "%1$d of %2$d products recalculated."
+msgstr ""
+
+msgid "Done: %d sales prices changed."
+msgstr ""
+
+msgid "Checked %1$d of %2$d products."
+msgstr ""
+
+msgid "%d images have to be fetched."
+msgstr ""
+
+msgid "Downloaded %1$d images, %2$d failed."
+msgstr ""
+
+msgid "Done: %1$d images fetched. %2$d products are still waiting, %3$d gave up for now."
+msgstr ""
+
+msgid "Your supplier"
+msgstr ""
+
+msgid "Enter the shop you buy from and the partner key you received from it. This shop then pulls products, images and your purchase prices from there."
+msgstr ""
+
+msgid "Address of the supplier shop"
+msgstr ""
+
+msgid "Partner key"
+msgstr ""
+
+msgid "Stored: %s. Leave empty to keep it."
+msgstr ""
+
+msgid "You get the key from your supplier. It is stored encrypted and never shown again."
+msgstr ""
+
+msgid "Save connection"
+msgstr ""
+
+msgid "Test connection"
+msgstr ""
+
+msgid "Remove key"
+msgstr ""
+
+msgid "What your supplier allows"
+msgstr ""
+
+msgid "You are registered as"
+msgstr ""
+
+msgid "Price list: %s"
+msgstr ""
+
+msgid "Your markup"
+msgstr ""
+
+msgid "Not allowed - you sell at the purchase price."
+msgstr ""
+
+msgid "between %1$s %% and %2$s %%"
+msgstr ""
+
+msgid "Maintained by your supplier"
+msgstr ""
+
+msgid "Nothing is locked. Your changes are still overwritten on the next sync for everything the supplier delivers."
+msgstr ""
+
+msgid "These fields cannot be changed here. If you edit them anyway, the supplier value is written back when you save."
+msgstr ""
+
+msgid "Last sync"
+msgstr ""
+
+msgid "never"
+msgstr ""
+
+msgid "Go to the sync"
+msgstr ""
+
+msgid "How this plugin works"
+msgstr ""
+
+msgid "The two halves"
+msgstr ""
+
+msgid "Your supplier runs \"Woo Wholesale Pro\" and maintains the products there. This shop runs \"Woo Wholesale Partner\" and fetches them. Both plugins belong to the same release and should always be updated together."
+msgstr ""
+
+msgid "Getting started"
+msgstr ""
+
+msgid "Enter the address of the supplier shop and your partner key under \"Supplier\", then use \"Test connection\"."
+msgstr ""
+
+msgid "Set your markup under \"Prices\" - you can change it later at any time."
+msgstr ""
+
+msgid "Run the first sync under \"Sync\". New products are created as drafts, so you can check them first."
+msgstr ""
+
+msgid "Check under \"Images\" whether anything is still missing, and publish the products."
+msgstr ""
+
+msgid "How your price is calculated"
+msgstr ""
+
+msgid "Sales price = purchase price × (1 + markup ÷ 100), then rounded the way you chose. The markup of the most specific category of a product wins; if no category has one, the standard markup is used."
+msgstr ""
+
+msgid "A price you type into a product by hand is replaced the next time prices are recalculated. If you want to keep a special price for one article, use a sale price - a sale price below the calculated price is left alone."
+msgstr ""
+
+msgid "Why some fields cannot be edited"
+msgstr ""
+
+msgid "Your supplier decides which product data it maintains. Those fields are shown as locked, and if something changes them anyway - a bulk edit, an import, another plugin through the REST API - the supplier value is written back when the product is saved. Your prices, your stock and your own products are not affected."
+msgstr ""
+
+msgid "Images are only downloaded from the supplier shop, never from any other address, and only if they really are images. An image that is too large or unreachable is retried later instead of stopping the sync."
+msgstr ""
+
+msgid "If something goes wrong"
+msgstr ""
+
+msgid "\"Unknown or revoked partner key\": ask your supplier for a new key, keys can be replaced at any time."
+msgstr ""
+
+msgid "No answer on the partner route: the supplier shop needs Woo Wholesale Pro 1.1.0 or newer."
+msgstr ""
+
+msgid "A sync that stops in the middle can simply be started again; it continues where it makes sense and never creates a product twice."
+msgstr ""
+
+msgid "Image check"
+msgstr ""
+
+msgid "A sync never fails because of an image. Whatever could not be fetched stays in a queue, is retried in the background with a growing delay, and is picked up here. The check also walks through the products that are already here and compares what should be there against what really is - so an image that was deleted later, or never arrived, is fetched again."
+msgstr ""
+
+msgid "Products from your supplier"
+msgstr ""
+
+msgid "Waiting for images"
+msgstr ""
+
+msgid "Gave up for now"
+msgstr ""
+
+msgid "These products were tried several times without success. Use \"Retry everything\" to start over."
+msgstr ""
+
+msgid "Images in the queue"
+msgstr ""
+
+msgid "Background check"
+msgstr ""
+
+msgid "switched off"
+msgstr ""
+
+msgid "You can switch it on under %s."
+msgstr ""
+
+msgid "next run in %s"
+msgstr ""
+
+msgid "not scheduled - deactivate and activate the plugin once to schedule it again"
+msgstr ""
+
+msgid "Check images now"
+msgstr ""
+
+msgid "Retry everything"
+msgstr ""
+
+msgid "\"Retry everything\" also takes on the images that gave up and ignores the waiting time."
+msgstr ""
+
+msgid "Products that are still waiting"
+msgstr ""
+
+msgid "Product"
+msgstr ""
+
+msgid "Last message"
+msgstr ""
+
+msgid "Your prices"
+msgstr ""
+
+msgid "Your sales price is the purchase price from your supplier plus your markup. Set one markup for the whole shop, or a different one per category - upwards or downwards."
+msgstr ""
+
+msgid "Your supplier does not allow an own markup. Products are sold at the purchase price."
+msgstr ""
+
+msgid "Your supplier allows a markup between %1$s %% and %2$s %%."
+msgstr ""
+
+msgid "Change prices by percentage"
+msgstr ""
+
+msgid "Sets the markup and recalculates the sales prices right away. This is what you use after the first sync to put your margin on the imported prices."
+msgstr ""
+
+msgid "Change"
+msgstr ""
+
+msgid "Markup up by"
+msgstr ""
+
+msgid "Markup down by"
+msgstr ""
+
+msgid "Relative to the purchase price: 30 % means a purchase price of 10.00 becomes 13.00."
+msgstr ""
+
+msgid "Products"
+msgstr ""
+
+msgid "All products from the supplier"
+msgstr ""
+
+msgid "Only one category:"
+msgstr ""
+
+msgid "— please choose —"
+msgstr ""
+
+msgid "Include subcategories"
+msgstr ""
+
+msgid "Also reset markups set per category"
+msgstr ""
+
+msgid "Apply to products"
+msgstr ""
+
+msgid "Standard markup and rounding"
+msgstr ""
+
+msgid "Standard markup"
+msgstr ""
+
+msgid "Used for every product whose category has no markup of its own. A negative value sells below the purchase price, if your supplier allows it."
+msgstr ""
+
+msgid "Rounding"
+msgstr ""
+
+msgid "Markup per category"
+msgstr ""
+
+msgid "Leave a field empty and the category uses the markup of its parent category, or the standard markup."
+msgstr ""
+
+msgid "There are no product categories yet. They arrive with the first sync."
+msgstr ""
+
+msgid "Category"
+msgstr ""
+
+msgid "Markup"
+msgstr ""
+
+msgid "Save prices"
+msgstr ""
+
+msgid "Saving stores the values. Use \"Apply to products\" above so the sales prices in the shop are recalculated."
+msgstr ""
+
+msgid "Sync products"
+msgstr ""
+
+msgid "Set up your supplier first: %s"
+msgstr ""
+
+msgid "A sync fetches categories, products, purchase prices and images from your supplier, and then calculates your sales prices from your markup. Products that already exist are updated; nothing you added yourself is touched."
+msgstr ""
+
+msgid "Products from your supplier in this shop: %d"
+msgstr ""
+
+msgid "Last run: %1$d new, %2$d updated, %3$d unchanged, %4$d failed."
+msgstr ""
+
+msgid "Start sync"
+msgstr ""
+
+msgid "Sync options"
+msgstr ""
+
+msgid "New products"
+msgstr ""
+
+msgid "Create as draft (you publish them yourself)"
+msgstr ""
+
+msgid "Publish right away"
+msgstr ""
+
+msgid "Draft is the safer choice for the first sync: you can check prices and images before anything is in the shop."
+msgstr ""
+
+msgid "Products no longer delivered"
+msgstr ""
+
+msgid "Set to draft"
+msgstr ""
+
+msgid "Move to trash"
+msgstr ""
+
+msgid "Leave untouched"
+msgstr ""
+
+msgid "Download product images from the supplier"
+msgstr ""
+
+msgid "Fetch missing images automatically in the background"
+msgstr ""
+
+msgid "The background check runs about once an hour. It retries images that failed, with a growing delay, and finds images that went missing later."
+msgstr ""
+
+msgid "Save settings"
+msgstr ""
+
+msgid "The stored partner key could not be read. Please enter it again."
+msgstr ""
+
+msgid "The supplier shop refused the partner key."
+msgstr ""
+
+msgid "The supplier shop did not answer on the partner route. Is Woo Wholesale Pro installed and up to date there?"
+msgstr ""
+
+msgid "The supplier shop is rate limiting the connection. Please try again in a few minutes."
+msgstr ""
+
+msgid "The supplier shop answered with HTTP status %d."
+msgstr ""
+
+msgid "The answer of the supplier shop could not be read."
+msgstr ""
+
+msgid "The image is larger than the allowed maximum."
+msgstr ""
+
+msgid "The downloaded file is not an image."
+msgstr ""
+
+msgid "The image address is invalid."
+msgstr ""
+
+msgid "Images are only downloaded over HTTP or HTTPS."
+msgstr ""
+
+msgid "Images from the host \"%s\" are not downloaded, it is not the supplier shop."
+msgstr ""
+
+msgid "Product name"
+msgstr ""
+
+msgid "Description and short description"
+msgstr ""
+
+msgid "Product images"
+msgstr ""
+
+msgid "Category assignment"
+msgstr ""
+
+msgid "SKU"
+msgstr ""
+
+msgid "Attributes and variations"
+msgstr ""
+
+msgid "Deleting and trashing"
+msgstr ""
+
+msgid "This product comes from your supplier."
+msgstr ""
+
+msgid "Your supplier has not locked any fields, but everything it delivers is overwritten on the next sync."
+msgstr ""
+
+msgid "These fields are maintained by your supplier and are reset when you save: %s."
+msgstr ""
+
+msgid "Your sales price is calculated from the wholesale price and your markup: %s"
+msgstr ""
+
+msgid "managed"
+msgstr ""
+
+msgid "Purchase:"
+msgstr ""
+
+msgid "Markup:"
+msgstr ""
+
+msgid "images pending"
+msgstr ""
+
+msgid "images failed"
+msgstr ""
+
+msgid "The price change could not be read."
+msgstr ""
+
+msgid "The supplier does not allow an own markup in this shop."
+msgstr ""
+
+msgid "Please enter a percentage."
+msgstr ""
+
+msgid "The supplier allows a markup between %1$s %% and %2$s %%."
+msgstr ""
+
+msgid "all products"
+msgstr ""
+
+msgid "selected category"
+msgstr ""
+
+msgid "Markup %1$s on the wholesale price for %2$s"
+msgstr ""
+
+msgid "Woo Wholesale Partner requires WooCommerce to be installed and active."
+msgstr ""
+
+msgid "Woo Wholesale Partner requires WooCommerce %s or newer."
+msgstr ""
+
+msgid "Woo Wholesale Pro is active in this shop as well. The partner plugin belongs in the partner shop, the Pro plugin in the supplier shop - running both in one shop only makes sense while you are testing."
+msgstr ""
+
+msgid "Please enter the address of the supplier shop, including https://."
+msgstr ""
+
+msgid "That does not look like a partner key. A key starts with \"wwp_\"."
+msgstr ""
+
+msgid "Please enter the partner key you received from the supplier."
+msgstr ""
+
+msgid "Please enter a markup in percent."
+msgstr ""
+
+msgid "The supplier does not allow an own markup. The wholesale price is used unchanged."
+msgstr ""
+
+msgid "Shop decimals (no extra rounding)"
+msgstr ""
+
+msgid "Round to 0.05"
+msgstr ""
+
+msgid "Round to 0.10"
+msgstr ""
+
+msgid "Round to whole currency units"
+msgstr ""
+
+msgid "Price ending in .99"
+msgstr ""
+
+msgid "Price ending in .95"
+msgstr ""
+
+msgid "The supplier sent a product without an id."
+msgstr ""
+
+msgid "The product could not be saved."
+msgstr ""
+
+msgid "Woo Wholesale Partner requires PHP %s or newer. The plugin is inactive."
+msgstr ""

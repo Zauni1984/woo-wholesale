@@ -62,3 +62,37 @@
 	.wwpro-tiers-compact .wwpro-tiers-panel { padding-left: 12px; }
 	.wwpro-tiers-table { max-width: none; }
 }
+
+/* ---------- Partner shops ---------- */
+
+.wwpro-partner-table .wwpro-inline-form {
+	display: inline-block;
+	margin: 0 0 2px 0;
+}
+
+.wwpro-badge-paused {
+	display: inline-block;
+	padding: 1px 6px;
+	border-radius: 9px;
+	background: #f0f0f1;
+	color: #646970;
+	font-size: 11px;
+}
+
+.wwpro-error-note {
+	color: #b32d2e;
+	font-size: 11px;
+}
+
+.wwpro-key-notice .wwpro-key {
+	display: inline-block;
+	padding: 6px 10px;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	font-size: 14px;
+	user-select: all;
+}
+
+.wwpro-partner-cats {
+	min-width: 280px;
+}

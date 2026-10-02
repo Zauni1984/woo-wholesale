@@ -92,11 +92,15 @@ final class WWPro_Plugin {
 		WWPro_Rest::init();
 		WWPro_Abilities::init();
 
+		// Lets partner shops pull their products and prices.
+		WWPro_Partner_API::init();
+
 		if ( is_admin() ) {
 			require_once WWPRO_PATH . 'includes/class-wwpro-install.php';
 			add_action( 'admin_init', array( 'WWPro_Install', 'maybe_upgrade' ), 5 );
 
 			WWPro_Admin::init();
+			WWPro_Admin_Sync::init();
 			WWPro_Product_Fields::init();
 			WWPro_Category_Fields::init();
 		}
@@ -132,9 +136,15 @@ final class WWPro_Plugin {
 		require_once WWPRO_PATH . 'includes/class-wwpro-importer.php';
 		require_once WWPRO_PATH . 'includes/class-wwpro-rest.php';
 		require_once WWPRO_PATH . 'includes/class-wwpro-abilities.php';
+		require_once WWPRO_PATH . 'includes/class-wwpro-partners.php';
+		require_once WWPRO_PATH . 'includes/class-wwpro-product-payload.php';
+		require_once WWPRO_PATH . 'includes/class-wwpro-partner-api.php';
 
 		if ( is_admin() ) {
+			require_once WWPRO_PATH . 'includes/class-wwpro-bulk-prices.php';
+			require_once WWPRO_PATH . 'includes/class-wwpro-shopify.php';
 			require_once WWPRO_PATH . 'includes/admin/class-wwpro-admin.php';
+			require_once WWPRO_PATH . 'includes/admin/class-wwpro-admin-sync.php';
 			require_once WWPRO_PATH . 'includes/admin/class-wwpro-tiers-field.php';
 			require_once WWPRO_PATH . 'includes/admin/class-wwpro-product-fields.php';
 			require_once WWPRO_PATH . 'includes/admin/class-wwpro-category-fields.php';

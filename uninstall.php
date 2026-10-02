@@ -55,8 +55,10 @@ $wpdb->query( $wpdb->prepare( "DELETE FROM {$wpdb->options} WHERE option_name LI
 
 delete_option( 'wwpro_settings' );
 delete_option( 'wwpro_roles' );
+delete_option( 'wwpro_partners' );
 delete_option( 'wwpro_version' );
 delete_option( 'wwpro_cache_version' );
 delete_option( 'wwpro_last_import' );
+delete_option( 'wwpro_last_bulk_price' );
 
 wp_cache_flush();

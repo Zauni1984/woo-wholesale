@@ -29,6 +29,18 @@ defined( 'ABSPATH' ) || exit;
 	<h2><?php esc_html_e( 'Assigning roles', 'woo-wholesale' ); ?></h2>
 	<p><?php esc_html_e( 'Open Users → Edit user and pick the wholesale role in the "Role" dropdown. The Users list shows a "Wholesale" column for a quick overview.', 'woo-wholesale' ); ?></p>
 
+	<h2><?php esc_html_e( 'Partner shops', 'woo-wholesale' ); ?></h2>
+	<p><?php esc_html_e( 'A partner shop is an external shop that resells your products. It receives the prices of exactly one wholesale role, and you decide which product data it may not change locally.', 'woo-wholesale' ); ?></p>
+	<ul>
+		<li><?php esc_html_e( 'WooCommerce partners install the companion plugin "Woo Wholesale Partner" and pull products, images and prices from here with their partner key. Both plugins belong to the same release and should always be updated together.', 'woo-wholesale' ); ?></li>
+		<li><?php esc_html_e( 'Shopify partners do not install anything: you push products, prices and images into their store through the Shopify Admin API.', 'woo-wholesale' ); ?></li>
+		<li><?php esc_html_e( 'A partner key is only stored as a fingerprint here, so it can be replaced but never read again. A Shopify token is stored encrypted.', 'woo-wholesale' ); ?></li>
+		<li><?php esc_html_e( 'The partner sets its own sales price as a markup on your wholesale price, inside the range you allow. 0 % as the lowest value keeps a partner from undercutting your price.', 'woo-wholesale' ); ?></li>
+	</ul>
+
+	<h2><?php esc_html_e( 'Changing many prices at once', 'woo-wholesale' ); ?></h2>
+	<p><?php esc_html_e( 'The "Price change" tab moves the wholesale prices of one role by a percentage, for the whole catalogue or for a single category, and shows a progress bar while it works. The result is written as a fixed price for that role, and there is no undo - so take a database backup before a large run.', 'woo-wholesale' ); ?></p>
+
 	<h2><?php esc_html_e( 'Caching', 'woo-wholesale' ); ?></h2>
 	<p><?php esc_html_e( 'Wholesale prices are only shown to logged-in users. Page caches (WP Rocket, LiteSpeed Cache, …) must not serve cached pages to logged-in users – this is the default of these plugins. Do not enable "cache logged-in users" without varying the cache by role.', 'woo-wholesale' ); ?></p>
 
@@ -53,5 +65,7 @@ defined( 'ABSPATH' ) || exit;
 		<li><code>wwpro_resolve_price</code> – <?php esc_html_e( 'change the resolved unit price', 'woo-wholesale' ); ?></li>
 		<li><code>wwpro_tier_price</code>, <code>wwpro_tier_sets</code>, <code>wwpro_tier_quantity</code> – <?php esc_html_e( 'quantity discounts', 'woo-wholesale' ); ?></li>
 		<li><code>wwpro_secondary_price_html</code> – <?php esc_html_e( 'secondary price markup', 'woo-wholesale' ); ?></li>
+		<li><code>wwpro_partner_product_payload</code>, <code>wwpro_partner_query_args</code> – <?php esc_html_e( 'what a partner shop receives', 'woo-wholesale' ); ?></li>
+		<li><code>wwpro_bulk_adjusted_price</code> – <?php esc_html_e( 'a single price produced by the bulk price change', 'woo-wholesale' ); ?></li>
 	</ul>
 </div>

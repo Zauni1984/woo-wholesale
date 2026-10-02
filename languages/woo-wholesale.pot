@@ -2,17 +2,12 @@
 # This file is distributed under the MIT license.
 msgid ""
 msgstr ""
-"Project-Id-Version: Woo Wholesale Pro 1.0.3\n"
+"Project-Id-Version: Woo Wholesale Pro 1.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/zauni1984/woo-wholesale/issues\n"
-"POT-Creation-Date: 2026-09-06 12:00+0000\n"
-"PO-Revision-Date: 2026-09-06 12:00+0000\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: \n"
+"POT-Creation-Date: 2026-10-02 12:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Domain: woo-wholesale\n"
 
 msgid "Wholesale"
@@ -657,7 +652,6 @@ msgstr ""
 msgid "Woo Wholesale Pro requires PHP %s or newer. The plugin is inactive."
 msgstr ""
 
-
 msgid "Page cache"
 msgstr ""
 
@@ -665,4 +659,436 @@ msgid "Do not let a page cache store pages that show wholesale prices"
 msgstr ""
 
 msgid "Leave this on. Without it LiteSpeed Cache, WP Rocket and friends can serve the guest price to a logged-in wholesale customer. The plugin also tells LiteSpeed to keep a separate copy per role and clears the page cache whenever prices or rules change."
+msgstr ""
+
+msgid "Partner shop created."
+msgstr ""
+
+msgid "Partner shop saved."
+msgstr ""
+
+msgid "Partner shop deleted. Products in that shop are not changed."
+msgstr ""
+
+msgid "The partner shop could not be deleted."
+msgstr ""
+
+msgid "The key was revoked. The partner shop can no longer connect."
+msgstr ""
+
+msgid "The key could not be revoked."
+msgstr ""
+
+msgid "A new key was created. Any key issued before is now invalid."
+msgstr ""
+
+msgid "This partner shop is not a Shopify shop."
+msgstr ""
+
+msgid "Connected to the Shopify shop \"%1$s\" (%2$s)."
+msgstr ""
+
+msgid "%1$d of %2$d products processed."
+msgstr ""
+
+msgid "Done: %1$d products changed, %2$d left untouched."
+msgstr ""
+
+msgid "This partner shop is paused or its wholesale role no longer exists."
+msgstr ""
+
+msgid "%1$d of %2$d products pushed to Shopify."
+msgstr ""
+
+msgid "Some products could not be pushed. See the log of the last run."
+msgstr ""
+
+msgid "Done: %1$d created, %2$d updated, %3$d failed."
+msgstr ""
+
+msgid "Price change"
+msgstr ""
+
+msgid "Partner shops"
+msgstr ""
+
+msgid "Change the prices now? This cannot be undone."
+msgstr ""
+
+msgid "Delete this partner shop? Its key stops working immediately. Products already in that shop are kept."
+msgstr ""
+
+msgid "Push all products and prices to this Shopify shop now?"
+msgstr ""
+
+msgid "Price change finished."
+msgstr ""
+
+msgid "Sync finished."
+msgstr ""
+
+msgid "Please choose a product category."
+msgstr ""
+
+msgid "A partner shop receives products and the wholesale prices of one role from this shop. WooCommerce partners install the companion plugin \"Woo Wholesale Partner\" and pull the data; Shopify partners are written to directly through the Shopify Admin API."
+msgstr ""
+
+msgid "Create a wholesale role first - a partner shop always receives the prices of one role. %s"
+msgstr ""
+
+msgid "Create a role"
+msgstr ""
+
+msgid "Key for the partner shop"
+msgstr ""
+
+msgid "Copy this key into the partner plugin now. It is shown this one time only and cannot be read again afterwards."
+msgstr ""
+
+msgid "New partner shop"
+msgstr ""
+
+msgid "Edit partner shop"
+msgstr ""
+
+msgid "Shop system"
+msgstr ""
+
+msgid "Prices of this role"
+msgstr ""
+
+msgid "— please choose —"
+msgstr ""
+
+msgid "The partner shop pays the price of this role. Category and store-wide discounts of the role are included."
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Active"
+msgstr ""
+
+msgid "Paused (no sync)"
+msgstr ""
+
+msgid "Shop URL"
+msgstr ""
+
+msgid "Optional, only used as a link in this list."
+msgstr ""
+
+msgid "Shopify domain"
+msgstr ""
+
+msgid "Admin API access token"
+msgstr ""
+
+msgid "Token of a custom app in the Shopify admin with the scopes write_products and read_products. It is stored encrypted."
+msgstr ""
+
+msgid "Stored: %s. Leave empty to keep it."
+msgstr ""
+
+msgid "Product selection"
+msgstr ""
+
+msgid "Only these categories (nothing selected = whole catalogue)"
+msgstr ""
+
+msgid "Subcategories of a selected category are always included."
+msgstr ""
+
+msgid "Only send products that are in stock"
+msgstr ""
+
+msgid "Also send stock quantities"
+msgstr ""
+
+msgid "The partner may not change"
+msgstr ""
+
+msgid "The partner plugin blocks these fields on every product it received from here - in the product editor and through its REST API. On the next sync the value from this shop is restored."
+msgstr ""
+
+msgid "Price markup of the partner"
+msgstr ""
+
+msgid "The partner may set its own sales price as a markup on the wholesale price"
+msgstr ""
+
+msgid "Lowest"
+msgstr ""
+
+msgid "Highest"
+msgstr ""
+
+msgid "Preset"
+msgstr ""
+
+msgid "A markup outside this range is refused in the partner shop. 0 % means the partner sells at the wholesale price. Enter a negative lowest value only if the partner may sell below it."
+msgstr ""
+
+msgid "Create partner shop"
+msgstr ""
+
+msgid "Save partner shop"
+msgstr ""
+
+msgid "Add partner shop"
+msgstr ""
+
+msgid "No partner shop has been set up yet."
+msgstr ""
+
+msgid "Partner shop"
+msgstr ""
+
+msgid "Products"
+msgstr ""
+
+msgid "Last sync"
+msgstr ""
+
+msgid "Connection"
+msgstr ""
+
+msgid "Actions"
+msgstr ""
+
+msgid "paused"
+msgstr ""
+
+msgid "%d without image"
+msgstr ""
+
+msgid "no key"
+msgstr ""
+
+msgid "New key"
+msgstr ""
+
+msgid "Revoke key"
+msgstr ""
+
+msgid "Test connection"
+msgstr ""
+
+msgid "Start sync"
+msgstr ""
+
+msgid "How a WooCommerce partner connects"
+msgstr ""
+
+msgid "Install and activate the plugin \"Woo Wholesale Partner\" in the partner shop."
+msgstr ""
+
+msgid "Enter the address of this shop there: %s"
+msgstr ""
+
+msgid "Paste the key of the partner into the partner plugin and start the first sync."
+msgstr ""
+
+msgid "Change prices by percentage"
+msgstr ""
+
+msgid "Moves the wholesale prices of one role up or down by a percentage - for the whole catalogue or for a single category. This is the tool for the step after the first import, when the imported prices need a margin on top or a discount taken off."
+msgstr ""
+
+msgid "Create a wholesale role first."
+msgstr ""
+
+msgid "Last run: %1$s, %2$d products changed."
+msgstr ""
+
+msgid "Wholesale role"
+msgstr ""
+
+msgid "Change"
+msgstr ""
+
+msgid "Increase by"
+msgstr ""
+
+msgid "Decrease by"
+msgstr ""
+
+msgid "Calculate from"
+msgstr ""
+
+msgid "All products"
+msgstr ""
+
+msgid "Only one category:"
+msgstr ""
+
+msgid "Include subcategories"
+msgstr ""
+
+msgid "Rounding"
+msgstr ""
+
+msgid "The new price is written as a fixed wholesale price for the chosen role. A percentage discount of the same role on those products is removed, so one rule describes the price. There is no undo - make a database backup before a large run."
+msgstr ""
+
+msgid "Change prices now"
+msgstr ""
+
+msgid "Shop decimals (no extra rounding)"
+msgstr ""
+
+msgid "Round to 0.05"
+msgstr ""
+
+msgid "Round to 0.10"
+msgstr ""
+
+msgid "Round to whole currency units"
+msgstr ""
+
+msgid "Price ending in .99"
+msgstr ""
+
+msgid "Price ending in .95"
+msgstr ""
+
+msgid "Current wholesale price of the role (products without one are skipped)"
+msgstr ""
+
+msgid "Regular shop price"
+msgstr ""
+
+msgid "The price change could not be read."
+msgstr ""
+
+msgid "Please choose a wholesale role."
+msgstr ""
+
+msgid "Please enter a percentage."
+msgstr ""
+
+msgid "The percentage must be greater than 0 and at most 100."
+msgstr ""
+
+msgid "all products"
+msgstr ""
+
+msgid "selected category"
+msgstr ""
+
+msgid "%1$s on the wholesale prices of \"%2$s\" in %3$s"
+msgstr ""
+
+msgid "Too many failed authentication attempts. Please try again later."
+msgstr ""
+
+msgid "Unknown or revoked partner key."
+msgstr ""
+
+msgid "This partner is configured as a Shopify shop and cannot use the pull API."
+msgstr ""
+
+msgid "Product name"
+msgstr ""
+
+msgid "Description and short description"
+msgstr ""
+
+msgid "Product images"
+msgstr ""
+
+msgid "Category assignment"
+msgstr ""
+
+msgid "SKU"
+msgstr ""
+
+msgid "Attributes and variations"
+msgstr ""
+
+msgid "Deleting and trashing products"
+msgstr ""
+
+msgid "WooCommerce (partner plugin)"
+msgstr ""
+
+msgid "Shopify (Admin API)"
+msgstr ""
+
+msgid "The partner shop could not be found."
+msgstr ""
+
+msgid "Please enter a name for the partner shop."
+msgstr ""
+
+msgid "Please choose the wholesale role whose prices this partner receives."
+msgstr ""
+
+msgid "Please enter a valid shop URL (including https://)."
+msgstr ""
+
+msgid "The lowest allowed markup must not be higher than the highest allowed markup."
+msgstr ""
+
+msgid "The default markup must be inside the allowed range."
+msgstr ""
+
+msgid "Please enter the Shopify domain of the partner, for example partner.myshopify.com."
+msgstr ""
+
+msgid "The Shopify Admin API access token looks invalid."
+msgstr ""
+
+msgid "Please enter the Shopify Admin API access token."
+msgstr ""
+
+msgid "This server cannot generate a secure key."
+msgstr ""
+
+msgid "No Shopify access token is stored for this partner."
+msgstr ""
+
+msgid "Shopify is rate limiting the connection. Please start the sync again in a few minutes."
+msgstr ""
+
+msgid "Shopify refused the access token. Please check the token and its scopes (write_products)."
+msgstr ""
+
+msgid "Shopify answered with HTTP status %d."
+msgstr ""
+
+msgid "Shopify did not return any shop data."
+msgstr ""
+
+msgid "Shopify did not return an id for the new product."
+msgstr ""
+
+msgid "Shopify error for \"%1$s\": %2$s"
+msgstr ""
+
+msgid "A partner shop is an external shop that resells your products. It receives the prices of exactly one wholesale role, and you decide which product data it may not change locally."
+msgstr ""
+
+msgid "WooCommerce partners install the companion plugin \"Woo Wholesale Partner\" and pull products, images and prices from here with their partner key. Both plugins belong to the same release and should always be updated together."
+msgstr ""
+
+msgid "Shopify partners do not install anything: you push products, prices and images into their store through the Shopify Admin API."
+msgstr ""
+
+msgid "A partner key is only stored as a fingerprint here, so it can be replaced but never read again. A Shopify token is stored encrypted."
+msgstr ""
+
+msgid "The partner sets its own sales price as a markup on your wholesale price, inside the range you allow. 0 % as the lowest value keeps a partner from undercutting your price."
+msgstr ""
+
+msgid "Changing many prices at once"
+msgstr ""
+
+msgid "The \"Price change\" tab moves the wholesale prices of one role by a percentage, for the whole catalogue or for a single category, and shows a progress bar while it works. The result is written as a fixed price for that role, and there is no undo - so take a database backup before a large run."
+msgstr ""
+
+msgid "what a partner shop receives"
+msgstr ""
+
+msgid "a single price produced by the bulk price change"
 msgstr ""

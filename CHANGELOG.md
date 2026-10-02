@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.1.0 – 2026-10-02
+
+Ab dieser Version gehören **zwei Plugins** zusammen, immer in derselben Version:
+`woo-wholesale` (Lieferantenshop) und `woo-wholesale-partner` (Partnershop).
+
+### Neu: Partner-Plugin „Woo Wholesale Partner“
+- Eigenes Plugin für Partnershops. Es holt Kategorien, Produkte, Einkaufspreise und Bilder vom Lieferantenshop ab und berechnet daraus den eigenen Verkaufspreis.
+- **Schutz der Lieferantendaten:** Der Lieferant legt je Partner fest, welche Felder gesperrt sind (Name, Beschreibung, Bilder, Kategorien, Artikelnummer, Attribute/Varianten, Löschen). Gesperrte Felder werden serverseitig zurückgeschrieben – im Produkt-Editor, bei Sammelbearbeitung und über die WooCommerce-REST-API. Löschen ist als Capability gesperrt, damit auch die Links verschwinden.
+- **Aufschlag je Kategorie oder für alles**, nach oben oder unten, mit Fortschrittsbalken. Der Aufschlag bleibt gespeichert, spätere Syncs rechnen damit weiter. Grenzen gibt der Lieferant vor (Minimum 0 % verhindert Unterbieten).
+- **Bild-Prüfer:** Ein Sync scheitert nie an einem Bild. Was fehlt, bleibt in einer Warteschlange pro Produkt, wird per Cron mit wachsendem Abstand nachgeholt (5 min → 30 min → 2 h → 6 h → 12 h → täglich) und kann im Backend manuell angestoßen werden. Der Prüfer vergleicht zusätzlich laufend Soll- und Ist-Bilder, findet also auch Bilder, die später gelöscht wurden.
+- Bilder werden nur vom Lieferanten-Host geladen, nur wenn es wirklich Bilder sind, und mit Größenlimit.
+
+### Neu im Lieferantenshop
+- **Tab „Partnershops“:** Partner anlegen, Rolle zuordnen, Kategorien einschränken, Lager/Bestand mitsenden, Sperrfelder und Aufschlagsgrenzen festlegen.
+- **Partner-API** (`wwpro/v1/partner/...`): Manifest, Kategorien, paginierte Produkte, Heartbeat. Authentifizierung per Bearer-Token; vom Schlüssel wird nur ein HMAC gespeichert, fehlgeschlagene Versuche sind pro IP limitiert.
+- **Shopify-Anbindung:** Partner ohne WordPress werden direkt über die Shopify GraphQL Admin API beschrieben – Produkte, Varianten, Preise (inkl. Vergleichspreis) und Bilder. Der Zugriffstoken wird verschlüsselt gespeichert.
+- **Tab „Preisänderung“:** Großhandelspreise einer Rolle prozentual nach oben oder unten, für alle Produkte oder eine einzelne Kategorie, mit Rundungsoptionen (0,05 / 0,10 / ganze Einheiten / ,99 / ,95) und Fortschrittsbalken.
+
+### Build und Übersetzungen
+- `bin/build-zip.sh` baut beide Plugins (`dist/woo-wholesale.zip`, `dist/woo-wholesale-partner.zip`), CI lädt zwei Artefakte hoch.
+- Die deutschen Sprachdateien beider Plugins werden aus `bin/make-translations.php` erzeugt; CI prüft Abdeckung, Aktualität der generierten Dateien und dass beide Plugins dieselbe Versionsnummer tragen.
+
 ## 1.0.4 – 2026-09-10
 
 - **Fix:** Seiten-Caches (LiteSpeed Cache, WP Rocket, W3 Total Cache, WP Super Cache) konnten einem eingeloggten Großhandelskunden den Gastpreis ausliefern – der richtige Preis erschien erst nach dem Leeren des Caches.

@@ -2,10 +2,10 @@
 # This file is distributed under the MIT license.
 msgid ""
 msgstr ""
-"Project-Id-Version: Woo Wholesale Pro 1.0.3\n"
+"Project-Id-Version: Woo Wholesale Pro 1.1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/zauni1984/woo-wholesale/issues\n"
-"POT-Creation-Date: 2026-09-06 12:00+0000\n"
-"PO-Revision-Date: 2026-09-06 12:00+0000\n"
+"POT-Creation-Date: 2026-10-02 12:00+0000\n"
+"PO-Revision-Date: 2026-10-02 12:00+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -657,7 +657,6 @@ msgstr "inkl. MwSt. %s"
 msgid "Woo Wholesale Pro requires PHP %s or newer. The plugin is inactive."
 msgstr "Woo Wholesale Pro benötigt PHP %s oder neuer. Das Plugin ist inaktiv."
 
-
 msgid "Page cache"
 msgstr "Seiten-Cache"
 
@@ -666,3 +665,435 @@ msgstr "Seiten mit Großhandelspreisen nicht im Seiten-Cache speichern lassen"
 
 msgid "Leave this on. Without it LiteSpeed Cache, WP Rocket and friends can serve the guest price to a logged-in wholesale customer. The plugin also tells LiteSpeed to keep a separate copy per role and clears the page cache whenever prices or rules change."
 msgstr "Lass das eingeschaltet. Ohne diese Option können LiteSpeed Cache, WP Rocket und Co. einem eingeloggten Großhandelskunden den Gastpreis ausliefern. Das Plugin sagt LiteSpeed außerdem, dass es je Rolle eine eigene Kopie vorhalten soll, und leert den Seiten-Cache, sobald sich Preise oder Regeln ändern."
+
+msgid "Partner shop created."
+msgstr "Partnershop angelegt."
+
+msgid "Partner shop saved."
+msgstr "Partnershop gespeichert."
+
+msgid "Partner shop deleted. Products in that shop are not changed."
+msgstr "Partnershop gelöscht. Produkte in diesem Shop werden nicht verändert."
+
+msgid "The partner shop could not be deleted."
+msgstr "Der Partnershop konnte nicht gelöscht werden."
+
+msgid "The key was revoked. The partner shop can no longer connect."
+msgstr "Der Schlüssel wurde widerrufen. Der Partnershop kann sich nicht mehr verbinden."
+
+msgid "The key could not be revoked."
+msgstr "Der Schlüssel konnte nicht widerrufen werden."
+
+msgid "A new key was created. Any key issued before is now invalid."
+msgstr "Ein neuer Schlüssel wurde erstellt. Ein zuvor ausgegebener Schlüssel ist damit ungültig."
+
+msgid "This partner shop is not a Shopify shop."
+msgstr "Dieser Partnershop ist kein Shopify-Shop."
+
+msgid "Connected to the Shopify shop \"%1$s\" (%2$s)."
+msgstr "Verbunden mit dem Shopify-Shop „%1$s“ (%2$s)."
+
+msgid "%1$d of %2$d products processed."
+msgstr "%1$d von %2$d Produkten verarbeitet."
+
+msgid "Done: %1$d products changed, %2$d left untouched."
+msgstr "Fertig: %1$d Produkte geändert, %2$d unverändert gelassen."
+
+msgid "This partner shop is paused or its wholesale role no longer exists."
+msgstr "Dieser Partnershop ist pausiert oder seine Großhandelsrolle existiert nicht mehr."
+
+msgid "%1$d of %2$d products pushed to Shopify."
+msgstr "%1$d von %2$d Produkten an Shopify übertragen."
+
+msgid "Some products could not be pushed. See the log of the last run."
+msgstr "Einige Produkte konnten nicht übertragen werden. Siehe das Protokoll des letzten Laufs."
+
+msgid "Done: %1$d created, %2$d updated, %3$d failed."
+msgstr "Fertig: %1$d angelegt, %2$d aktualisiert, %3$d fehlgeschlagen."
+
+msgid "Price change"
+msgstr "Preisänderung"
+
+msgid "Partner shops"
+msgstr "Partnershops"
+
+msgid "Change the prices now? This cannot be undone."
+msgstr "Preise jetzt ändern? Das kann nicht zurückgenommen werden."
+
+msgid "Delete this partner shop? Its key stops working immediately. Products already in that shop are kept."
+msgstr "Diesen Partnershop löschen? Sein Schlüssel funktioniert sofort nicht mehr. Produkte, die schon in diesem Shop sind, bleiben erhalten."
+
+msgid "Push all products and prices to this Shopify shop now?"
+msgstr "Jetzt alle Produkte und Preise an diesen Shopify-Shop übertragen?"
+
+msgid "Price change finished."
+msgstr "Preisänderung abgeschlossen."
+
+msgid "Sync finished."
+msgstr "Sync abgeschlossen."
+
+msgid "Please choose a product category."
+msgstr "Bitte wähle eine Produktkategorie."
+
+msgid "A partner shop receives products and the wholesale prices of one role from this shop. WooCommerce partners install the companion plugin \"Woo Wholesale Partner\" and pull the data; Shopify partners are written to directly through the Shopify Admin API."
+msgstr "Ein Partnershop erhält Produkte und die Großhandelspreise einer Rolle aus diesem Shop. WooCommerce-Partner installieren das Begleit-Plugin „Woo Wholesale Partner“ und holen die Daten ab; Shopify-Partner werden direkt über die Shopify Admin API beschrieben."
+
+msgid "Create a wholesale role first - a partner shop always receives the prices of one role. %s"
+msgstr "Lege zuerst eine Großhandelsrolle an – ein Partnershop erhält immer die Preise einer Rolle. %s"
+
+msgid "Create a role"
+msgstr "Rolle anlegen"
+
+msgid "Key for the partner shop"
+msgstr "Schlüssel für den Partnershop"
+
+msgid "Copy this key into the partner plugin now. It is shown this one time only and cannot be read again afterwards."
+msgstr "Kopiere diesen Schlüssel jetzt in das Partner-Plugin. Er wird nur dieses eine Mal angezeigt und ist danach nicht mehr lesbar."
+
+msgid "New partner shop"
+msgstr "Neuer Partnershop"
+
+msgid "Edit partner shop"
+msgstr "Partnershop bearbeiten"
+
+msgid "Shop system"
+msgstr "Shopsystem"
+
+msgid "Prices of this role"
+msgstr "Preise dieser Rolle"
+
+msgid "— please choose —"
+msgstr "— bitte wählen —"
+
+msgid "The partner shop pays the price of this role. Category and store-wide discounts of the role are included."
+msgstr "Der Partnershop zahlt den Preis dieser Rolle. Kategorie- und shopweite Rabatte der Rolle sind dabei berücksichtigt."
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Active"
+msgstr "Aktiv"
+
+msgid "Paused (no sync)"
+msgstr "Pausiert (kein Sync)"
+
+msgid "Shop URL"
+msgstr "Shop-URL"
+
+msgid "Optional, only used as a link in this list."
+msgstr "Optional, wird nur als Link in dieser Liste verwendet."
+
+msgid "Shopify domain"
+msgstr "Shopify-Domain"
+
+msgid "Admin API access token"
+msgstr "Admin-API-Zugriffstoken"
+
+msgid "Token of a custom app in the Shopify admin with the scopes write_products and read_products. It is stored encrypted."
+msgstr "Token einer eigenen App im Shopify-Adminbereich mit den Berechtigungen write_products und read_products. Es wird verschlüsselt gespeichert."
+
+msgid "Stored: %s. Leave empty to keep it."
+msgstr "Gespeichert: %s. Leer lassen, um es zu behalten."
+
+msgid "Product selection"
+msgstr "Produktauswahl"
+
+msgid "Only these categories (nothing selected = whole catalogue)"
+msgstr "Nur diese Kategorien (nichts ausgewählt = gesamter Katalog)"
+
+msgid "Subcategories of a selected category are always included."
+msgstr "Unterkategorien einer ausgewählten Kategorie sind immer enthalten."
+
+msgid "Only send products that are in stock"
+msgstr "Nur Produkte senden, die auf Lager sind"
+
+msgid "Also send stock quantities"
+msgstr "Auch Lagerbestände senden"
+
+msgid "The partner may not change"
+msgstr "Der Partner darf nicht ändern"
+
+msgid "The partner plugin blocks these fields on every product it received from here - in the product editor and through its REST API. On the next sync the value from this shop is restored."
+msgstr "Das Partner-Plugin sperrt diese Felder bei jedem Produkt, das es von hier erhalten hat – im Produkteditor und über seine REST-API. Beim nächsten Sync wird der Wert aus diesem Shop wiederhergestellt."
+
+msgid "Price markup of the partner"
+msgstr "Preisaufschlag des Partners"
+
+msgid "The partner may set its own sales price as a markup on the wholesale price"
+msgstr "Der Partner darf seinen Verkaufspreis als Aufschlag auf den Großhandelspreis festlegen"
+
+msgid "Lowest"
+msgstr "Minimum"
+
+msgid "Highest"
+msgstr "Maximum"
+
+msgid "Preset"
+msgstr "Vorgabe"
+
+msgid "A markup outside this range is refused in the partner shop. 0 % means the partner sells at the wholesale price. Enter a negative lowest value only if the partner may sell below it."
+msgstr "Ein Aufschlag außerhalb dieses Bereichs wird im Partnershop abgelehnt. 0 % bedeutet, der Partner verkauft zum Großhandelspreis. Ein negatives Minimum nur eintragen, wenn der Partner darunter verkaufen darf."
+
+msgid "Create partner shop"
+msgstr "Partnershop anlegen"
+
+msgid "Save partner shop"
+msgstr "Partnershop speichern"
+
+msgid "Add partner shop"
+msgstr "Partnershop hinzufügen"
+
+msgid "No partner shop has been set up yet."
+msgstr "Es ist noch kein Partnershop eingerichtet."
+
+msgid "Partner shop"
+msgstr "Partnershop"
+
+msgid "Products"
+msgstr "Produkte"
+
+msgid "Last sync"
+msgstr "Letzter Sync"
+
+msgid "Connection"
+msgstr "Verbindung"
+
+msgid "Actions"
+msgstr "Aktionen"
+
+msgid "paused"
+msgstr "pausiert"
+
+msgid "%d without image"
+msgstr "%d ohne Bild"
+
+msgid "no key"
+msgstr "kein Schlüssel"
+
+msgid "New key"
+msgstr "Neuer Schlüssel"
+
+msgid "Revoke key"
+msgstr "Schlüssel widerrufen"
+
+msgid "Test connection"
+msgstr "Verbindung testen"
+
+msgid "Start sync"
+msgstr "Sync starten"
+
+msgid "How a WooCommerce partner connects"
+msgstr "So verbindet sich ein WooCommerce-Partner"
+
+msgid "Install and activate the plugin \"Woo Wholesale Partner\" in the partner shop."
+msgstr "Im Partnershop das Plugin „Woo Wholesale Partner“ installieren und aktivieren."
+
+msgid "Enter the address of this shop there: %s"
+msgstr "Dort die Adresse dieses Shops eintragen: %s"
+
+msgid "Paste the key of the partner into the partner plugin and start the first sync."
+msgstr "Den Schlüssel des Partners in das Partner-Plugin einfügen und den ersten Sync starten."
+
+msgid "Change prices by percentage"
+msgstr "Preise prozentual ändern"
+
+msgid "Moves the wholesale prices of one role up or down by a percentage - for the whole catalogue or for a single category. This is the tool for the step after the first import, when the imported prices need a margin on top or a discount taken off."
+msgstr "Verschiebt die Großhandelspreise einer Rolle prozentual nach oben oder unten – für den gesamten Katalog oder für eine einzelne Kategorie. Genau dafür ist dieses Werkzeug nach dem ersten Import gedacht, wenn auf die eingespielten Preise noch eine Marge drauf oder ein Rabatt runter soll."
+
+msgid "Create a wholesale role first."
+msgstr "Lege zuerst eine Großhandelsrolle an."
+
+msgid "Last run: %1$s, %2$d products changed."
+msgstr "Letzter Lauf: %1$s, %2$d Produkte geändert."
+
+msgid "Wholesale role"
+msgstr "Großhandelsrolle"
+
+msgid "Change"
+msgstr "Änderung"
+
+msgid "Increase by"
+msgstr "Erhöhen um"
+
+msgid "Decrease by"
+msgstr "Senken um"
+
+msgid "Calculate from"
+msgstr "Berechnen aus"
+
+msgid "All products"
+msgstr "Alle Produkte"
+
+msgid "Only one category:"
+msgstr "Nur eine Kategorie:"
+
+msgid "Include subcategories"
+msgstr "Unterkategorien einbeziehen"
+
+msgid "Rounding"
+msgstr "Rundung"
+
+msgid "The new price is written as a fixed wholesale price for the chosen role. A percentage discount of the same role on those products is removed, so one rule describes the price. There is no undo - make a database backup before a large run."
+msgstr "Der neue Preis wird als Festpreis der gewählten Rolle gespeichert. Ein prozentualer Rabatt derselben Rolle wird bei diesen Produkten entfernt, damit genau eine Regel den Preis beschreibt. Es gibt kein Zurück – lege vor einem großen Lauf ein Datenbank-Backup an."
+
+msgid "Change prices now"
+msgstr "Preise jetzt ändern"
+
+msgid "Shop decimals (no extra rounding)"
+msgstr "Dezimalstellen des Shops (keine zusätzliche Rundung)"
+
+msgid "Round to 0.05"
+msgstr "Auf 0,05 runden"
+
+msgid "Round to 0.10"
+msgstr "Auf 0,10 runden"
+
+msgid "Round to whole currency units"
+msgstr "Auf ganze Währungseinheiten runden"
+
+msgid "Price ending in .99"
+msgstr "Preis endet auf ,99"
+
+msgid "Price ending in .95"
+msgstr "Preis endet auf ,95"
+
+msgid "Current wholesale price of the role (products without one are skipped)"
+msgstr "Aktueller Großhandelspreis der Rolle (Produkte ohne werden übersprungen)"
+
+msgid "Regular shop price"
+msgstr "Normaler Shop-Preis"
+
+msgid "The price change could not be read."
+msgstr "Die Preisänderung konnte nicht gelesen werden."
+
+msgid "Please choose a wholesale role."
+msgstr "Bitte wähle eine Großhandelsrolle."
+
+msgid "Please enter a percentage."
+msgstr "Bitte gib einen Prozentwert ein."
+
+msgid "The percentage must be greater than 0 and at most 100."
+msgstr "Der Prozentwert muss größer als 0 und höchstens 100 sein."
+
+msgid "all products"
+msgstr "allen Produkten"
+
+msgid "selected category"
+msgstr "gewählte Kategorie"
+
+msgid "%1$s on the wholesale prices of \"%2$s\" in %3$s"
+msgstr "%1$s auf die Großhandelspreise von „%2$s“ in %3$s"
+
+msgid "Too many failed authentication attempts. Please try again later."
+msgstr "Zu viele fehlgeschlagene Anmeldeversuche. Bitte versuche es später erneut."
+
+msgid "Unknown or revoked partner key."
+msgstr "Unbekannter oder widerrufener Partnerschlüssel."
+
+msgid "This partner is configured as a Shopify shop and cannot use the pull API."
+msgstr "Dieser Partner ist als Shopify-Shop eingerichtet und kann die Abhol-API nicht nutzen."
+
+msgid "Product name"
+msgstr "Produktname"
+
+msgid "Description and short description"
+msgstr "Beschreibung und Kurzbeschreibung"
+
+msgid "Product images"
+msgstr "Produktbilder"
+
+msgid "Category assignment"
+msgstr "Kategoriezuordnung"
+
+msgid "SKU"
+msgstr "Artikelnummer"
+
+msgid "Attributes and variations"
+msgstr "Attribute und Varianten"
+
+msgid "Deleting and trashing products"
+msgstr "Produkte löschen und in den Papierkorb legen"
+
+msgid "WooCommerce (partner plugin)"
+msgstr "WooCommerce (Partner-Plugin)"
+
+msgid "Shopify (Admin API)"
+msgstr "Shopify (Admin API)"
+
+msgid "The partner shop could not be found."
+msgstr "Der Partnershop wurde nicht gefunden."
+
+msgid "Please enter a name for the partner shop."
+msgstr "Bitte gib einen Namen für den Partnershop ein."
+
+msgid "Please choose the wholesale role whose prices this partner receives."
+msgstr "Bitte wähle die Großhandelsrolle, deren Preise dieser Partner erhält."
+
+msgid "Please enter a valid shop URL (including https://)."
+msgstr "Bitte gib eine gültige Shop-URL ein (inklusive https://)."
+
+msgid "The lowest allowed markup must not be higher than the highest allowed markup."
+msgstr "Der kleinste erlaubte Aufschlag darf nicht höher sein als der größte erlaubte Aufschlag."
+
+msgid "The default markup must be inside the allowed range."
+msgstr "Der vorgegebene Aufschlag muss innerhalb des erlaubten Bereichs liegen."
+
+msgid "Please enter the Shopify domain of the partner, for example partner.myshopify.com."
+msgstr "Bitte gib die Shopify-Domain des Partners ein, zum Beispiel partner.myshopify.com."
+
+msgid "The Shopify Admin API access token looks invalid."
+msgstr "Das Shopify-Admin-API-Zugriffstoken sieht ungültig aus."
+
+msgid "Please enter the Shopify Admin API access token."
+msgstr "Bitte gib das Shopify-Admin-API-Zugriffstoken ein."
+
+msgid "This server cannot generate a secure key."
+msgstr "Dieser Server kann keinen sicheren Schlüssel erzeugen."
+
+msgid "No Shopify access token is stored for this partner."
+msgstr "Für diesen Partner ist kein Shopify-Zugriffstoken gespeichert."
+
+msgid "Shopify is rate limiting the connection. Please start the sync again in a few minutes."
+msgstr "Shopify bremst die Verbindung gerade. Starte den Sync bitte in einigen Minuten erneut."
+
+msgid "Shopify refused the access token. Please check the token and its scopes (write_products)."
+msgstr "Shopify hat das Zugriffstoken abgelehnt. Prüfe das Token und seine Berechtigungen (write_products)."
+
+msgid "Shopify answered with HTTP status %d."
+msgstr "Shopify hat mit HTTP-Status %d geantwortet."
+
+msgid "Shopify did not return any shop data."
+msgstr "Shopify hat keine Shopdaten zurückgegeben."
+
+msgid "Shopify did not return an id for the new product."
+msgstr "Shopify hat für das neue Produkt keine ID zurückgegeben."
+
+msgid "Shopify error for \"%1$s\": %2$s"
+msgstr "Shopify-Fehler bei „%1$s“: %2$s"
+
+msgid "A partner shop is an external shop that resells your products. It receives the prices of exactly one wholesale role, and you decide which product data it may not change locally."
+msgstr "Ein Partnershop ist ein externer Shop, der deine Produkte weiterverkauft. Er erhält die Preise genau einer Großhandelsrolle, und du entscheidest, welche Produktdaten er bei sich nicht ändern darf."
+
+msgid "WooCommerce partners install the companion plugin \"Woo Wholesale Partner\" and pull products, images and prices from here with their partner key. Both plugins belong to the same release and should always be updated together."
+msgstr "WooCommerce-Partner installieren das Begleit-Plugin „Woo Wholesale Partner“ und holen Produkte, Bilder und Preise mit ihrem Partnerschlüssel von hier ab. Beide Plugins gehören zur selben Version und sollten immer gemeinsam aktualisiert werden."
+
+msgid "Shopify partners do not install anything: you push products, prices and images into their store through the Shopify Admin API."
+msgstr "Shopify-Partner installieren nichts: Du überträgst Produkte, Preise und Bilder über die Shopify Admin API in ihren Shop."
+
+msgid "A partner key is only stored as a fingerprint here, so it can be replaced but never read again. A Shopify token is stored encrypted."
+msgstr "Ein Partnerschlüssel wird hier nur als Fingerabdruck gespeichert – er lässt sich ersetzen, aber nie wieder lesen. Ein Shopify-Token wird verschlüsselt gespeichert."
+
+msgid "The partner sets its own sales price as a markup on your wholesale price, inside the range you allow. 0 % as the lowest value keeps a partner from undercutting your price."
+msgstr "Der Partner legt seinen Verkaufspreis als Aufschlag auf deinen Großhandelspreis fest, innerhalb des Bereichs, den du erlaubst. 0 % als Minimum verhindert, dass ein Partner deinen Preis unterbietet."
+
+msgid "Changing many prices at once"
+msgstr "Viele Preise auf einmal ändern"
+
+msgid "The \"Price change\" tab moves the wholesale prices of one role by a percentage, for the whole catalogue or for a single category, and shows a progress bar while it works. The result is written as a fixed price for that role, and there is no undo - so take a database backup before a large run."
+msgstr "Der Tab „Preisänderung“ verschiebt die Großhandelspreise einer Rolle prozentual, für den gesamten Katalog oder für eine einzelne Kategorie, und zeigt dabei einen Fortschrittsbalken. Das Ergebnis wird als Festpreis dieser Rolle gespeichert, und es gibt kein Zurück – lege davor ein Datenbank-Backup an."
+
+msgid "what a partner shop receives"
+msgstr "was ein Partnershop erhält"
+
+msgid "a single price produced by the bulk price change"
+msgstr "ein einzelner Preis aus der Sammel-Preisänderung"

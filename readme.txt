@@ -6,7 +6,7 @@ Tested up to: 6.8
 Requires PHP: 7.4
 WC requires at least: 7.0
 WC tested up to: 11.1
-Stable tag: 1.0.4
+Stable tag: 1.1.0
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -22,6 +22,8 @@ Role-based wholesale pricing for WooCommerce with per-product prices, category a
 * Importer for WooCommerce Wholesale Prices (Wholesale Suite) data, batched via AJAX.
 * HPOS and block checkout compatible.
 * REST API and WordPress Abilities API support, so MCP connectors such as Easy MCP AI can read and write wholesale prices.
+* Partner shops: hand your catalogue and one role's prices to a WooCommerce partner (companion plugin "Woo Wholesale Partner") or push it into a Shopify store through the Admin API.
+* Bulk price change: move the wholesale prices of a role up or down by a percentage, for the whole catalogue or one category, with a progress bar.
 
 == Installation ==
 
@@ -30,6 +32,12 @@ Role-based wholesale pricing for WooCommerce with per-product prices, category a
 3. Assign a wholesale role to a user under Users > Edit user.
 
 == Changelog ==
+
+= 1.1.0 =
+* New companion plugin "Woo Wholesale Partner" for partner shops: it pulls products, images and purchase prices from this shop, protects the fields the supplier maintains, adds the partner's own percentage markup per category or for everything, and retries missing images in the background. Both plugins carry the same version and belong together.
+* New "Partner shops" tab: manage partners, their wholesale role, the categories they receive, the fields they may not change and the markup range they have to stay in. Partner keys are stored as an HMAC only.
+* New Shopify connection: push products, variants, prices and images into a partner's Shopify store through the GraphQL Admin API.
+* New "Price change" tab: move the wholesale prices of a role by a percentage, for all products or one category, with rounding options and a progress bar.
 
 = 1.0.4 =
 * Fix: page caches such as LiteSpeed Cache could serve the guest price to a logged-in wholesale customer. Wholesale pages are now kept out of the public page cache, LiteSpeed keeps a separate copy per role, and the page cache is cleared whenever prices or rules change.

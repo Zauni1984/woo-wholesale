@@ -5,6 +5,7 @@
 bin
 build
 dist
+partner-plugin
 node_modules
 vendor
 *.zip

@@ -1,0 +1,601 @@
+# Copyright (C) 2026 Stefan Zaunreither
+# This file is distributed under the MIT license.
+msgid ""
+msgstr ""
+"Project-Id-Version: Woo Wholesale Partner 1.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/zauni1984/woo-wholesale/issues\n"
+"POT-Creation-Date: 2026-10-02 12:00+0000\n"
+"PO-Revision-Date: 2026-10-02 12:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_DE_formal\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: woo-wholesale-partner\n"
+
+msgid "Supplier"
+msgstr "Lieferant"
+
+msgid "Sync"
+msgstr "Sync"
+
+msgid "Prices"
+msgstr "Preise"
+
+msgid "Images"
+msgstr "Bilder"
+
+msgid "Help"
+msgstr "Hilfe"
+
+msgid "You do not have permission to access this page."
+msgstr "Du hast keine Berechtigung, diese Seite aufzurufen."
+
+msgid "Woo Wholesale Partner"
+msgstr "Woo Wholesale Partner"
+
+msgid "Working…"
+msgstr "Arbeite…"
+
+msgid "The run stopped because of an error. Please check the log and try again."
+msgstr "Der Lauf wurde wegen eines Fehlers abgebrochen. Prüfe das Protokoll und versuche es erneut."
+
+msgid "Sync finished."
+msgstr "Sync abgeschlossen."
+
+msgid "Prices updated."
+msgstr "Preise aktualisiert."
+
+msgid "Image check finished."
+msgstr "Bildprüfung abgeschlossen."
+
+msgid "Start the sync now? Products from your supplier are created or updated."
+msgstr "Sync jetzt starten? Produkte deines Lieferanten werden angelegt oder aktualisiert."
+
+msgid "Apply this markup now? The sales prices of the selected products are recalculated."
+msgstr "Diesen Aufschlag jetzt anwenden? Die Verkaufspreise der gewählten Produkte werden neu berechnet."
+
+msgid "Please choose a product category."
+msgstr "Bitte wähle eine Produktkategorie."
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "%1$d products from your supplier are still missing images. %2$sRun the image check%3$s."
+msgstr "Bei %1$d Produkten deines Lieferanten fehlen noch Bilder. %2$sBildprüfung starten%3$s."
+
+msgid "You do not have permission to do this."
+msgstr "Du hast keine Berechtigung, das zu tun."
+
+msgid "Connection saved. Use \"Test connection\" to fetch your supplier policy."
+msgstr "Verbindung gespeichert. Mit „Verbindung testen“ holst du die Vorgaben deines Lieferanten."
+
+msgid "Connected to \"%1$s\". %2$d products are available for you."
+msgstr "Verbunden mit „%1$s“. %2$d Produkte stehen für dich bereit."
+
+msgid "The partner key was removed. Products already in this shop are kept."
+msgstr "Der Partnerschlüssel wurde entfernt. Produkte, die bereits in diesem Shop sind, bleiben erhalten."
+
+msgid "%d category markups were outside the range your supplier allows and were not saved."
+msgstr "%d Kategorie-Aufschläge lagen außerhalb des von deinem Lieferanten erlaubten Bereichs und wurden nicht gespeichert."
+
+msgid "Prices saved. Use \"Apply to products\" so the sales prices are recalculated."
+msgstr "Preise gespeichert. Mit „Auf Produkte anwenden“ werden die Verkaufspreise neu berechnet."
+
+msgid "Settings saved."
+msgstr "Einstellungen gespeichert."
+
+msgid "No supplier shop is configured yet."
+msgstr "Es ist noch kein Lieferantenshop eingerichtet."
+
+msgid "Connected to \"%1$s\", %2$d products to check."
+msgstr "Verbunden mit „%1$s“, %2$d Produkte zu prüfen."
+
+msgid "Categories: %1$d created, %2$d updated."
+msgstr "Kategorien: %1$d angelegt, %2$d aktualisiert."
+
+msgid "Error for \"%1$s\": %2$s"
+msgstr "Fehler bei „%1$s“: %2$s"
+
+msgid "Products: page %1$d of %2$d done."
+msgstr "Produkte: Seite %1$d von %2$d erledigt."
+
+msgid "Images: %1$d downloaded, %2$d could not be fetched yet."
+msgstr "Bilder: %1$d heruntergeladen, %2$d konnten noch nicht geholt werden."
+
+msgid "%d products are no longer delivered and were set aside."
+msgstr "%d Produkte werden nicht mehr geliefert und wurden beiseitegelegt."
+
+msgid "The supplier could not be informed about this run: %s"
+msgstr "Der Lieferant konnte über diesen Lauf nicht informiert werden: %s"
+
+msgid "Done: %1$d new, %2$d updated, %3$d unchanged, %4$d failed."
+msgstr "Fertig: %1$d neu, %2$d aktualisiert, %3$d unverändert, %4$d fehlgeschlagen."
+
+msgid "%d images are still missing. They are fetched automatically in the background; you can also start the check by hand."
+msgstr "Es fehlen noch %d Bilder. Sie werden automatisch im Hintergrund geholt; du kannst die Prüfung auch von Hand starten."
+
+msgid "%1$d of %2$d products recalculated."
+msgstr "%1$d von %2$d Produkten neu berechnet."
+
+msgid "Done: %d sales prices changed."
+msgstr "Fertig: %d Verkaufspreise geändert."
+
+msgid "Checked %1$d of %2$d products."
+msgstr "%1$d von %2$d Produkten geprüft."
+
+msgid "%d images have to be fetched."
+msgstr "%d Bilder müssen geholt werden."
+
+msgid "Downloaded %1$d images, %2$d failed."
+msgstr "%1$d Bilder heruntergeladen, %2$d fehlgeschlagen."
+
+msgid "Done: %1$d images fetched. %2$d products are still waiting, %3$d gave up for now."
+msgstr "Fertig: %1$d Bilder geholt. %2$d Produkte warten noch, %3$d haben vorerst aufgegeben."
+
+msgid "Your supplier"
+msgstr "Dein Lieferant"
+
+msgid "Enter the shop you buy from and the partner key you received from it. This shop then pulls products, images and your purchase prices from there."
+msgstr "Trage den Shop ein, bei dem du einkaufst, und den Partnerschlüssel, den du von ihm bekommen hast. Dieser Shop holt dann Produkte, Bilder und deine Einkaufspreise von dort."
+
+msgid "Address of the supplier shop"
+msgstr "Adresse des Lieferantenshops"
+
+msgid "Partner key"
+msgstr "Partnerschlüssel"
+
+msgid "Stored: %s. Leave empty to keep it."
+msgstr "Gespeichert: %s. Leer lassen, um ihn zu behalten."
+
+msgid "You get the key from your supplier. It is stored encrypted and never shown again."
+msgstr "Den Schlüssel bekommst du von deinem Lieferanten. Er wird verschlüsselt gespeichert und nicht wieder angezeigt."
+
+msgid "Save connection"
+msgstr "Verbindung speichern"
+
+msgid "Test connection"
+msgstr "Verbindung testen"
+
+msgid "Remove key"
+msgstr "Schlüssel entfernen"
+
+msgid "What your supplier allows"
+msgstr "Was dein Lieferant erlaubt"
+
+msgid "You are registered as"
+msgstr "Du bist registriert als"
+
+msgid "Price list: %s"
+msgstr "Preisliste: %s"
+
+msgid "Your markup"
+msgstr "Dein Aufschlag"
+
+msgid "Not allowed - you sell at the purchase price."
+msgstr "Nicht erlaubt – du verkaufst zum Einkaufspreis."
+
+msgid "between %1$s %% and %2$s %%"
+msgstr "zwischen %1$s %% und %2$s %%"
+
+msgid "Maintained by your supplier"
+msgstr "Von deinem Lieferanten gepflegt"
+
+msgid "Nothing is locked. Your changes are still overwritten on the next sync for everything the supplier delivers."
+msgstr "Nichts ist gesperrt. Deine Änderungen werden beim nächsten Sync trotzdem überschrieben, soweit der Lieferant die Daten liefert."
+
+msgid "These fields cannot be changed here. If you edit them anyway, the supplier value is written back when you save."
+msgstr "Diese Felder lassen sich hier nicht ändern. Wenn du sie trotzdem bearbeitest, wird beim Speichern der Wert des Lieferanten zurückgeschrieben."
+
+msgid "Last sync"
+msgstr "Letzter Sync"
+
+msgid "never"
+msgstr "noch nie"
+
+msgid "Go to the sync"
+msgstr "Zum Sync"
+
+msgid "How this plugin works"
+msgstr "So funktioniert dieses Plugin"
+
+msgid "The two halves"
+msgstr "Die zwei Hälften"
+
+msgid "Your supplier runs \"Woo Wholesale Pro\" and maintains the products there. This shop runs \"Woo Wholesale Partner\" and fetches them. Both plugins belong to the same release and should always be updated together."
+msgstr "Dein Lieferant betreibt „Woo Wholesale Pro“ und pflegt die Produkte dort. Dieser Shop betreibt „Woo Wholesale Partner“ und holt sie ab. Beide Plugins gehören zur selben Version und sollten immer gemeinsam aktualisiert werden."
+
+msgid "Getting started"
+msgstr "Erste Schritte"
+
+msgid "Enter the address of the supplier shop and your partner key under \"Supplier\", then use \"Test connection\"."
+msgstr "Trage unter „Lieferant“ die Adresse des Lieferantenshops und deinen Partnerschlüssel ein und nutze dann „Verbindung testen“."
+
+msgid "Set your markup under \"Prices\" - you can change it later at any time."
+msgstr "Lege unter „Preise“ deinen Aufschlag fest – du kannst ihn später jederzeit ändern."
+
+msgid "Run the first sync under \"Sync\". New products are created as drafts, so you can check them first."
+msgstr "Starte unter „Sync“ den ersten Abgleich. Neue Produkte werden als Entwurf angelegt, damit du sie vorher prüfen kannst."
+
+msgid "Check under \"Images\" whether anything is still missing, and publish the products."
+msgstr "Prüfe unter „Bilder“, ob noch etwas fehlt, und veröffentliche die Produkte."
+
+msgid "How your price is calculated"
+msgstr "So wird dein Preis berechnet"
+
+msgid "Sales price = purchase price × (1 + markup ÷ 100), then rounded the way you chose. The markup of the most specific category of a product wins; if no category has one, the standard markup is used."
+msgstr "Verkaufspreis = Einkaufspreis × (1 + Aufschlag ÷ 100), danach so gerundet, wie du es eingestellt hast. Der Aufschlag der speziellsten Kategorie eines Produkts gewinnt; hat keine Kategorie einen, gilt der Standardaufschlag."
+
+msgid "A price you type into a product by hand is replaced the next time prices are recalculated. If you want to keep a special price for one article, use a sale price - a sale price below the calculated price is left alone."
+msgstr "Ein Preis, den du von Hand in ein Produkt einträgst, wird beim nächsten Neuberechnen ersetzt. Wenn du für einen Artikel einen Sonderpreis behalten willst, nimm den Angebotspreis – ein Angebotspreis unter dem berechneten Preis bleibt unangetastet."
+
+msgid "Why some fields cannot be edited"
+msgstr "Warum manche Felder nicht bearbeitbar sind"
+
+msgid "Your supplier decides which product data it maintains. Those fields are shown as locked, and if something changes them anyway - a bulk edit, an import, another plugin through the REST API - the supplier value is written back when the product is saved. Your prices, your stock and your own products are not affected."
+msgstr "Dein Lieferant entscheidet, welche Produktdaten er pflegt. Diese Felder werden als gesperrt angezeigt, und wenn sie trotzdem geändert werden – per Sammelbearbeitung, Import oder einem anderen Plugin über die REST-API – wird beim Speichern der Wert des Lieferanten zurückgeschrieben. Deine Preise, dein Lagerbestand und deine eigenen Produkte sind davon nicht betroffen."
+
+msgid "Images are only downloaded from the supplier shop, never from any other address, and only if they really are images. An image that is too large or unreachable is retried later instead of stopping the sync."
+msgstr "Bilder werden nur vom Lieferantenshop heruntergeladen, nie von einer anderen Adresse, und nur wenn es wirklich Bilder sind. Ein zu großes oder nicht erreichbares Bild wird später erneut versucht, statt den Sync anzuhalten."
+
+msgid "If something goes wrong"
+msgstr "Wenn etwas nicht klappt"
+
+msgid "\"Unknown or revoked partner key\": ask your supplier for a new key, keys can be replaced at any time."
+msgstr "„Unbekannter oder widerrufener Partnerschlüssel“: Frage deinen Lieferanten nach einem neuen Schlüssel, Schlüssel lassen sich jederzeit ersetzen."
+
+msgid "No answer on the partner route: the supplier shop needs Woo Wholesale Pro 1.1.0 or newer."
+msgstr "Keine Antwort auf der Partner-Route: Der Lieferantenshop benötigt Woo Wholesale Pro 1.1.0 oder neuer."
+
+msgid "A sync that stops in the middle can simply be started again; it continues where it makes sense and never creates a product twice."
+msgstr "Ein Sync, der mitten drin abbricht, kann einfach erneut gestartet werden; er macht dort weiter, wo es sinnvoll ist, und legt kein Produkt doppelt an."
+
+msgid "Image check"
+msgstr "Bildprüfung"
+
+msgid "A sync never fails because of an image. Whatever could not be fetched stays in a queue, is retried in the background with a growing delay, and is picked up here. The check also walks through the products that are already here and compares what should be there against what really is - so an image that was deleted later, or never arrived, is fetched again."
+msgstr "Ein Sync scheitert nie an einem Bild. Was nicht geholt werden konnte, bleibt in einer Warteschlange, wird im Hintergrund mit wachsendem Abstand erneut versucht und hier aufgegriffen. Die Prüfung geht außerdem die bereits vorhandenen Produkte durch und vergleicht, was da sein sollte, mit dem, was wirklich da ist – so wird ein Bild, das später gelöscht wurde oder nie angekommen ist, erneut geholt."
+
+msgid "Products from your supplier"
+msgstr "Produkte deines Lieferanten"
+
+msgid "Waiting for images"
+msgstr "Warten auf Bilder"
+
+msgid "Gave up for now"
+msgstr "Vorerst aufgegeben"
+
+msgid "These products were tried several times without success. Use \"Retry everything\" to start over."
+msgstr "Diese Produkte wurden mehrfach ohne Erfolg versucht. Mit „Alles erneut versuchen“ fängst du von vorn an."
+
+msgid "Images in the queue"
+msgstr "Bilder in der Warteschlange"
+
+msgid "Background check"
+msgstr "Hintergrundprüfung"
+
+msgid "switched off"
+msgstr "ausgeschaltet"
+
+msgid "You can switch it on under %s."
+msgstr "Du kannst sie unter %s einschalten."
+
+msgid "next run in %s"
+msgstr "nächster Lauf in %s"
+
+msgid "not scheduled - deactivate and activate the plugin once to schedule it again"
+msgstr "nicht eingeplant – deaktiviere und aktiviere das Plugin einmal, damit sie wieder eingeplant wird"
+
+msgid "Check images now"
+msgstr "Bilder jetzt prüfen"
+
+msgid "Retry everything"
+msgstr "Alles erneut versuchen"
+
+msgid "\"Retry everything\" also takes on the images that gave up and ignores the waiting time."
+msgstr "„Alles erneut versuchen“ nimmt auch die aufgegebenen Bilder mit und ignoriert die Wartezeit."
+
+msgid "Products that are still waiting"
+msgstr "Produkte, die noch warten"
+
+msgid "Product"
+msgstr "Produkt"
+
+msgid "Last message"
+msgstr "Letzte Meldung"
+
+msgid "Your prices"
+msgstr "Deine Preise"
+
+msgid "Your sales price is the purchase price from your supplier plus your markup. Set one markup for the whole shop, or a different one per category - upwards or downwards."
+msgstr "Dein Verkaufspreis ist der Einkaufspreis deines Lieferanten plus dein Aufschlag. Setze einen Aufschlag für den ganzen Shop oder je Kategorie einen eigenen – nach oben oder nach unten."
+
+msgid "Your supplier does not allow an own markup. Products are sold at the purchase price."
+msgstr "Dein Lieferant erlaubt keinen eigenen Aufschlag. Die Produkte werden zum Einkaufspreis verkauft."
+
+msgid "Your supplier allows a markup between %1$s %% and %2$s %%."
+msgstr "Dein Lieferant erlaubt einen Aufschlag zwischen %1$s %% und %2$s %%."
+
+msgid "Change prices by percentage"
+msgstr "Preise prozentual ändern"
+
+msgid "Sets the markup and recalculates the sales prices right away. This is what you use after the first sync to put your margin on the imported prices."
+msgstr "Setzt den Aufschlag und berechnet die Verkaufspreise sofort neu. Genau das nutzt du nach dem ersten Sync, um deine Marge auf die eingespielten Preise zu legen."
+
+msgid "Change"
+msgstr "Änderung"
+
+msgid "Markup up by"
+msgstr "Aufschlag erhöhen um"
+
+msgid "Markup down by"
+msgstr "Aufschlag senken um"
+
+msgid "Relative to the purchase price: 30 % means a purchase price of 10.00 becomes 13.00."
+msgstr "Bezogen auf den Einkaufspreis: 30 % bedeutet, aus einem Einkaufspreis von 10,00 werden 13,00."
+
+msgid "Products"
+msgstr "Produkte"
+
+msgid "All products from the supplier"
+msgstr "Alle Produkte des Lieferanten"
+
+msgid "Only one category:"
+msgstr "Nur eine Kategorie:"
+
+msgid "— please choose —"
+msgstr "— bitte wählen —"
+
+msgid "Include subcategories"
+msgstr "Unterkategorien einbeziehen"
+
+msgid "Also reset markups set per category"
+msgstr "Auch je Kategorie gesetzte Aufschläge zurücksetzen"
+
+msgid "Apply to products"
+msgstr "Auf Produkte anwenden"
+
+msgid "Standard markup and rounding"
+msgstr "Standardaufschlag und Rundung"
+
+msgid "Standard markup"
+msgstr "Standardaufschlag"
+
+msgid "Used for every product whose category has no markup of its own. A negative value sells below the purchase price, if your supplier allows it."
+msgstr "Gilt für jedes Produkt, dessen Kategorie keinen eigenen Aufschlag hat. Ein negativer Wert verkauft unter Einkaufspreis, sofern dein Lieferant das erlaubt."
+
+msgid "Rounding"
+msgstr "Rundung"
+
+msgid "Markup per category"
+msgstr "Aufschlag je Kategorie"
+
+msgid "Leave a field empty and the category uses the markup of its parent category, or the standard markup."
+msgstr "Lass ein Feld leer, dann verwendet die Kategorie den Aufschlag ihrer übergeordneten Kategorie oder den Standardaufschlag."
+
+msgid "There are no product categories yet. They arrive with the first sync."
+msgstr "Es gibt noch keine Produktkategorien. Sie kommen mit dem ersten Sync."
+
+msgid "Category"
+msgstr "Kategorie"
+
+msgid "Markup"
+msgstr "Aufschlag"
+
+msgid "Save prices"
+msgstr "Preise speichern"
+
+msgid "Saving stores the values. Use \"Apply to products\" above so the sales prices in the shop are recalculated."
+msgstr "Speichern legt die Werte ab. Mit „Auf Produkte anwenden“ oben werden die Verkaufspreise im Shop neu berechnet."
+
+msgid "Sync products"
+msgstr "Produkte synchronisieren"
+
+msgid "Set up your supplier first: %s"
+msgstr "Richte zuerst deinen Lieferanten ein: %s"
+
+msgid "A sync fetches categories, products, purchase prices and images from your supplier, and then calculates your sales prices from your markup. Products that already exist are updated; nothing you added yourself is touched."
+msgstr "Ein Sync holt Kategorien, Produkte, Einkaufspreise und Bilder von deinem Lieferanten und berechnet daraus mit deinem Aufschlag deine Verkaufspreise. Bereits vorhandene Produkte werden aktualisiert; eigene Produkte bleiben unberührt."
+
+msgid "Products from your supplier in this shop: %d"
+msgstr "Produkte deines Lieferanten in diesem Shop: %d"
+
+msgid "Last run: %1$d new, %2$d updated, %3$d unchanged, %4$d failed."
+msgstr "Letzter Lauf: %1$d neu, %2$d aktualisiert, %3$d unverändert, %4$d fehlgeschlagen."
+
+msgid "Start sync"
+msgstr "Sync starten"
+
+msgid "Sync options"
+msgstr "Sync-Einstellungen"
+
+msgid "New products"
+msgstr "Neue Produkte"
+
+msgid "Create as draft (you publish them yourself)"
+msgstr "Als Entwurf anlegen (du veröffentlichst sie selbst)"
+
+msgid "Publish right away"
+msgstr "Sofort veröffentlichen"
+
+msgid "Draft is the safer choice for the first sync: you can check prices and images before anything is in the shop."
+msgstr "Für den ersten Sync ist „Entwurf“ die sichere Wahl: Du kannst Preise und Bilder prüfen, bevor etwas im Shop steht."
+
+msgid "Products no longer delivered"
+msgstr "Nicht mehr gelieferte Produkte"
+
+msgid "Set to draft"
+msgstr "Auf Entwurf setzen"
+
+msgid "Move to trash"
+msgstr "In den Papierkorb legen"
+
+msgid "Leave untouched"
+msgstr "Unberührt lassen"
+
+msgid "Download product images from the supplier"
+msgstr "Produktbilder vom Lieferanten herunterladen"
+
+msgid "Fetch missing images automatically in the background"
+msgstr "Fehlende Bilder automatisch im Hintergrund nachholen"
+
+msgid "The background check runs about once an hour. It retries images that failed, with a growing delay, and finds images that went missing later."
+msgstr "Die Hintergrundprüfung läuft etwa einmal pro Stunde. Sie wiederholt fehlgeschlagene Bilder mit wachsendem Abstand und findet Bilder, die später verloren gegangen sind."
+
+msgid "Save settings"
+msgstr "Einstellungen speichern"
+
+msgid "The stored partner key could not be read. Please enter it again."
+msgstr "Der gespeicherte Partnerschlüssel konnte nicht gelesen werden. Bitte gib ihn erneut ein."
+
+msgid "The supplier shop refused the partner key."
+msgstr "Der Lieferantenshop hat den Partnerschlüssel abgelehnt."
+
+msgid "The supplier shop did not answer on the partner route. Is Woo Wholesale Pro installed and up to date there?"
+msgstr "Der Lieferantenshop hat auf der Partner-Route nicht geantwortet. Ist dort Woo Wholesale Pro installiert und aktuell?"
+
+msgid "The supplier shop is rate limiting the connection. Please try again in a few minutes."
+msgstr "Der Lieferantenshop bremst die Verbindung gerade. Bitte versuche es in einigen Minuten erneut."
+
+msgid "The supplier shop answered with HTTP status %d."
+msgstr "Der Lieferantenshop hat mit HTTP-Status %d geantwortet."
+
+msgid "The answer of the supplier shop could not be read."
+msgstr "Die Antwort des Lieferantenshops konnte nicht gelesen werden."
+
+msgid "The image is larger than the allowed maximum."
+msgstr "Das Bild ist größer als das erlaubte Maximum."
+
+msgid "The downloaded file is not an image."
+msgstr "Die heruntergeladene Datei ist kein Bild."
+
+msgid "The image address is invalid."
+msgstr "Die Bildadresse ist ungültig."
+
+msgid "Images are only downloaded over HTTP or HTTPS."
+msgstr "Bilder werden nur über HTTP oder HTTPS heruntergeladen."
+
+msgid "Images from the host \"%s\" are not downloaded, it is not the supplier shop."
+msgstr "Bilder vom Host „%s“ werden nicht heruntergeladen, das ist nicht der Lieferantenshop."
+
+msgid "Product name"
+msgstr "Produktname"
+
+msgid "Description and short description"
+msgstr "Beschreibung und Kurzbeschreibung"
+
+msgid "Product images"
+msgstr "Produktbilder"
+
+msgid "Category assignment"
+msgstr "Kategoriezuordnung"
+
+msgid "SKU"
+msgstr "Artikelnummer"
+
+msgid "Attributes and variations"
+msgstr "Attribute und Varianten"
+
+msgid "Deleting and trashing"
+msgstr "Löschen und Papierkorb"
+
+msgid "This product comes from your supplier."
+msgstr "Dieses Produkt kommt von deinem Lieferanten."
+
+msgid "Your supplier has not locked any fields, but everything it delivers is overwritten on the next sync."
+msgstr "Dein Lieferant hat keine Felder gesperrt, aber alles, was er liefert, wird beim nächsten Sync überschrieben."
+
+msgid "These fields are maintained by your supplier and are reset when you save: %s."
+msgstr "Diese Felder pflegt dein Lieferant; beim Speichern werden sie zurückgesetzt: %s."
+
+msgid "Your sales price is calculated from the wholesale price and your markup: %s"
+msgstr "Dein Verkaufspreis wird aus dem Großhandelspreis und deinem Aufschlag berechnet: %s"
+
+msgid "managed"
+msgstr "gepflegt"
+
+msgid "Purchase:"
+msgstr "Einkauf:"
+
+msgid "Markup:"
+msgstr "Aufschlag:"
+
+msgid "images pending"
+msgstr "Bilder offen"
+
+msgid "images failed"
+msgstr "Bilder fehlgeschlagen"
+
+msgid "The price change could not be read."
+msgstr "Die Preisänderung konnte nicht gelesen werden."
+
+msgid "The supplier does not allow an own markup in this shop."
+msgstr "Der Lieferant erlaubt in diesem Shop keinen eigenen Aufschlag."
+
+msgid "Please enter a percentage."
+msgstr "Bitte gib einen Prozentwert ein."
+
+msgid "The supplier allows a markup between %1$s %% and %2$s %%."
+msgstr "Der Lieferant erlaubt einen Aufschlag zwischen %1$s %% und %2$s %%."
+
+msgid "all products"
+msgstr "alle Produkte"
+
+msgid "selected category"
+msgstr "gewählte Kategorie"
+
+msgid "Markup %1$s on the wholesale price for %2$s"
+msgstr "Aufschlag %1$s auf den Großhandelspreis für %2$s"
+
+msgid "Woo Wholesale Partner requires WooCommerce to be installed and active."
+msgstr "Woo Wholesale Partner benötigt ein installiertes und aktives WooCommerce."
+
+msgid "Woo Wholesale Partner requires WooCommerce %s or newer."
+msgstr "Woo Wholesale Partner benötigt WooCommerce %s oder neuer."
+
+msgid "Woo Wholesale Pro is active in this shop as well. The partner plugin belongs in the partner shop, the Pro plugin in the supplier shop - running both in one shop only makes sense while you are testing."
+msgstr "In diesem Shop ist auch Woo Wholesale Pro aktiv. Das Partner-Plugin gehört in den Partnershop, das Pro-Plugin in den Lieferantenshop – beide in einem Shop zu betreiben ist nur zum Testen sinnvoll."
+
+msgid "Please enter the address of the supplier shop, including https://."
+msgstr "Bitte gib die Adresse des Lieferantenshops ein, inklusive https://."
+
+msgid "That does not look like a partner key. A key starts with \"wwp_\"."
+msgstr "Das sieht nicht nach einem Partnerschlüssel aus. Ein Schlüssel beginnt mit „wwp_“."
+
+msgid "Please enter the partner key you received from the supplier."
+msgstr "Bitte gib den Partnerschlüssel ein, den du vom Lieferanten bekommen hast."
+
+msgid "Please enter a markup in percent."
+msgstr "Bitte gib einen Aufschlag in Prozent ein."
+
+msgid "The supplier does not allow an own markup. The wholesale price is used unchanged."
+msgstr "Der Lieferant erlaubt keinen eigenen Aufschlag. Der Großhandelspreis wird unverändert verwendet."
+
+msgid "Shop decimals (no extra rounding)"
+msgstr "Dezimalstellen des Shops (keine zusätzliche Rundung)"
+
+msgid "Round to 0.05"
+msgstr "Auf 0,05 runden"
+
+msgid "Round to 0.10"
+msgstr "Auf 0,10 runden"
+
+msgid "Round to whole currency units"
+msgstr "Auf ganze Währungseinheiten runden"
+
+msgid "Price ending in .99"
+msgstr "Preis endet auf ,99"
+
+msgid "Price ending in .95"
+msgstr "Preis endet auf ,95"
+
+msgid "The supplier sent a product without an id."
+msgstr "Der Lieferant hat ein Produkt ohne ID gesendet."
+
+msgid "The product could not be saved."
+msgstr "Das Produkt konnte nicht gespeichert werden."
+
+msgid "Woo Wholesale Partner requires PHP %s or newer. The plugin is inactive."
+msgstr "Woo Wholesale Partner benötigt PHP %s oder neuer. Das Plugin ist inaktiv."

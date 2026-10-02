@@ -92,6 +92,8 @@ class WWPro_Admin {
 		return array(
 			'roles'    => __( 'Roles', 'woo-wholesale' ),
 			'settings' => __( 'Settings', 'woo-wholesale' ),
+			'prices'   => __( 'Price change', 'woo-wholesale' ),
+			'partners' => __( 'Partner shops', 'woo-wholesale' ),
 			'import'   => __( 'Import', 'woo-wholesale' ),
 			'help'     => __( 'Help', 'woo-wholesale' ),
 		);
@@ -151,14 +153,22 @@ class WWPro_Admin {
 			'wwpro-admin',
 			'wwproAdmin',
 			array(
-				'ajaxUrl'     => admin_url( 'admin-ajax.php' ),
-				'importNonce' => wp_create_nonce( 'wwpro_import' ),
-				'i18n'        => array(
-					'confirmDelete' => __( 'Delete this wholesale role? Users of this role are moved to the "Customer" role.', 'woo-wholesale' ),
-					'confirmImport' => __( 'Start the import now? Existing values are only overwritten if you selected that option.', 'woo-wholesale' ),
-					'importDone'    => __( 'Import finished.', 'woo-wholesale' ),
-					'importError'   => __( 'The import stopped because of an error. Please check the log and try again.', 'woo-wholesale' ),
-					'working'       => __( 'Working…', 'woo-wholesale' ),
+				'ajaxUrl'      => admin_url( 'admin-ajax.php' ),
+				'importNonce'  => wp_create_nonce( 'wwpro_import' ),
+				'bulkNonce'    => wp_create_nonce( 'wwpro_bulk_price' ),
+				'shopifyNonce' => wp_create_nonce( 'wwpro_shopify_sync' ),
+				'i18n'         => array(
+					'confirmDelete'        => __( 'Delete this wholesale role? Users of this role are moved to the "Customer" role.', 'woo-wholesale' ),
+					'confirmImport'        => __( 'Start the import now? Existing values are only overwritten if you selected that option.', 'woo-wholesale' ),
+					'importDone'           => __( 'Import finished.', 'woo-wholesale' ),
+					'importError'          => __( 'The import stopped because of an error. Please check the log and try again.', 'woo-wholesale' ),
+					'working'              => __( 'Working…', 'woo-wholesale' ),
+					'confirmBulk'          => __( 'Change the prices now? This cannot be undone.', 'woo-wholesale' ),
+					'confirmDeletePartner' => __( 'Delete this partner shop? Its key stops working immediately. Products already in that shop are kept.', 'woo-wholesale' ),
+					'confirmShopify'       => __( 'Push all products and prices to this Shopify shop now?', 'woo-wholesale' ),
+					'bulkDone'             => __( 'Price change finished.', 'woo-wholesale' ),
+					'syncDone'             => __( 'Sync finished.', 'woo-wholesale' ),
+					'pickCategory'         => __( 'Please choose a product category.', 'woo-wholesale' ),
 				),
 			)
 		);
