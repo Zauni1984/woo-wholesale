@@ -81,7 +81,20 @@ Anlegen unter *WooCommerce → Großhandel → Partnershops*. Je Partner legst d
 | Preise dieser Rolle | welche Großhandelsrolle der Partner zahlt – Kategorie- und shopweite Rabatte der Rolle sind enthalten |
 | Produktauswahl | optional auf Kategorien beschränken (Unterkategorien immer inklusive), nur Lagerware, Bestände mitsenden |
 | Der Partner darf nicht ändern | Name, Beschreibung, Bilder, Kategoriezuordnung, Artikelnummer, Attribute/Varianten, Löschen |
-| Preisaufschlag des Partners | ob überhaupt, und zwischen welchem Minimum und Maximum. **Minimum 0 %** heißt: der Partner kann deinen Preis nicht unterbieten |
+| Preisaufschlag des Partners | optionaler **Höchstaufschlag** (wird erzwungen) und eine optionale **Empfehlung** (füllt im Partnershop nur das Feld vor) |
+
+### Keine Mindestpreise – und warum
+
+Einen Mindest- oder Festpreis für den Partner gibt es in diesem Plugin bewusst **nicht**, und das ist keine Nachlässigkeit: Ein Partnershop ist ein selbstständiger Händler. Ihm einen Mindestpreis vorzuschreiben ist **Preisbindung der zweiten Hand** und nach Art. 101 AEUV und § 1 GWB unzulässig; die Vertikal-GVO (VO 2022/720) führt sie in Art. 4 lit. a als Kernbeschränkung auf. Dasselbe gilt für „der Partner darf gar keinen eigenen Aufschlag setzen“ – das ist ein Festpreis.
+
+Zulässig und deshalb umgesetzt:
+
+- ein **Höchstaufschlag** (= Höchstpreis), optional, standardmäßig keine Obergrenze,
+- eine **unverbindliche Preisempfehlung**, die im Partnershop nur ein leeres Feld vorbelegt.
+
+Der Weg nach unten bleibt im Partnershop immer offen, bis unter den Einkaufspreis. Die einzige Untergrenze ist technisch (`WWPart_Settings::MIN_MARKUP`, −90 %), damit ein Preis nicht auf null fällt. Ein negativer Höchstaufschlag wird beim Speichern verworfen und greift nie, denn er würde einen Verkauf unter dem Lieferantenpreis erzwingen.
+
+Das beschreibt die Bauweise des Plugins und ist keine Rechtsberatung – deine Verträge prüfst du bitte mit deinem Anwalt.
 
 ### WooCommerce-Partner
 
@@ -273,7 +286,7 @@ Eigenes Plugin für den Partnershop, Textdomain `woo-wholesale-partner`, Präfix
 
 ### Preis des Partners
 
-`Verkaufspreis = Einkaufspreis × (1 + Aufschlag ÷ 100)`, danach gerundet. Der Aufschlag der **speziellsten** Kategorie gewinnt, sonst gilt der Standardaufschlag; die Grenzen des Lieferanten werden immer erzwungen. Ein Angebotspreis unter dem berechneten Preis bleibt erhalten, ein höherer wird entfernt.
+`Verkaufspreis = Einkaufspreis × (1 + Aufschlag ÷ 100)`, danach gerundet. Der Aufschlag der **speziellsten** Kategorie gewinnt, sonst gilt der Standardaufschlag. Erzwungen wird nur ein Höchstaufschlag des Lieferanten, falls er einen gesetzt hat; nach unten ist der Partner frei. Ein Angebotspreis unter dem berechneten Preis bleibt erhalten, ein höherer wird entfernt.
 
 Unter *Preise* setzt der Partner den Aufschlag für alle Produkte oder eine Kategorie, nach oben oder unten, und wendet ihn mit Fortschrittsbalken an. Der Wert bleibt gespeichert, spätere Syncs rechnen damit weiter.
 

@@ -8,12 +8,13 @@ Ab dieser Version gehören **zwei Plugins** zusammen, immer in derselben Version
 ### Neu: Partner-Plugin „Woo Wholesale Partner“
 - Eigenes Plugin für Partnershops. Es holt Kategorien, Produkte, Einkaufspreise und Bilder vom Lieferantenshop ab und berechnet daraus den eigenen Verkaufspreis.
 - **Schutz der Lieferantendaten:** Der Lieferant legt je Partner fest, welche Felder gesperrt sind (Name, Beschreibung, Bilder, Kategorien, Artikelnummer, Attribute/Varianten, Löschen). Gesperrte Felder werden serverseitig zurückgeschrieben – im Produkt-Editor, bei Sammelbearbeitung und über die WooCommerce-REST-API. Löschen ist als Capability gesperrt, damit auch die Links verschwinden.
-- **Aufschlag je Kategorie oder für alles**, nach oben oder unten, mit Fortschrittsbalken. Der Aufschlag bleibt gespeichert, spätere Syncs rechnen damit weiter. Grenzen gibt der Lieferant vor (Minimum 0 % verhindert Unterbieten).
+- **Aufschlag je Kategorie oder für alles**, nach oben oder unten, mit Fortschrittsbalken. Der Aufschlag bleibt gespeichert, spätere Syncs rechnen damit weiter. Erzwungen wird nur ein Höchstaufschlag des Lieferanten; nach unten bleibt der Partner frei.
 - **Bild-Prüfer:** Ein Sync scheitert nie an einem Bild. Was fehlt, bleibt in einer Warteschlange pro Produkt, wird per Cron mit wachsendem Abstand nachgeholt (5 min → 30 min → 2 h → 6 h → 12 h → täglich) und kann im Backend manuell angestoßen werden. Der Prüfer vergleicht zusätzlich laufend Soll- und Ist-Bilder, findet also auch Bilder, die später gelöscht wurden.
 - Bilder werden nur vom Lieferanten-Host geladen, nur wenn es wirklich Bilder sind, und mit Größenlimit.
 
 ### Neu im Lieferantenshop
-- **Tab „Partnershops“:** Partner anlegen, Rolle zuordnen, Kategorien einschränken, Lager/Bestand mitsenden, Sperrfelder und Aufschlagsgrenzen festlegen.
+- **Tab „Partnershops“:** Partner anlegen, Rolle zuordnen, Kategorien einschränken, Lager/Bestand mitsenden, Sperrfelder, Höchstaufschlag und Preisempfehlung festlegen.
+- **Keine Mindestpreise:** Das Plugin kann einem Partner bewusst keinen Mindest- oder Festpreis vorschreiben – das wäre Preisbindung der zweiten Hand (Art. 101 AEUV, § 1 GWB; Art. 4 lit. a VO 2022/720). Vorgesehen sind nur ein Höchstaufschlag und eine unverbindliche Empfehlung; der Partner kann jederzeit auch unter den Einkaufspreis gehen.
 - **Partner-API** (`wwpro/v1/partner/...`): Manifest, Kategorien, paginierte Produkte, Heartbeat. Authentifizierung per Bearer-Token; vom Schlüssel wird nur ein HMAC gespeichert, fehlgeschlagene Versuche sind pro IP limitiert.
 - **Shopify-Anbindung:** Partner ohne WordPress werden direkt über die Shopify GraphQL Admin API beschrieben – Produkte, Varianten, Preise (inkl. Vergleichspreis) und Bilder. Der Zugriffstoken wird verschlüsselt gespeichert.
 - **Tab „Preisänderung“:** Großhandelspreise einer Rolle prozentual nach oben oder unten, für alle Produkte oder eine einzelne Kategorie, mit Rundungsoptionen (0,05 / 0,10 / ganze Einheiten / ,99 / ,95) und Fortschrittsbalken.

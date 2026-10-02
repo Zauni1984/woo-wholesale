@@ -35,7 +35,8 @@ Role-based wholesale pricing for WooCommerce with per-product prices, category a
 
 = 1.1.0 =
 * New companion plugin "Woo Wholesale Partner" for partner shops: it pulls products, images and purchase prices from this shop, protects the fields the supplier maintains, adds the partner's own percentage markup per category or for everything, and retries missing images in the background. Both plugins carry the same version and belong together.
-* New "Partner shops" tab: manage partners, their wholesale role, the categories they receive, the fields they may not change and the markup range they have to stay in. Partner keys are stored as an HMAC only.
+* New "Partner shops" tab: manage partners, their wholesale role, the categories they receive, the fields they may not change, an optional maximum markup and a non-binding price recommendation. Partner keys are stored as an HMAC only.
+* No minimum resale prices: a supplier can cap a partner's markup and recommend one, but cannot prescribe a minimum or fixed resale price - that is resale price maintenance and not permitted (Art. 101 TFEU, Sec. 1 GWB). The partner stays free to lower its price.
 * New Shopify connection: push products, variants, prices and images into a partner's Shopify store through the GraphQL Admin API.
 * New "Price change" tab: move the wholesale prices of a role by a percentage, for all products or one category, with rounding options and a progress bar.
 

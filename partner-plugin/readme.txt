@@ -17,7 +17,8 @@ Companion plugin for partner shops: pulls products, images and purchase prices f
 This is the partner half of Woo Wholesale Pro. Your supplier maintains the catalogue; this shop fetches it and sells it with your markup on top.
 
 * Pulls categories, products, variations, purchase prices and images from the supplier shop.
-* Your sales price is the purchase price plus your markup - set it for the whole shop or per category, upwards or downwards, inside the range your supplier allows.
+* Your sales price is the purchase price plus your markup - set it for the whole shop or per category, upwards or downwards.
+* Your supplier can cap your markup and can recommend one, but it cannot prescribe a minimum: you are an independent reseller, and a prescribed minimum or fixed resale price would be resale price maintenance (Art. 101 TFEU, Sec. 1 GWB). Lowering your price, even below the purchase price, is always your decision.
 * Changing prices by percentage runs in batches with a progress bar, and the markup stays stored so later syncs keep using it.
 * The fields your supplier maintains are protected on the server: whatever changes them - the product editor, a bulk edit, another plugin through the REST API - is reset to the supplier's value when the product is saved.
 * A sync never fails because of an image. Missing images stay in a queue, are retried in the background with a growing delay, and a checker keeps comparing what should be there against what really is - so an image that was deleted later is fetched again.
@@ -42,6 +43,10 @@ From your supplier. In their shop it is created under WooCommerce > Wholesale > 
 = Why can I not edit the product name? =
 
 Because your supplier maintains it. Which fields are locked is shown under WooCommerce > Supplier. Your prices and your stock are always yours.
+
+= Can my supplier stop me from lowering my price? =
+
+No, and the plugin has no setting for it. A supplier may set a maximum price and may recommend one; a minimum or fixed resale price would be resale price maintenance and is not permitted. The only floor is technical, so a price keeps a remainder.
 
 = I set a price by hand and it came back. =
 
